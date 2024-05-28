@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{0C90BD69-038B-4F8A-BBD9-B3F31AD09CC4}" SchemaVersion="97">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{0C90BD69-038B-4F8A-BBD9-B3F31AD09CC4}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="SM64BBFSounds" ID="{21934776-26C5-4EA3-BB70-D43DF5C917C3}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Master Mixer" ID="{5A1BBC8D-8101-4BAE-BE8A-E64FAB519E57}" WorkUnitID="{315E31CC-AAB1-49A5-9940-6434E05AE0A9}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="SM64BBFMusic" ID="{1BB59AAC-FBBD-4B61-93FD-B9F83652B194}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Music_System" ID="{4A0A6CC7-7868-43D9-A030-01B65CE3A6D5}" WorkUnitID="{D98BF7EA-A549-4A29-B9E6-B1AA479DCE3E}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

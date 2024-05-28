@@ -1,0 +1,16 @@
+{
+    "name": "BobombBattlefield",
+    "author": "Viliger",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/viliger2/RoR2_Catacombs",
+    "description": "The smell of black powder fills the air. Let's-a go!",
+    "dependencies": [
+        "bbepis-BepInExPack-5.4.2113",
+        "RiskofThunder-HookGenPatcher-1.2.3",
+        "RiskofThunder-R2API_Stages-1.0.1",
+        "RiskofThunder-R2API_Director-2.1.0",
+		"RiskofThunder-R2API_Sound-1.0.2",
+        "JaceDaDorito-LocationsOfPrecipitation-1.1.0",
+		"TheTimesweeper-Regigigas-1.4.10"
+    ]
+}

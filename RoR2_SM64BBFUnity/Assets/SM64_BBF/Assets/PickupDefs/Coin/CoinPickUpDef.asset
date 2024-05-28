@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cede34d6ffb2aba4c80207695811c361, type: 3}
+  m_Name: CoinPickUpDef
+  m_EditorClassIdentifier: 
+  coinValue: 1
+  nameToken: SM64_BBF_PICKUP_COIN
+  displayPrefab: {fileID: 5249833698217323412, guid: f6009c9bb9184e94d8b558969cd55785,
+    type: 3}
+  dropletDisplayPrefab: {fileID: 0}
+  baseColor: 13
+  darkColor: 13
+  interactContextToken: SM64_BBF_PICKUP_COIN_CONTEXT
