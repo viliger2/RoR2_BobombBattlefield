@@ -2,7 +2,7 @@
     "name": "BobombBattlefield",
     "author": "Viliger",
     "version_number": "1.0.0",
-    "website_url": "https://github.com/viliger2/RoR2_Catacombs",
+    "website_url": "https://github.com/viliger2/RoR2_BobombBattlefield",
     "description": "The smell of black powder fills the air. Let's-a go!",
     "dependencies": [
         "bbepis-BepInExPack-5.4.2113",
