@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using RegigigasMod.Modules;
 using RoR2;
 using RoR2.ContentManagement;
 using SM64BBF.Content;
@@ -53,6 +54,16 @@ namespace SM64BBF
             ContentManager.collectContentPackProviders += GiveToRoR2OurContentPackProviders;
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;
             CharacterBody.onBodyInventoryChangedGlobal += SM64BBF.Items.MarioOneUpItemBehavior.CharacterBody_onBodyInventoryChangedGlobal;
+            R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, R2API.RecalculateStatsAPI.StatHookEventArgs args)
+        {
+            //throw new NotImplementedException();
+            if (sender.HasBuff(SM64BBF.SM64BBFContent.Buffs.BobombArmor))
+            {
+                args.armorAdd += 100f;
+            }
         }
 
         private static void RegisterSounds()

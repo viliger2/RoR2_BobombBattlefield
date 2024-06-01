@@ -51,6 +51,11 @@ namespace SM64BBF
             public static ItemDef MarioOneUp;
         }
 
+        public struct Buffs
+        {
+            public static BuffDef BobombArmor;
+        }
+
         public static Dictionary<string, string> ShaderLookup = new Dictionary<string, string>()
         {
             {"stubbedror2/base/shaders/hgstandard", "RoR2/Base/Shaders/HGStandard.shader"},
@@ -235,6 +240,15 @@ namespace SM64BBF
             {
                 var idrsBobomb = assets.First(idrs => idrs.name == "idrsBobomb");
                 SetupBobombItemDisplays(ref idrsBobomb);
+                //Log.Debug("setup idrs");
+            }));
+
+            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<BuffDef[]>)((assets) =>
+            {
+                Buffs.BobombArmor = assets.First(bd => bd.name == "bdBobombArmorBuff");
+                Buffs.BobombArmor.iconSprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/texBuffGenericShield").WaitForCompletion();
+                contentPack.buffDefs.Add(new BuffDef[] { Buffs.BobombArmor });
+                //SetupBobombItemDisplays(ref idrsBobomb);
                 //Log.Debug("setup idrs");
             }));
 
