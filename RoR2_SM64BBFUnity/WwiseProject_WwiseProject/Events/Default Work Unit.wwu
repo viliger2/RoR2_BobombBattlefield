@@ -257,6 +257,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="SM64_BBF_Play_Cannon_Shoot" ID="{355AB396-4423-42F9-A215-3201A3BEFED8}">
+							<ChildrenList>
+								<Action Name="" ID="{85A4F017-7622-4714-BC15-D63C90158E41}" ShortID="688034683">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cannon_Shoot" ID="{2129B32C-3EA8-4F06-9649-85420093C278}" WorkUnitID="{315E31CC-AAB1-49A5-9940-6434E05AE0A9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

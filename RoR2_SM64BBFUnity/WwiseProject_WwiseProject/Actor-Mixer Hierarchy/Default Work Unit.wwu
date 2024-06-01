@@ -104,7 +104,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="SoLongGayBowser" ID="{35BE4A1D-8561-465D-A955-33CD54A51932}" ShortID="427927254">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="GayBowserAttun" ID="{B64DC68B-40D2-4C27-A680-A61DF286369B}" WorkUnitID="{DF2DFF84-3E44-47B7-8031-D2B2D7B51791}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{907D3CE7-24D0-42E4-BE6C-261E21939723}"/>
 										</Reference>
@@ -757,6 +763,41 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="shake_tree" ID="{71910848-72ED-4D05-994C-C2425607054F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cannon_Shoot" ID="{2129B32C-3EA8-4F06-9649-85420093C278}" ShortID="297081360">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{907D3CE7-24D0-42E4-BE6C-261E21939723}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4E69B6C5-F0CD-4548-B9CC-5337E4ABE66B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sm64_cannon_shoot" ID="{64C7DADD-0065-474E-B7C8-8C4FB1BC9FF5}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+												<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+												<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+												<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>sm64_cannon_shoot.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="686993957"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sm64_cannon_shoot" ID="{64C7DADD-0065-474E-B7C8-8C4FB1BC9FF5}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

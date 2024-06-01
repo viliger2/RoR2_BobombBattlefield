@@ -3,11 +3,12 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{48E434FF-A36D-4892-9943-1946AEB2AAD9}">
 			<PropertyList>
-				<Property Name="AudioFilesImporter\Path" Type="string" Value="F:\Projects\RoR2\RoR2_SM64BBF\RoR2_SM64BBFUnity\WwiseProject_WwiseProject\Originals\SFX\"/>
+				<Property Name="AudioFilesImporter\Path" Type="string" Value="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\WwiseProject_WwiseProject\Originals\SFX\"/>
 				<Property Name="Event Action List\{08838FFD-CC0C-44B3-A06E-10660F0C1B7E}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{1A2E4D55-DEC8-4839-9025-A41AD52986EE}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{2863B211-8C45-4BB1-BB19-C511FE6C07CD}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{2AED55BD-CB9E-4C58-8DBD-EA8DADA74064}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{355AB396-4423-42F9-A215-3201A3BEFED8}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{3B2EDBFA-C6F6-4538-BA26-E54768F58BB4}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{4149D8D2-7335-496F-A66F-87AE722AF676}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{5D11D134-655B-4DEC-BA3F-D0649EB21D6E}\x64_Expand States" Type="string" Value=""/>
