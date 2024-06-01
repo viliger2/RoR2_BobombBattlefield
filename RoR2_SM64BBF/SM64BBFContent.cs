@@ -240,7 +240,7 @@ namespace SM64BBF
             {
                 var idrsBobomb = assets.First(idrs => idrs.name == "idrsBobomb");
                 SetupBobombItemDisplays(ref idrsBobomb);
-                var idrsKingBobomb = assets.First(idrs => idrs.name == "idrsKingBobomb");
+                var idrsKingBobomb = assets.First(idrs => idrs.name == "idrsKingBobomb2");
                 SetupKingBobombItemDisplays(ref idrsKingBobomb);
                 //Log.Debug("setup idrs");
             }));
