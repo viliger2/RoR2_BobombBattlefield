@@ -298,6 +298,34 @@
 									<ChildrenList>
 										<Sound Name="Bobomb_Aggro" ID="{80355A83-6A50-403B-AB8A-F5B7ABF8E65F}" ShortID="763240751">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<RTPCList>
+														<RTPC Name="" ID="{C01F893D-834C-4371-9B83-438E70F7AF91}" ShortID="510378571">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="attackSpeed" ID="{38717863-CCEA-4BD6-A0A2-CC6E32BA86D9}" WorkUnitID="{0578DB78-9AC7-4BAA-B25C-3C146AE8E84C}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{51D710D7-932B-4D25-88A1-5A5247899AF5}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-500</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>500</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>3</Value>

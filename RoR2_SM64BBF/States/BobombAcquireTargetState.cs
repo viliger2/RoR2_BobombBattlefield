@@ -12,13 +12,17 @@ namespace SM64BBF.States
 {
     public class BobombAcquireTargetState : BaseState
     {
-        private static float duration = 1f;
+        public static float baseDuration = 1f;
+
+        private static float duration;
 
         public override void OnEnter()
         {
             base.OnEnter();
+            duration = baseDuration / attackSpeedStat;
             PlayAnimation("Body", "EmoteSurprise", "Surprise.playbackRate", duration);
-            EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_Bobomb_Aggro", gameObject);
+            //EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_Bobomb_Aggro", gameObject);
+            Util.PlayAttackSpeedSound("SM64_BBF_Play_Bobomb_Aggro", gameObject, attackSpeedStat);
             var setStateOnHurt = gameObject.GetComponent<SetStateOnHurt>();
             if (setStateOnHurt)
             {

@@ -14,6 +14,7 @@
 				<GameParameter Name="Meter_SFX" ID="{F620E2EF-F86E-4822-94B5-BC40F884E5BB}"/>
 				<GameParameter Name="Meter_Character" ID="{7E985E21-698A-448C-B4CD-D5E9CDE19D73}"/>
 				<GameParameter Name="EscapeTimer" ID="{06F04FB4-0398-4A74-9780-C565CACB7245}"/>
+				<GameParameter Name="attackSpeed" ID="{38717863-CCEA-4BD6-A0A2-CC6E32BA86D9}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>
