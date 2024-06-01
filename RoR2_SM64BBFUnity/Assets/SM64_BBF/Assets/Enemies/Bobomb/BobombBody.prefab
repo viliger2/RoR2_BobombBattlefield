@@ -1071,10 +1071,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.57
-  m_Height: 1.94
+  m_Radius: 0.5
+  m_Height: 1.82
   m_Direction: 1
-  m_Center: {x: -0.15, y: 1.2, z: 0}
+  m_Center: {x: 0, y: 1.05, z: 0}
 --- !u!114 &1037855533812737750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,9 +1090,9 @@ MonoBehaviour:
   CharacterController: {fileID: 4548250074786644074}
   Capsule: {fileID: 1654868645463128528}
   Rigidbody: {fileID: 2470717025942670170}
-  CapsuleRadius: 0.57
-  CapsuleHeight: 1.94
-  CapsuleYOffset: 1.2
+  CapsuleRadius: 0.5
+  CapsuleHeight: 1.82
+  CapsuleYOffset: 1.05
   CapsulePhysicsMaterial: {fileID: 0}
   DetectDiscreteCollisions: 0
   GroundDetectionExtraDistance: 0

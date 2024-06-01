@@ -593,10 +593,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 4
-  m_Height: 9
+  m_Radius: 1.63
+  m_Height: 7.5
   m_Direction: 1
-  m_Center: {x: 0, y: 4.13, z: 0}
+  m_Center: {x: 0, y: 3.48, z: 0}
 --- !u!114 &7667175050402151924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,18 +612,18 @@ MonoBehaviour:
   CharacterController: {fileID: 6327756465440856768}
   Capsule: {fileID: 7281978602282549334}
   Rigidbody: {fileID: 3525042781240737216}
-  CapsuleRadius: 0.5
-  CapsuleHeight: 2
-  CapsuleYOffset: 0.56
+  CapsuleRadius: 1.63
+  CapsuleHeight: 7.5
+  CapsuleYOffset: 3.48
   CapsulePhysicsMaterial: {fileID: 0}
   DetectDiscreteCollisions: 0
   GroundDetectionExtraDistance: 0
-  MaxStepHeight: 0.5
-  MinRequiredStepDepth: 0.1
-  MaxStableSlopeAngle: 60
-  MaxStableDistanceFromLedge: 0.5
+  MaxStepHeight: 0.2
+  MinRequiredStepDepth: 0
+  MaxStableSlopeAngle: 55
+  MaxStableDistanceFromLedge: 0
   PreventSnappingOnLedges: 0
-  MaxStableDenivelationAngle: 35
+  MaxStableDenivelationAngle: 55
   RigidbodyInteractionType: 0
   PreserveAttachedRigidbodyMomentum: 1
   HasPlanarConstraint: 0
