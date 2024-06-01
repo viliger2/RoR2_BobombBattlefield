@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.Networking;
 
 namespace SM64BBF.States
 {
@@ -33,6 +34,10 @@ namespace SM64BBF.States
             if(base.fixedAge > duration)
             {
                 outer.SetNextState(new BobombExplodeState());
+                if(NetworkServer.active)
+                {
+                    characterBody.AddBuff(SM64BBFContent.Buffs.BobombArmor);
+                }
             }
         }
 
