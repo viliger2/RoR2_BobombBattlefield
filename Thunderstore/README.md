@@ -20,6 +20,14 @@ Bob-omb Battlefield is a new Stage 5, in which survivors will have to explore a 
 
 Please send bug reports either by tagging me on Discord in RoR2 Modding server, message me directly @viliger or create a Github issue. Github page with VS, Unity and Wwise project is now available.
 
+## Known issues
+<details>
+  * Music breaks if you have Catacombs installed. If you somehow manage to load Catacombs after Bob-omb Battlefield then music will break for Catacombs. Or even if you load ItemDisplayPlacementHelper before starting the run, music will break for both stages. This is some sort of Wwise issue that I will hopefully figure out in the future.
+  * Stage lacks proper diorama.
+  * Rolling rocks are laggy\stuttery for network clients.
+  * Regigigas is currently not optional despite being setup as being so in the code.
+</details>
+
 ## Credits
 <details>
 
@@ -29,4 +37,3 @@ Please send bug reports either by tagging me on Discord in RoR2 Modding server, 
   * [rob](https://thunderstore.io/package/rob_gaming/) and [TheTimesweeper](https://thunderstore.io/package/TheTimesweeper/) - for creating and maintaining Regigigas.
   * Tree shadow script - https://www.reddit.com/r/Unity3D/comments/c31gwd/a_very_simple_shadow_casting_solution_for_mobile/
 </details>
-
