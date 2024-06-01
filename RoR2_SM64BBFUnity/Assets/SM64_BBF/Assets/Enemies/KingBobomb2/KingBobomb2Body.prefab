@@ -1795,7 +1795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 469604931262352068}
-  itemDisplayRuleSet: {fileID: 11400000, guid: 45f44716143bb7144b059f1f6b7d2e31, type: 2}
+  itemDisplayRuleSet: {fileID: 11400000, guid: 37e5cc881fc21df42b46521778954f1f, type: 2}
   autoPopulateLightInfos: 1
   baseRendererInfos:
   - renderer: {fileID: 721072442188438818}
