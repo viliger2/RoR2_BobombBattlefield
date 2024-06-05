@@ -3,6 +3,8 @@ using RoR2.Audio;
 using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.Diagnostics;
 
 namespace SM64BBF.States
 {
@@ -19,8 +21,11 @@ namespace SM64BBF.States
         public override void OnEnter()
         {
             base.OnEnter();
-            characterBody.AddTimedBuff(RoR2Content.Buffs.Immune, duration);
-            EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_StarmanComes", gameObject);
+            if (NetworkServer.active)
+            {
+                characterBody.AddTimedBuff(RoR2Content.Buffs.Immune, duration);
+                EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_StarmanComes", gameObject);
+            }
             if (animCurve == null)
             {
                 animCurve = AnimationCurve.Linear(0, 0, 1, 1);
@@ -44,18 +49,27 @@ namespace SM64BBF.States
         {
             base.FixedUpdate();
 
-            Collider[] array = Physics.OverlapBox(transform.position, transform.lossyScale * 0.5f, transform.rotation, LayerIndex.entityPrecise.mask);
-            foreach(Collider collider in array)
+            if (!base.isAuthority)
             {
-                var hurtBox = collider.GetComponent<HurtBox>();
-                if(hurtBox && HurtBoxPassesFilter(hurtBox))
+                Collider[] array = Physics.OverlapBox(transform.position, transform.lossyScale * 0.5f, transform.rotation, LayerIndex.entityPrecise.mask);
+                foreach (Collider collider in array)
                 {
-                    ignoredHealthComponentList.Add(hurtBox.healthComponent);
-                    EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_StarmanKills", gameObject);
-                    hurtBox.healthComponent.Suicide();
+                    var hurtBox = collider.GetComponent<HurtBox>();
+                    if (hurtBox && HurtBoxPassesFilter(hurtBox))
+                    {
+                        ignoredHealthComponentList.Add(hurtBox.healthComponent);
+                        EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_StarmanKills", gameObject);
+                        if (NetworkServer.active)
+                        {
+                            hurtBox.healthComponent.Suicide();
+                        }
+                        else
+                        {
+                            CmdKill(hurtBox.healthComponent?.body?.networkIdentity?.netId ?? default(NetworkInstanceId));
+                        }
+                    }
                 }
             }
-
             if (fixedAge > duration * 0.75f)
             {
                 temporaryOverlay.duration = 0.4f;
@@ -65,6 +79,23 @@ namespace SM64BBF.States
             if (fixedAge > duration)
             {
                 outer.SetNextStateToMain();
+            }
+        }
+
+        [Command]
+        public void CmdKill(NetworkInstanceId netId) 
+        {
+            if(netId == default(NetworkInstanceId))
+            {
+                return;
+            }
+            var gameObject = Util.FindNetworkObject(netId);
+            if(gameObject)
+            {
+                if(gameObject.TryGetComponent<CharacterBody>(out var body))
+                {
+                    body.healthComponent.Suicide();
+                }
             }
         }
 
@@ -88,13 +119,21 @@ namespace SM64BBF.States
         public override void OnExit()
         {
             base.OnExit();
+            if (NetworkServer.active)
+            {
+                EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Stop_StarmanComes", gameObject);
+                if (characterBody.HasBuff(RoR2Content.Buffs.Immune))
+                {
+                    characterBody.RemoveBuff(RoR2Content.Buffs.Immune);
+                }
+            }
             temporaryOverlay.RemoveFromCharacterModel();
             UnityEngine.Object.Destroy(temporaryOverlay);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Any;
+            return InterruptPriority.PrioritySkill; // only falling into the pit can stop the starman, also stops some movement abilities
         }
     }
 }

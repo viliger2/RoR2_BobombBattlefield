@@ -27,7 +27,8 @@
         "Unity.ResourceManager.dll",
         "R2API.ContentManagement.dll",
         "R2API.Prefab.dll",
-        "R2API.Core.dll"
+        "R2API.Core.dll",
+        "R2API.RecalculateStats.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

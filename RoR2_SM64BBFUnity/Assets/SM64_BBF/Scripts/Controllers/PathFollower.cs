@@ -41,7 +41,7 @@ namespace SM64BBF.Controllers
 
             if(currentPoint >= path.Length)
             {
-                EffectManager.SimpleMuzzleFlash(deathEffectPrefab, gameObject, "SmokeBomb", false);
+                EffectManager.SimpleMuzzleFlash(deathEffectPrefab, gameObject, "SmokeBomb", true);
                 Destroy(gameObject);
             }
         }

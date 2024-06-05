@@ -51,6 +51,11 @@ namespace SM64BBF
             public static ItemDef MarioOneUp;
         }
 
+        public struct Buffs
+        {
+            public static BuffDef BobombArmor;
+        }
+
         public static Dictionary<string, string> ShaderLookup = new Dictionary<string, string>()
         {
             {"stubbedror2/base/shaders/hgstandard", "RoR2/Base/Shaders/HGStandard.shader"},
@@ -69,7 +74,7 @@ namespace SM64BBF
         {
             _scenesAssetBundle = scenesAssetBundle;
             _assetsAssetBundle = assetsAssetBundle;
-            Log.Debug($"Asset bundles found. Loading asset bundles...");
+            //Log.Debug($"Asset bundles found. Loading asset bundles...");
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<Material[]>)((assets) =>
             {
@@ -87,7 +92,7 @@ namespace SM64BBF
                         {
                             material.shader = replacementShader;
                             SwappedMaterials.Add(material);
-                            Log.Debug("swapped shader " + material.shader.name.ToLower() + "with " + oldName);
+                            //Log.Debug("swapped shader " + material.shader.name.ToLower() + "with " + oldName);
                         }
                         else
                         {
@@ -95,21 +100,21 @@ namespace SM64BBF
                         }
                     }
                 }
-                Log.Debug("swapped materials");
+                //Log.Debug("swapped materials");
 
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<UnlockableDef[]>)((assets) =>
             {
                 contentPack.unlockableDefs.Add(assets);
-                Log.Debug("loaded unlockableDefs");
+                //Log.Debug("loaded unlockableDefs");
 
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<Sprite[]>)((assets) =>
             {
-                SM64BBFPreviewSprite = assets.First(a => a.name == "texCatacombsPreview");
-                Log.Debug("loaded preview sprite");
+                SM64BBFPreviewSprite = assets.First(a => a.name == "texSM64BBFPreview");
+                //Log.Debug("loaded preview sprite");
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<SceneDef[]>)((assets) =>
@@ -117,32 +122,30 @@ namespace SM64BBF
                 //SceneDefs = assets;
                 WHSceneDef = assets.First(sd => sd.cachedName == "sm64_bbf_SM64_BBF");
                 contentPack.sceneDefs.Add(assets);
-                Log.Debug("loaded SceneDefs");
+                //Log.Debug("loaded SceneDefs");
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<MusicTrackDef[]>)((assets) =>
             {
                 contentPack.musicTrackDefs.Add(assets);
-                Log.Debug("loaded musicDefs");
+                //Log.Debug("loaded musicDefs");
             }));
 
-            //yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<CoinPickupDef[]>)((assets) =>
-            //{
-            //    MiscPickups.Coin = assets.First(spd => spd.name == "CoinPickUp");
-            //    contentPack.miscPickupDefs.Add(assets);
-            //    Log.Debug("loaded miscPickupDefs");
-            //}));
+            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<CoinPickupDef[]>)((assets) =>
+            {
+                MiscPickups.Coin = assets.First(spd => spd.name == "CoinPickUpDef");
+                contentPack.miscPickupDefs.Add(assets);
+                //Log.Debug("loaded CoinPickupDef");
+            }));
 
-            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<MiscPickupDef[]>)((assets) =>
+            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<StarmanPickupDef[]>)((assets) =>
             {
                 //var bossOrb = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/BossOrb.prefab").WaitForCompletion();
 
-                MiscPickups.Starman = (StarmanPickupDef)assets.First(spd => spd.name == "CustomStarmanPickupDef");
+                MiscPickups.Starman = assets.First(spd => spd.name == "CustomStarmanPickupDef");
                 //MiscPickups.Starman.dropletDisplayPrefab = bossOrb;
-                MiscPickups.Coin = (CoinPickupDef)assets.First(spd => spd.name == "CoinPickUp");
-                //MiscPickups.Coin.dropletDisplayPrefab = bossOrb;
                 contentPack.miscPickupDefs.Add(assets);
-                Log.Debug("loaded miscPickupDefs");
+                //Log.Debug("loaded StarmanPickupDef");
             }));
 
             // networkedObjectPrefabs
@@ -151,14 +154,14 @@ namespace SM64BBF
                 var MarioTreeIntractable = assets.First(interactable => interactable.name == "TreeInteractable");
                 var RollingRock = assets.First(gameObject => gameObject.name == "RollingRock");
                 contentPack.networkedObjectPrefabs.Add(new GameObject[] { MarioTreeIntractable, RollingRock });
-                Log.Debug("loaded networkedObjects");
+                //Log.Debug("loaded networkedObjects");
             }));
             
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<ItemDef[]>)((assets) =>
             {
                 Items.MarioOneUp = assets.First(id => id.name == "OneUp");
                 contentPack.itemDefs.Add(assets);
-                Log.Debug("loaded itemDefs");
+                //Log.Debug("loaded itemDefs");
             }));
 
             // bodyPrefabs
@@ -171,25 +174,30 @@ namespace SM64BBF
 
                 var cameraParams = bobombBody.GetComponent<CameraTargetParams>();
                 cameraParams.cameraParams = Addressables.LoadAssetAsync<CharacterCameraParams>("RoR2/Base/Common/ccpStandard.asset").WaitForCompletion();
+
+                var footstepsController = bobombBody.GetComponentInChildren<FootstepHandler>();
+                footstepsController.footstepDustPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/GenericFootstepDust.prefab").WaitForCompletion();
+                footstepsController.enableFootstepDust = true;
+
                 contentPack.bodyPrefabs.Add(new GameObject[] { bobombBody });
 
-                //if (SM64BBF.RegigigasCompat.enabled)
-                //{
-                //    var kingBobombBody2 = assets.First(bp => bp.name == "KingBobomb2Body");
-                //    var bodyComponent2 = kingBobombBody2.GetComponent<CharacterBody>();
-                //    bodyComponent2._defaultCrosshairPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/StandardCrosshair.prefab").WaitForCompletion();
+                // if (SM64BBF.RegigigasCompat.enabled)
+                // {
+                //     var kingBobombBody2 = assets.First(bp => bp.name == "KingBobomb2Body");
+                //     var bodyComponent2 = kingBobombBody2.GetComponent<CharacterBody>();
+                //     bodyComponent2._defaultCrosshairPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/StandardCrosshair.prefab").WaitForCompletion();
 
-                //    //var kingBobombBody = assets.First(bp => bp.name == "KingBobombBody");
-                //    //var bodyComponent3 = kingBobombBody.GetComponent<CharacterBody>();
-                //    //bodyComponent3._defaultCrosshairPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/StandardCrosshair.prefab").WaitForCompletion();
+                //     //var kingBobombBody = assets.First(bp => bp.name == "KingBobombBody");
+                //     //var bodyComponent3 = kingBobombBody.GetComponent<CharacterBody>();
+                //     //bodyComponent3._defaultCrosshairPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/StandardCrosshair.prefab").WaitForCompletion();
 
-                //    SM64BBF.RegigigasCompat.SetupKingBobombBody(kingBobombBody2, contentPack);
+                //     SM64BBF.RegigigasCompat.SetupKingBobombBody(kingBobombBody2, contentPack);
 
-                //    contentPack.bodyPrefabs.Add(new GameObject[] { kingBobombBody2 });
-                //    //contentPack.bodyPrefabs.Add(new GameObject[] { kingBobombBody });
-                //    Log.Debug("added and setup RegigigasKingBobombBody");
-                //}
-                Log.Debug("loaded bodyPrefabs");
+                //     contentPack.bodyPrefabs.Add(new GameObject[] { kingBobombBody2 });
+                //     //contentPack.bodyPrefabs.Add(new GameObject[] { kingBobombBody });
+                //     //Log.Debug("added and setup RegigigasKingBobombBody");
+                // }
+                //Log.Debug("loaded bodyPrefabs");
             }));
 
             // masterPrefabs
@@ -197,50 +205,56 @@ namespace SM64BBF
             {
                 var bobombMaster = assets.First(bp => bp.name == "BobombMaster");
                 contentPack.masterPrefabs.Add(new GameObject[] { bobombMaster });
-                //if (SM64BBF.RegigigasCompat.enabled)
-                //{
-                //    var kingBobombMaster2 = assets.First(bp => bp.name == "KingBobomb2Master");
-                //    contentPack.masterPrefabs.Add(new GameObject[] { kingBobombMaster2 });
-                //    //var kingBobombMaster = assets.First(bp => bp.name == "KingBobombMaster");
-                //    //contentPack.masterPrefabs.Add(new GameObject[] { kingBobombMaster });
-                //    Log.Debug("added and setup RegigigasKingBobombMaster");
-                //}
-                Log.Debug("loaded masterPrefabs");
+                // if (SM64BBF.RegigigasCompat.enabled)
+                // {
+                //     var kingBobombMaster2 = assets.First(bp => bp.name == "KingBobomb2Master");
+                //     contentPack.masterPrefabs.Add(new GameObject[] { kingBobombMaster2 });
+                //     //var kingBobombMaster = assets.First(bp => bp.name == "KingBobombMaster");
+                //     //contentPack.masterPrefabs.Add(new GameObject[] { kingBobombMaster });
+                //     //Log.Debug("added and setup RegigigasKingBobombMaster");
+                // }
+                //Log.Debug("loaded masterPrefabs");
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<SkillDef[]>)((assets) =>
             {
                 contentPack.skillDefs.Add(assets);
-                //if (SM64BBF.RegigigasCompat.enabled)
-                //{
-                //    RegigigasCompat.SetupPrimarySkill(assets.First(sd => (sd as ScriptableObject).name == "KingBobombGrab"));
-                //    RegigigasCompat.SetupSecondarySkill(assets.First(sd => (sd as ScriptableObject).name == "KingBobombEarthquake"));
-                //    RegigigasCompat.SetupUtilitySkill(assets.First(sd => (sd as ScriptableObject).name == "KingBobombSlam"));
-                //    RegigigasCompat.SetupSpecialSkill(assets.First(sd => (sd as ScriptableObject).name == "KingBobombRevenge"));
-                //    //Log.Debug("added and setup KingBobomb Skills");
-                //}
-                Log.Debug("loaded skillDefs");
+                // if (SM64BBF.RegigigasCompat.enabled)
+                // {
+                //     RegigigasCompat.SetupPrimarySkill(assets.First(sd => (sd as ScriptableObject).name == "KingBobombGrab"));
+                //     RegigigasCompat.SetupSecondarySkill(assets.First(sd => (sd as ScriptableObject).name == "KingBobombEarthquake"));
+                //     RegigigasCompat.SetupUtilitySkill(assets.First(sd => (sd as ScriptableObject).name == "KingBobombSlam"));
+                //     RegigigasCompat.SetupSpecialSkill(assets.First(sd => (sd as ScriptableObject).name == "KingBobombRevenge"));
+                //     ////Log.Debug("added and setup KingBobomb Skills");
+                // }
+                //Log.Debug("loaded skillDefs");
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<SkillFamily[]>)((assets) =>
             {
                 contentPack.skillFamilies.Add(assets);
-                Log.Debug("loaded skillFamilies");
+                //Log.Debug("loaded skillFamilies");
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<ItemDisplayRuleSet[]>)((assets) =>
             {
                 var idrsBobomb = assets.First(idrs => idrs.name == "idrsBobomb");
                 SetupBobombItemDisplays(ref idrsBobomb);
-                Log.Debug("setup idrs");
+                var idrsKingBobomb = assets.First(idrs => idrs.name == "idrsKingBobomb2");
+                SetupKingBobombItemDisplays(ref idrsKingBobomb);
+                //Log.Debug("setup idrs");
+            }));
+
+            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<BuffDef[]>)((assets) =>
+            {
+                Buffs.BobombArmor = assets.First(bd => bd.name == "bdBobombArmorBuff");
+                Buffs.BobombArmor.iconSprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/texBuffGenericShield.tif").WaitForCompletion();
+                contentPack.buffDefs.Add(new BuffDef[] { Buffs.BobombArmor });
+                //SetupBobombItemDisplays(ref idrsBobomb);
+                //Log.Debug("setup idrs");
             }));
 
             contentPack.entityStateTypes.Add(new Type[] { typeof(SM64BBF.States.StarManState), typeof(States.BobombAcquireTargetState), typeof(States.BobombDeathState), typeof(States.BobombExplodeState), typeof(States.BobombSpawnState), typeof(States.BobombSuicideDeathState) });
-
-            //yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<NetworkSoundEventDef[]>)((assets) =>
-            //{
-            //    contentPack.networkSoundEventDefs.Add(assets);
-            //}));
 
             var bossDroplet = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/BossOrb.prefab");
             while (!bossDroplet.IsDone)
@@ -250,7 +264,6 @@ namespace SM64BBF
 
             MiscPickups.Starman.dropletDisplayPrefab = bossDroplet.Result;
             MiscPickups.Coin.dropletDisplayPrefab = bossDroplet.Result;
-
 
             WHBazaarSeer = StageRegistration.MakeBazaarSeerMaterial(SM64BBFPreviewSprite.texture);
             WHSceneDef.previewTexture = SM64BBFPreviewSprite.texture;
@@ -263,24 +276,8 @@ namespace SM64BBF
             }
             WHSceneDef.dioramaPrefab = dioramaPrefab.Result;
 
-            //var mainTrackDefRequest = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muSong13.asset");
-            //while (!mainTrackDefRequest.IsDone)
-            //{
-            //    yield return null;
-            //}
-            var bossTrackDefRequest = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muSong05.asset");
-            while (!bossTrackDefRequest.IsDone)
-            {
-                yield return null;
-            }
-
-            //SetupMusic();
-
-            //WHSceneDef.mainTrack = mainTrackDefRequest.Result;
-            WHSceneDef.bossTrack = bossTrackDefRequest.Result;
-
             StageRegistration.RegisterSceneDefToLoop(WHSceneDef);
-            Log.Debug(WHSceneDef.destinationsGroup);
+            //Log.Debug(WHSceneDef.destinationsGroup);
         }
 
         private static void SetupBobombItemDisplays(ref ItemDisplayRuleSet itemDisplayRuleSet)
@@ -478,6 +475,263 @@ namespace SM64BBF
                 childName = "Eyes",
                 localPos = new Vector3(-0.1112F, 0.35393F, 0.20253F),
                 localAngles = new Vector3(20.17711F, 258.0909F, 2.55114F),
+                localScale = new Vector3(0.36462F, 0.36462F, 0.36462F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupVoid,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/DLC1/EliteVoid/EliteVoidEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            //#region IceElite
+            //var displayRuleGroup = new DisplayRuleGroup();
+            //displayRuleGroupIce.AddDisplayRule(new ItemDisplayRule
+            //{
+            //    ruleType = ItemDisplayRuleType.ParentedPrefab,
+            //    followerPrefab = Addressables.LoadAssetAsync<GameObject>("").WaitForCompletion(),
+            //    childName = "Head",
+            //    localPos = new Vector3(-0.15365F, 0.21462F, -0.27426F),
+            //    localAngles = new Vector3(354.7525F, 302.5303F, 7.12234F),
+            //    localScale = new Vector3(0.44488F, 0.44488F, 0.44488F),
+            //    limbMask = LimbFlags.None
+            //});
+
+            //ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            //{
+            //    displayRuleGroup = displayRuleGroupHaunted,
+            //    keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("").WaitForCompletion()
+            //});
+            //#endregion
+        }
+
+        private static void SetupKingBobombItemDisplays(ref ItemDisplayRuleSet itemDisplayRuleSet)
+        {
+            #region FireElite
+            var fireEquipDisplay = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteFire/DisplayEliteHorn.prefab").WaitForCompletion();
+
+            var displayRuleGroupFire = new DisplayRuleGroup();
+            displayRuleGroupFire.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = fireEquipDisplay,
+                childName = "Chest",
+                localPos = new Vector3(0.59218F, 1.54394F, -0.05067F),
+                localAngles = new Vector3(0F, 339.9597F, 0F),
+                localScale = new Vector3(0.44488F, 0.44488F, 0.44488F),
+                limbMask = LimbFlags.None
+            });
+
+            displayRuleGroupFire.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = fireEquipDisplay,
+                childName = "Chest",
+                localPos = new Vector3(-0.71898F, 1.56142F, -0.13889F),
+                localAngles = new Vector3(0F, 21.92726F, 0F),
+                localScale = new Vector3(-0.44F, 0.44F, 0.44F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/EliteFire/EliteFireEquipment.asset").WaitForCompletion(),
+                displayRuleGroup = displayRuleGroupFire,
+            });
+            #endregion
+
+            #region HauntedElite
+            var displayRuleGroupHaunted = new DisplayRuleGroup();
+            displayRuleGroupHaunted.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteHaunted/DisplayEliteStealthCrown.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(-0.00001F, 1.59462F, -0.12945F),
+                localAngles = new Vector3(280.6838F, 180F, 180F),
+                localScale = new Vector3(0.3943F, 0.3943F, 0.3943F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupHaunted,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/EliteHaunted/EliteHauntedEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region IceElite
+            var displayRuleGroupIce = new DisplayRuleGroup();
+            displayRuleGroupIce.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteIce/DisplayEliteIceCrown.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(0F, 1.62464F, -0.2518F),
+                localAngles = new Vector3(278.8098F, 180F, 180F),
+                localScale = new Vector3(0.20986F, 0.20986F, 0.20986F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupIce,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/EliteIce/EliteIceEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region LightningElite
+            var displayRuleGroupLightning = new DisplayRuleGroup();
+            displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteLightning/DisplayEliteRhinoHorn.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(-0.00001F, 1.92614F, 0.98929F),
+                localAngles = new Vector3(0F, 0F, 0F),
+                localScale = new Vector3(0.65886F, 0.65886F, 0.65886F),
+                limbMask = LimbFlags.None
+            });
+            displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteLightning/DisplayEliteRhinoHorn.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(0.8654F, 1.92616F, 0.56131F),
+                localAngles = new Vector3(0F, 55.35863F, 0F),
+                localScale = new Vector3(0.65886F, 0.65886F, 0.65886F),
+                limbMask = LimbFlags.None
+            });
+            displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteLightning/DisplayEliteRhinoHorn.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(0.93271F, 1.92613F, -0.572F),
+                localAngles = new Vector3(0F, 120.2551F, 0F),
+                localScale = new Vector3(0.65886F, 0.65886F, 0.65886F),
+                limbMask = LimbFlags.None
+            });
+            displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteLightning/DisplayEliteRhinoHorn.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(-0.02104F, 1.9261F, -1.07331F),
+                localAngles = new Vector3(0F, 173.6604F, 0F),
+                localScale = new Vector3(0.65886F, 0.65886F, 0.65886F),
+                limbMask = LimbFlags.None
+            });
+            displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteLightning/DisplayEliteRhinoHorn.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(-0.91867F, 1.92607F, -0.55149F),
+                localAngles = new Vector3(0F, 239.4073F, 0F),
+                localScale = new Vector3(0.65886F, 0.65886F, 0.65886F),
+                limbMask = LimbFlags.None
+            });
+            displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteLightning/DisplayEliteRhinoHorn.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(-0.94588F, 1.92609F, 0.53167F),
+                localAngles = new Vector3(0F, 295.5718F, 0F),
+                localScale = new Vector3(0.65886F, 0.65886F, 0.65886F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupLightning,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/EliteLightning/EliteLightningEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region LunarElite
+            var displayRuleGroupLunar = new DisplayRuleGroup();
+            displayRuleGroupLunar.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteLunar/DisplayEliteLunar, Fire.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(0F, -0.00001F, -1.46488F),
+                localAngles = new Vector3(-0.00001F, 180F, 180F),
+                localScale = new Vector3(0.44488F, 0.44488F, 0.7475F),
+                limbMask = LimbFlags.None
+            });
+
+            displayRuleGroupLunar.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteLunar/DisplayEliteLunar,Eye.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(-0.06016F, 1.72845F, 0.00001F),
+                localAngles = new Vector3(270F, 0F, 0F),
+                localScale = new Vector3(1.77583F, 1.77583F, 1.77583F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupLunar,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/EliteLunar/EliteLunarEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region PoisonElite
+            var displayRuleGroupPoison = new DisplayRuleGroup();
+            displayRuleGroupPoison.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ElitePoison/DisplayEliteUrchinCrown.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(0F, 1.82306F, 0F),
+                localAngles = new Vector3(270F, 0F, 0F),
+                localScale = new Vector3(0.34402F, 0.34402F, 0.34402F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupPoison,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/ElitePoison/ElitePoisonEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region EliteEarth
+            var displayRuleGroupEarth = new DisplayRuleGroup();
+            displayRuleGroupEarth.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/EliteEarth/DisplayEliteMendingAntlers.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(-0.00012F, 1.66408F, -0.25776F),
+                localAngles = new Vector3(0F, 0F, 0F),
+                localScale = new Vector3(4.68954F, 4.68954F, 4.68954F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupEarth,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/DLC1/EliteEarth/EliteEarthEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region VoidElite
+            var displayRuleGroupVoid = new DisplayRuleGroup();
+            displayRuleGroupVoid.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/EliteVoid/DisplayAffixVoid.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(0F, -0.83569F, 1.7186F),
+                localAngles = new Vector3(90F, 0F, 0F),
                 localScale = new Vector3(0.36462F, 0.36462F, 0.36462F),
                 limbMask = LimbFlags.None
             });

@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+//using RegigigasMod.Modules;
 using RoR2;
 using RoR2.ContentManagement;
 using SM64BBF.Content;
@@ -16,17 +17,15 @@ using UnityEngine.AddressableAssets;
 
 namespace SM64BBF
 {
-    [BepInPlugin("com.Viliger.SM64BBF", "SM64BBF", Version)]
+    [BepInPlugin(GUID, "SM64BBF", Version)]
     [BepInDependency(R2API.DirectorAPI.PluginGUID)]
     [BepInDependency(R2API.StageRegistration.PluginGUID)]
     [BepInDependency(R2API.SoundAPI.PluginGUID)]
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Author = "JaceDaDorito";
-        public const string Name = nameof(SM64BBFPlugin);
-        public const string Version = "1.0.0";
-        public const string GUID = Author + "." + Name;
+        public const string Version = "1.0.1";
+        public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;
 
@@ -43,6 +42,10 @@ namespace SM64BBF
             RegisterHooks();
 
             RegisterSounds();
+
+#if DEBUG == true
+            On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
+#endif
         }
 
         private void RegisterHooks()
@@ -51,6 +54,16 @@ namespace SM64BBF
             ContentManager.collectContentPackProviders += GiveToRoR2OurContentPackProviders;
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;
             CharacterBody.onBodyInventoryChangedGlobal += SM64BBF.Items.MarioOneUpItemBehavior.CharacterBody_onBodyInventoryChangedGlobal;
+            R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, R2API.RecalculateStatsAPI.StatHookEventArgs args)
+        {
+            //throw new NotImplementedException();
+            if (sender.HasBuff(SM64BBF.SM64BBFContent.Buffs.BobombArmor))
+            {
+                args.armorAdd += 100f;
+            }
         }
 
         private static void RegisterSounds()
@@ -67,6 +80,9 @@ namespace SM64BBF
             RegisterNetworkSound("SM64_BBF_Play_Bobomb_Aggro");
             RegisterNetworkSound("SM64_BBF_Play_Bobomb_Fuse");
             RegisterNetworkSound("SM64_BBF_Stop_Bobomb_Fuse");
+            RegisterNetworkSound("SM64_BBF_Play_Bobomb_Death");
+            RegisterNetworkSound("SM64_BBF_Play_Shake_Tree");
+
         }
 
         private void MusicController_Start(On.RoR2.MusicController.orig_Start orig, MusicController self)

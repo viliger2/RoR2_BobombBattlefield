@@ -2,39 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowCaster : MonoBehaviour {
+public class ShadowCaster : MonoBehaviour
+{
 
-	public GameObject shadow;
-	public LayerMask mask;
+    public GameObject shadow;
+    public LayerMask mask;
 
     public float floorMargin;
     public bool alignWithNormal;
-	Renderer shadowRenderer; 
+    Renderer shadowRenderer;
 
-	// Use this for initialization
-	void Start () {
-		shadowRenderer = shadow.GetComponent<Renderer> (); 
-        RenderShadow();
-	}
-	
-    private void Update() {
+    // Use this for initialization
+    void Start()
+    {
+        shadowRenderer = shadow.GetComponent<Renderer>();
         RenderShadow();
     }
 
-    private void RenderShadow() 
+    //private void Update()
+    //{
+    //    RenderShadow();
+    //}
+
+    private void RenderShadow()
     {
-		RaycastHit hit;
+        RaycastHit hit;
 
-		if (Physics.Raycast (transform.position, -Vector3.up, out hit, 100, mask.value)) {
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 100, mask.value))
+        {
 
-			shadow.transform.position = hit.point + (Vector3.up * floorMargin);
+            shadow.transform.position = hit.point + (Vector3.up * floorMargin);
+            shadow.transform.position = new Vector3(shadow.transform.position.x, shadow.transform.position.y + 0.2f, shadow.transform.position.z);
 
-            if (alignWithNormal) {
+            if (alignWithNormal)
+            {
                 transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-            } else {
+            }
+            else
+            {
                 transform.rotation = Quaternion.identity;
             }
 
         }
-    }    
+    }
 }

@@ -15,7 +15,10 @@ namespace SM64BBF.States
         {
             base.OnEnter();
             EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Stop_Bobomb_Fuse", gameObject);
-            healthComponent.Suicide(); // this ensures OnDeath events like elite things
+            if (NetworkServer.active)
+            {
+                healthComponent.Suicide(); // this ensures OnDeath events like elite things
+            }
             DestroyModel();
             if (NetworkServer.active)
             {

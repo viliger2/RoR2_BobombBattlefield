@@ -44,7 +44,7 @@ namespace SM64BBF.Controllers
                 pathFollower.path = path;
                 pathFollower.speed = speed;
                 pathFollower.deathEffectPrefab = smokeBombPrefab;
-                EffectManager.SimpleMuzzleFlash(smokeBombPrefab, gameObject, "SmokeBomb", false);
+                EffectManager.SimpleMuzzleFlash(smokeBombPrefab, gameObject, "SmokeBomb", true);
 
                 NetworkServer.Spawn(newObject);
                 lastStoneTimer = 0f;

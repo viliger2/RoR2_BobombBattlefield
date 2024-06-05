@@ -764,7 +764,6 @@ namespace SM64BBF
             //#endregion
         }
 
-
         private static IEnumerator LoadAllAssetsAsync<T>(AssetBundle assetBundle, IProgress<float> progress, Action<T[]> onAssetsLoaded) where T : UnityEngine.Object
         {
             var sceneDefsRequest = assetBundle.LoadAllAssetsAsync<T>();

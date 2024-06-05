@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace SM64BBF
 {
-    public class ClonedBlillboard : MonoBehaviour
+    public class ClonedBillboard : MonoBehaviour
     {
         private static List<Transform> instanceTransformsList;
 
-        static ClonedBlillboard()
+        static ClonedBillboard()
         {
             instanceTransformsList = new List<Transform>();
             SceneCamera.onSceneCameraPreCull += OnSceneCameraPreCull;

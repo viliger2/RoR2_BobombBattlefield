@@ -19,8 +19,6 @@ namespace SM64BBF.States
         public static AnimationCurve animCurve = null;
         public static AnimationCurve sizeCurve = null;
 
-        public bool fromAcquireTarget = false;
-
         private static GameObject smokeEmitter = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/snowyforest/SFFirepit.prefab").WaitForCompletion().transform.Find("SFFire/HeatGas").gameObject;
         private static GameObject explosionEffect = LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXCommandoGrenade");
         private static Material overlayMaterial = LegacyResourcesAPI.Load<Material>("Materials/matFlashWhite");
@@ -84,7 +82,7 @@ namespace SM64BBF.States
             {
                 new BlastAttack
                 {
-                    radius = 5f,
+                    radius = 15f,
                     attacker = this.gameObject,
                     teamIndex = teamComponent.teamIndex,
                     crit = RollCrit(),
@@ -123,10 +121,6 @@ namespace SM64BBF.States
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            if(fromAcquireTarget)
-            {
-                return InterruptPriority.Death;
-            }
             return InterruptPriority.Skill;
         }
     }
