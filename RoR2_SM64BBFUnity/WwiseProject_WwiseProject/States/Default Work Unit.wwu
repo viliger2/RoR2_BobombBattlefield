@@ -3,7 +3,7 @@
 	<States>
 		<WorkUnit Name="Default Work Unit" ID="{FDC8D1F2-D4F2-477A-9843-E29A1FE80BBE}" PersistMode="Standalone">
 			<ChildrenList>
-				<StateGroup Name="SM64_BBF_gameplaySongChoice" ID="{6CDAE763-F263-4DB1-9908-54C3D0F7E0A1}">
+				<StateGroup Name="gameplaySongChoice" ID="{6CDAE763-F263-4DB1-9908-54C3D0F7E0A1}">
 					<ChildrenList>
 						<State Name="None" ID="{15A24EC1-7A0A-4D4F-8D89-12787570EE68}"/>
 						<State Name="BowserTheme" ID="{1A2F2BFA-96BD-4CF2-8C15-48446CA0A2DB}"/>

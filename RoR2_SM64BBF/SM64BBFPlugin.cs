@@ -19,7 +19,7 @@ namespace SM64BBF
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.2";
         public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;
@@ -45,7 +45,7 @@ namespace SM64BBF
 
         private void RegisterHooks()
         {
-            //On.RoR2.MusicController.Start += MusicController_Start;
+            On.RoR2.MusicController.Start += MusicController_Start;
             //On.RoR2.MusicController.LateUpdate += MusicController_LateUpdate;
             ContentManager.collectContentPackProviders += GiveToRoR2OurContentPackProviders;
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;

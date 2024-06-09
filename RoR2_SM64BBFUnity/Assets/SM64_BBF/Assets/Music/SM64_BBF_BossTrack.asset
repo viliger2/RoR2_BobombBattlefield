@@ -28,7 +28,7 @@ MonoBehaviour:
     valueGuidInternal: 
     groupIdInternal: 0
     groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: e5665ed4b8044c04e930030e3fe3bc9d,
+    WwiseObjectReference: {fileID: 11400000, guid: f90638372275c7e43a78b136dcca8cf2,
       type: 2}
   comment: 'Bowser''s Theme
 
