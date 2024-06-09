@@ -1,11 +1,5 @@
 ﻿using RoR2;
 using RoR2.CharacterAI;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -73,9 +67,10 @@ namespace SM64BBF.Items
                 {
                     orig(self, body);
                 }
-            } else
+            }
+            else
             {
-                orig(self, body); 
+                orig(self, body);
             }
         }
 

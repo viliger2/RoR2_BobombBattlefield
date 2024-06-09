@@ -1,14 +1,7 @@
-﻿using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using R2API;
-using UnityEngine.AddressableAssets;
-using EntityStates;
+﻿using EntityStates;
+using RoR2;
 using RoR2.Audio;
+using UnityEngine;
 
 namespace SM64BBF.States
 {
@@ -91,15 +84,13 @@ namespace SM64BBF.States
                     procCoefficient = 1f,
                     position = characterBody.corePosition
                 }.Fire();
-                
+
                 EffectManager.SpawnEffect(explosionEffect, new EffectData
                 {
                     origin = characterBody.corePosition,
                     scale = 5f
                 }, true);
                 outer.SetNextState(new BobombSuicideDeathState());
-                //outer.SetNextStateToMain();
-                //healthComponent.Suicide();
             }
         }
 

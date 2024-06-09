@@ -1,14 +1,9 @@
 ﻿using BepInEx;
-using RegigigasMod.Modules;
 using RoR2;
 using RoR2.ContentManagement;
-using SM64BBF.Content;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Permissions;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 #pragma warning disable CS0618 // Type or member is obsolete
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -50,11 +45,21 @@ namespace SM64BBF
 
         private void RegisterHooks()
         {
-            On.RoR2.MusicController.Start += MusicController_Start;
+            //On.RoR2.MusicController.Start += MusicController_Start;
+            //On.RoR2.MusicController.LateUpdate += MusicController_LateUpdate;
             ContentManager.collectContentPackProviders += GiveToRoR2OurContentPackProviders;
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;
             CharacterBody.onBodyInventoryChangedGlobal += SM64BBF.Items.MarioOneUpItemBehavior.CharacterBody_onBodyInventoryChangedGlobal;
             R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void MusicController_LateUpdate(On.RoR2.MusicController.orig_LateUpdate orig, MusicController self)
+        {
+            bool isPaused = Time.timeScale == 0f;
+            if (isPaused != self.wasPaused)
+            {
+                AkSoundEngine.PostEvent(isPaused ? "SM64_BBF_Pause_Music" : "SM64_BBF_Unpause_Music", base.gameObject);
+            }
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, R2API.RecalculateStatsAPI.StatHookEventArgs args)
@@ -66,6 +71,7 @@ namespace SM64BBF
             }
         }
 
+        // TODO: figure out why the hell just creating NetworkSoundEventDefs in editor doesn't work
         private static void RegisterSounds()
         {
             RegisterNetworkSound("SM64_BBF_Play_Coin");
@@ -95,12 +101,12 @@ namespace SM64BBF
         {
             Language.collectLanguageRootFolders -= CollectLanguageRootFolders;
         }
-      
+
         private void GiveToRoR2OurContentPackProviders(ContentManager.AddContentPackProviderDelegate addContentPackProvider)
         {
             addContentPackProvider(new Content.ContentProvider());
         }
-    
+
         public void CollectLanguageRootFolders(List<string> folders)
         {
             folders.Add(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(base.Info.Location), "Language"));

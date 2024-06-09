@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
+﻿using HG;
+using R2API;
 using RoR2;
 using RoR2.ContentManagement;
+using RoR2.Skills;
+using SM64BBF.PickUpDefs;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Networking;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using RoR2.ExpansionManagement;
-using System.Collections.Generic;
-using RoR2.Networking;
-using R2API;
-using SM64BBF.PickUpDefs;
-using RoR2.Skills;
-using UnityEngine.UIElements;
 using static RoR2.ItemDisplayRuleSet;
-using HG;
 
 namespace SM64BBF
 {
@@ -31,12 +26,9 @@ namespace SM64BBF
         private static AssetBundle _scenesAssetBundle;
         private static AssetBundle _assetsAssetBundle;
 
-        //internal static UnlockableDef[] UnlockableDefs;
-        //internal static SceneDef[] SceneDefs;
-
-        internal static SceneDef WHSceneDef;
+        internal static SceneDef SM64BBFScene;
         internal static Sprite SM64BBFPreviewSprite;
-        internal static Material WHBazaarSeer;
+        internal static Material SM64BBFBazaarSeer;
 
         public static List<Material> SwappedMaterials = new List<Material>(); //apparently you need it because reasons?
 
@@ -45,7 +37,7 @@ namespace SM64BBF
             public static StarmanPickupDef Starman;
             public static CoinPickupDef Coin;
         }
-        
+
         public struct Items
         {
             public static ItemDef MarioOneUp;
@@ -74,7 +66,6 @@ namespace SM64BBF
         {
             _scenesAssetBundle = scenesAssetBundle;
             _assetsAssetBundle = assetsAssetBundle;
-            //Log.Debug($"Asset bundles found. Loading asset bundles...");
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<Material[]>)((assets) =>
             {
@@ -92,7 +83,6 @@ namespace SM64BBF
                         {
                             material.shader = replacementShader;
                             SwappedMaterials.Add(material);
-                            //Log.Debug("swapped shader " + material.shader.name.ToLower() + "with " + oldName);
                         }
                         else
                         {
@@ -101,14 +91,12 @@ namespace SM64BBF
                     }
                 }
                 //Log.Debug("swapped materials");
-
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<UnlockableDef[]>)((assets) =>
             {
                 contentPack.unlockableDefs.Add(assets);
                 //Log.Debug("loaded unlockableDefs");
-
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<Sprite[]>)((assets) =>
@@ -119,8 +107,7 @@ namespace SM64BBF
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<SceneDef[]>)((assets) =>
             {
-                //SceneDefs = assets;
-                WHSceneDef = assets.First(sd => sd.cachedName == "sm64_bbf_SM64_BBF");
+                SM64BBFScene = assets.First(sd => sd.cachedName == "sm64_bbf_SM64_BBF");
                 contentPack.sceneDefs.Add(assets);
                 //Log.Debug("loaded SceneDefs");
             }));
@@ -140,10 +127,7 @@ namespace SM64BBF
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<StarmanPickupDef[]>)((assets) =>
             {
-                //var bossOrb = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/BossOrb.prefab").WaitForCompletion();
-
                 MiscPickups.Starman = assets.First(spd => spd.name == "CustomStarmanPickupDef");
-                //MiscPickups.Starman.dropletDisplayPrefab = bossOrb;
                 contentPack.miscPickupDefs.Add(assets);
                 //Log.Debug("loaded StarmanPickupDef");
             }));
@@ -156,7 +140,7 @@ namespace SM64BBF
                 contentPack.networkedObjectPrefabs.Add(new GameObject[] { MarioTreeIntractable, RollingRock });
                 //Log.Debug("loaded networkedObjects");
             }));
-            
+
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<ItemDef[]>)((assets) =>
             {
                 Items.MarioOneUp = assets.First(id => id.name == "OneUp");
@@ -187,14 +171,9 @@ namespace SM64BBF
                     var bodyComponent2 = kingBobombBody2.GetComponent<CharacterBody>();
                     bodyComponent2._defaultCrosshairPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/StandardCrosshair.prefab").WaitForCompletion();
 
-                    //var kingBobombBody = assets.First(bp => bp.name == "KingBobombBody");
-                    //var bodyComponent3 = kingBobombBody.GetComponent<CharacterBody>();
-                    //bodyComponent3._defaultCrosshairPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/StandardCrosshair.prefab").WaitForCompletion();
-
                     SM64BBF.RegigigasCompat.SetupKingBobombBody(kingBobombBody2, contentPack);
 
                     contentPack.bodyPrefabs.Add(new GameObject[] { kingBobombBody2 });
-                    //contentPack.bodyPrefabs.Add(new GameObject[] { kingBobombBody });
                     //Log.Debug("added and setup RegigigasKingBobombBody");
                 }
                 //Log.Debug("loaded bodyPrefabs");
@@ -209,8 +188,6 @@ namespace SM64BBF
                 {
                     var kingBobombMaster2 = assets.First(bp => bp.name == "KingBobomb2Master");
                     contentPack.masterPrefabs.Add(new GameObject[] { kingBobombMaster2 });
-                    //var kingBobombMaster = assets.First(bp => bp.name == "KingBobombMaster");
-                    //contentPack.masterPrefabs.Add(new GameObject[] { kingBobombMaster });
                     //Log.Debug("added and setup RegigigasKingBobombMaster");
                 }
                 //Log.Debug("loaded masterPrefabs");
@@ -240,8 +217,11 @@ namespace SM64BBF
             {
                 var idrsBobomb = assets.First(idrs => idrs.name == "idrsBobomb");
                 SetupBobombItemDisplays(ref idrsBobomb);
-                var idrsKingBobomb = assets.First(idrs => idrs.name == "idrsKingBobomb2");
-                SetupKingBobombItemDisplays(ref idrsKingBobomb);
+                if (SM64BBF.RegigigasCompat.enabled)
+                {
+                    var idrsKingBobomb = assets.First(idrs => idrs.name == "idrsKingBobomb2");
+                    SetupKingBobombItemDisplays(ref idrsKingBobomb);
+                }
                 //Log.Debug("setup idrs");
             }));
 
@@ -250,8 +230,7 @@ namespace SM64BBF
                 Buffs.BobombArmor = assets.First(bd => bd.name == "bdBobombArmorBuff");
                 Buffs.BobombArmor.iconSprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/texBuffGenericShield.tif").WaitForCompletion();
                 contentPack.buffDefs.Add(new BuffDef[] { Buffs.BobombArmor });
-                //SetupBobombItemDisplays(ref idrsBobomb);
-                //Log.Debug("setup idrs");
+                //Log.Debug("setup buffdefs");
             }));
 
             contentPack.entityStateTypes.Add(new Type[] { typeof(SM64BBF.States.StarManState), typeof(States.BobombAcquireTargetState), typeof(States.BobombDeathState), typeof(States.BobombExplodeState), typeof(States.BobombSpawnState), typeof(States.BobombSuicideDeathState) });
@@ -265,19 +244,20 @@ namespace SM64BBF
             MiscPickups.Starman.dropletDisplayPrefab = bossDroplet.Result;
             MiscPickups.Coin.dropletDisplayPrefab = bossDroplet.Result;
 
-            WHBazaarSeer = StageRegistration.MakeBazaarSeerMaterial(SM64BBFPreviewSprite.texture);
-            WHSceneDef.previewTexture = SM64BBFPreviewSprite.texture;
-            WHSceneDef.portalMaterial = WHBazaarSeer;
+            SM64BBFBazaarSeer = StageRegistration.MakeBazaarSeerMaterial(SM64BBFPreviewSprite.texture);
+            SM64BBFScene.previewTexture = SM64BBFPreviewSprite.texture;
+            SM64BBFScene.portalMaterial = SM64BBFBazaarSeer;
 
             var dioramaPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/golemplains/GolemplainsDioramaDisplay.prefab");
             while (!dioramaPrefab.IsDone)
             {
                 yield return null;
             }
-            WHSceneDef.dioramaPrefab = dioramaPrefab.Result;
+            SM64BBFScene.dioramaPrefab = dioramaPrefab.Result;
 
-            StageRegistration.RegisterSceneDefToLoop(WHSceneDef);
-            //Log.Debug(WHSceneDef.destinationsGroup);
+            //SetupMusic();
+
+            StageRegistration.RegisterSceneDefToLoop(SM64BBFScene);
         }
 
         private static void SetupBobombItemDisplays(ref ItemDisplayRuleSet itemDisplayRuleSet)
@@ -328,9 +308,9 @@ namespace SM64BBF
                 limbMask = LimbFlags.None
             });
 
-            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup 
-            { 
-                displayRuleGroup = displayRuleGroupHaunted, 
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupHaunted,
                 keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/EliteHaunted/EliteHauntedEquipment.asset").WaitForCompletion()
             });
             #endregion
@@ -795,23 +775,23 @@ namespace SM64BBF
             cstate2.StateId = 89505537U; // gathered from the GAME's Init bank txt file
             mainCustomTrack.CustomStates.Add(cstate2);
 
-            WHSceneDef.mainTrack = mainCustomTrack;
+            SM64BBFScene.mainTrack = mainCustomTrack;
 
-            //var bossCustomTrack = ScriptableObject.CreateInstance<SoundAPI.Music.CustomMusicTrackDef>();
-            //bossCustomTrack.cachedName = "SM64BBFCustomBossMusic";
-            //bossCustomTrack.CustomStates = new List<SoundAPI.Music.CustomMusicTrackDef.CustomState>();
+            var bossCustomTrack = ScriptableObject.CreateInstance<SoundAPI.Music.CustomMusicTrackDef>();
+            bossCustomTrack.cachedName = "SM64BBFCustomBossMusic";
+            bossCustomTrack.CustomStates = new List<SoundAPI.Music.CustomMusicTrackDef.CustomState>();
 
-            //var cstate11 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
-            //cstate11.GroupId = 487602916U; // gathered from the MOD's Init bank txt file
-            //cstate11.StateId = 3699353111U; // DiesIrae
+            var cstate11 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
+            cstate11.GroupId = 1405583565U; // gathered from the MOD's Init bank txt file
+            cstate11.StateId = 1312500510U; // DiesIrae
 
-            //bossCustomTrack.CustomStates.Add(cstate11);
-            //var cstate12 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
-            //cstate12.GroupId = 792781730U; // gathered from the GAME's Init bank txt file
-            //cstate12.StateId = 580146960U; // gathered from the GAME's Init bank txt file
-            //bossCustomTrack.CustomStates.Add(cstate12);
+            bossCustomTrack.CustomStates.Add(cstate11);
+            var cstate12 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
+            cstate12.GroupId = 792781730U; // gathered from the GAME's Init bank txt file
+            cstate12.StateId = 580146960U; // gathered from the GAME's Init bank txt file
+            bossCustomTrack.CustomStates.Add(cstate12);
 
-            //WHSceneDef.bossTrack = bossCustomTrack;
+            SM64BBFScene.bossTrack = bossCustomTrack;
         }
 
         internal static void LoadSoundBanks(string soundbanksFolderPath)

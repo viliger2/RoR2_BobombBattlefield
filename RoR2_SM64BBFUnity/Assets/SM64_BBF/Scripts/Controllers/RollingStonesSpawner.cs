@@ -1,10 +1,4 @@
 ﻿using RoR2;
-using RoR2.Audio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
@@ -23,11 +17,14 @@ namespace SM64BBF.Controllers
 
         private float lastStoneTimer;
 
-        private GameObject smokeBombPrefab;
+        private static GameObject smokeBombPrefab;
 
         private void Start()
         {
-            smokeBombPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2SmokeBomb.prefab").WaitForCompletion();
+            if (!smokeBombPrefab)
+            {
+                smokeBombPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2SmokeBomb.prefab").WaitForCompletion();
+            }
         }
 
         private void FixedUpdate()
@@ -37,7 +34,7 @@ namespace SM64BBF.Controllers
                 return;
             }
             lastStoneTimer += Time.fixedDeltaTime;
-            if(lastStoneTimer > spawnTimer)
+            if (lastStoneTimer > spawnTimer)
             {
                 var newObject = UnityEngine.Object.Instantiate(rollingStonePrefab, transform.position, transform.rotation, transform);
                 var pathFollower = newObject.GetComponent<PathFollower>();

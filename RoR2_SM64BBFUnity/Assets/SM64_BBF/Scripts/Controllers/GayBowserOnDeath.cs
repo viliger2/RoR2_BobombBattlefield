@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using RoR2;
-using UnityEngine.Networking;
+﻿using RoR2;
 using RoR2.Audio;
+using UnityEngine;
+using UnityEngine.Networking;
 
 namespace SM64BBF.Controllers
 {
@@ -13,25 +11,25 @@ namespace SM64BBF.Controllers
         private void OnEnable()
         {
             if (!NetworkServer.active)
-			{
+            {
                 this.enabled = false;
-				return;
-			}
+                return;
+            }
             GlobalEventManager.onCharacterDeathGlobal += OnCharacterDeath;
         }
 
         private void OnDisable()
         {
             if (!NetworkServer.active)
-			{
-				return;
-			}
+            {
+                return;
+            }
             GlobalEventManager.onCharacterDeathGlobal -= OnCharacterDeath;
         }
 
-        private void OnCharacterDeath(DamageReport damageReport) 
+        private void OnCharacterDeath(DamageReport damageReport)
         {
-            if(damageReport.victimBody.isPlayerControlled) 
+            if (damageReport.victimBody.isPlayerControlled)
             {
                 if (damageReport.attacker)
                 {

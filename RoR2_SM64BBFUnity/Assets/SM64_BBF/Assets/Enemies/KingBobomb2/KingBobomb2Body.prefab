@@ -341,7 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: Body
   initialStateType:
-    _typeName: SM64BBF.States.BobombSpawnState, SM64_BBF, Version=0.0.0.0, Culture=neutral,
+    _typeName: SM64BBF.States.BobombSpawnState, SM64BBF, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   mainStateType:
     _typeName: EntityStates.GenericCharacterMain, RoR2, Version=0.0.0.0, Culture=neutral,

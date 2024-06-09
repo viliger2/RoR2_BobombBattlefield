@@ -1,15 +1,7 @@
-﻿using EntityStates.TeleporterHealNovaController;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using RoR2;
 using RoR2.Audio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 using Vector3 = UnityEngine.Vector3;
 
@@ -26,15 +18,13 @@ namespace SM64BBF.Interactables
         [SyncVar]
         public bool available;
 
-        private GameObject toothHealPack;
-
         private Xoroshiro128Plus rng;
 
-        private Transform itemSpawnPoint; 
+        private Transform itemSpawnPoint;
 
         private void Start()
         {
-            if(NetworkServer.active)
+            if (NetworkServer.active)
             {
                 rng = new Xoroshiro128Plus(Run.instance.treasureRng.nextUlong);
                 //toothHealPack = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Tooth/HealPack.prefab").WaitForCompletion();
@@ -49,7 +39,7 @@ namespace SM64BBF.Interactables
 
         private void TeleporterInteraction_onTeleporterBeginChargingGlobal(TeleporterInteraction obj)
         {
-            if(!NetworkServer.active)
+            if (!NetworkServer.active)
             {
                 return;
             }
@@ -74,7 +64,7 @@ namespace SM64BBF.Interactables
 
         public Interactability GetInteractability([NotNull] Interactor activator)
         {
-            if(!available)
+            if (!available)
             {
                 return Interactability.Disabled;
             }
@@ -93,8 +83,6 @@ namespace SM64BBF.Interactables
             Invoke("DropStuff", 0.5f);
 
             available = false;
-
-            //DropStuff();
         }
 
         private void DropStuff()

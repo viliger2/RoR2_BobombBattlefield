@@ -1,6 +1,4 @@
 ﻿using RoR2;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -8,11 +6,9 @@ namespace SM64BBF.Controllers
 {
     public class RollingStonesCollider : MonoBehaviour
     {
-        public Collider ourCollider;
-
         void OnCollisionEnter(Collision collision)
         {
-            if(collision.gameObject.layer == 0)
+            if (collision.gameObject.layer == 0)
             {
                 if (NetworkServer.active)
                 {

@@ -1,10 +1,9 @@
 ﻿using EntityStates;
-using RoR2.Audio;
 using RoR2;
+using RoR2.Audio;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Diagnostics;
 
 namespace SM64BBF.States
 {
@@ -36,7 +35,7 @@ namespace SM64BBF.States
             var model = GetModelTransform()?.GetComponent<CharacterModel>();
             if (model)
             {
-                temporaryOverlay = base.gameObject.AddComponent<TemporaryOverlay>();
+                temporaryOverlay = base.gameObject.AddComponent<TemporaryOverlay>(); // TODO: this doesn't work on clients for some reason
                 temporaryOverlay.duration = 0.2f;
                 temporaryOverlay.alphaCurve = animCurve;
                 temporaryOverlay.animateShaderAlpha = true;
@@ -83,16 +82,16 @@ namespace SM64BBF.States
         }
 
         [Command]
-        public void CmdKill(NetworkInstanceId netId) 
+        public void CmdKill(NetworkInstanceId netId)
         {
-            if(netId == default(NetworkInstanceId))
+            if (netId == default(NetworkInstanceId))
             {
                 return;
             }
             var gameObject = Util.FindNetworkObject(netId);
-            if(gameObject)
+            if (gameObject)
             {
-                if(gameObject.TryGetComponent<CharacterBody>(out var body))
+                if (gameObject.TryGetComponent<CharacterBody>(out var body))
                 {
                     body.healthComponent.Suicide();
                 }

@@ -1,7 +1,5 @@
 ﻿using RoR2;
 using RoR2.Audio;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -34,12 +32,12 @@ namespace SM64BBF.Controllers
 
             transform.position = Vector3.MoveTowards(transform.position, path[currentPoint].position, Time.deltaTime * speed);
 
-            if(dist <= reachDist)
+            if (dist <= reachDist)
             {
                 currentPoint++;
             }
 
-            if(currentPoint >= path.Length)
+            if (currentPoint >= path.Length)
             {
                 EffectManager.SimpleMuzzleFlash(deathEffectPrefab, gameObject, "SmokeBomb", true);
                 Destroy(gameObject);

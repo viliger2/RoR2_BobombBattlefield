@@ -19,7 +19,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   activationStateMachineName: Body
   activationState:
-    _typeName: SM64BBF.States.BobombAcquireTargetState, SM64_BBF, Version=0.0.0.0,
+    _typeName: SM64BBF.States.BobombAcquireTargetState, SM64BBF, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   interruptPriority: 0
   baseRechargeInterval: 0
