@@ -23,10 +23,8 @@ Please send bug reports either by tagging me on Discord in RoR2 Modding server, 
 ## Known issues
 <details>
 
-  * Music breaks if you have Catacombs installed. If you somehow manage to load Catacombs after Bob-omb Battlefield then music will break for Catacombs. Or even if you load ItemDisplayPlacementHelper before starting the run, music will break for both stages. This is some sort of Wwise issue that I will hopefully figure out in the future.
   * Stage lacks proper diorama.
   * Rolling rocks are laggy\stuttery for network clients.
-  * Regigigas is currently not optional despite being setup as being so in the code.
 </details>
 
 ## Credits
