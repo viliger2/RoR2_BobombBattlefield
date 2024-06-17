@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using R2API;
 using RoR2;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
@@ -30,6 +31,11 @@ namespace SM64BBF
             Log.Init(Logger);
 
             RegisterHooks();
+
+            if (!SM64BBF.RegigigasCompat.enabled)
+            {
+                DirectorAPI.Helpers.RemoveExistingMonster("cscKingBobomb2");
+            }
 
 #if DEBUG == true
             On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
