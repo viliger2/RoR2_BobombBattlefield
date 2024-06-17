@@ -1,4 +1,9 @@
 <details>
+<summary>1.0.2 </summary>
+
+* Made OneUp world unique so it would no longer appear in printers.
+</details>
+<details>
 <summary>1.0.1 </summary>
 
 * Interactable trees now resemble their SM64 counterparts more closely.
