@@ -1,0 +1,9 @@
+1. Create new Unity project and integrate Thunderkit into it. (or use existing, whatever). You can follow the guide here on creating one, it is probably outdated but should work for the most part. https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Thunderkit/ThunderKit%3A-Your-First-Project/
+2. Add LocationsOfPrecipitation to your Unity project via Package Manager. https://github.com/JaceDaDorito/jace-locationsofprecipitation/tree/main
+3. (Optional, if you want to use MusicTrackDefs) Integrate Wwise into the project.
+4. After everything is imported, copy contents of Assets folder into your Unity project's Assets folder. Wait for everything to import.
+5. Navigate to SM64_BBF\Scene and open sm64_bbf_SM64_BBF. It should load.
+6. Click on Director and scroll through components, if there are no missing scripts then everything has been imported correctly.
+7. If you want Wwise working and added it on step 3, then you also have to copy RoR2_CatacombsWwise into your Unity project and then change path to Wwise project under Edit - Preferences - Wwise Editor.
+8. To build asset bundle (and dll, but you can use VS solution for that) find ContributorBuild in Assets\Catacombs and click Execute.
+9. Wwise project comes with no sounds, so you have to provide your own. 

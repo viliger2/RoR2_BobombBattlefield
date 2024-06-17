@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: OneUp
+  m_EditorClassIdentifier: 
+  deprecatedTier: 4
+  _itemTierDef: {fileID: 0}
+  nameToken: SM64_BBF_ITEM_1UP_NAME
+  pickupToken: SM64_BBF_ITEM_1UP_PICKUP
+  descriptionToken: SM64_BBF_ITEM_1UP_DESCRIPTION
+  loreToken: SM64_BBF_ITEM_1UP_LORE
+  unlockableDef: {fileID: 0}
+  pickupModelPrefab: {fileID: 7244675390810836188, guid: 1043e222e9877284a99b5ceec9d458d0,
+    type: 3}
+  pickupIconSprite: {fileID: 21300000, guid: 66749ae27e3542340b421704686746e3, type: 3}
+  hidden: 0
+  canRemove: 0
+  tags: 0c0000000d0000000f0000000400000009000000
+  requiredExpansion: {fileID: 0}
