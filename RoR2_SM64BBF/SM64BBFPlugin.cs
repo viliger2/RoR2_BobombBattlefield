@@ -74,7 +74,6 @@ namespace SM64BBF
             RegisterNetworkSound("SM64_BBF_Stop_Bobomb_Fuse");
             RegisterNetworkSound("SM64_BBF_Play_Bobomb_Death");
             RegisterNetworkSound("SM64_BBF_Play_Shake_Tree");
-
         }
 
         private void MusicController_Start(On.RoR2.MusicController.orig_Start orig, MusicController self)
