@@ -255,6 +255,7 @@ namespace SM64BBF
             }
             SM64BBFScene.dioramaPrefab = dioramaPrefab.Result;
 
+            // uncomment this if you don't want to use Wwise + Unity integration
             //SetupMusic();
 
             StageRegistration.RegisterSceneDefToLoop(SM64BBFScene);

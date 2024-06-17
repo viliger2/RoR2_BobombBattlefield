@@ -67,6 +67,38 @@ crashlytics-build.properties
 # Packed Addressables
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
+## ---------------- ##
+##   WWise stuff    ##
+## ---------------- ##
+
+# project stuff
+.cache/
+*.prof
+*_WwiseProject.*.validationcache
+*_WwiseProject.*.wsettings
+**/*.akd
+
+# build stuff (unsure?)
+# Assets/Wwise/Deployment/Plugins/Windows/**/*.meta
+
+# WWise Picker (editor)
+# from https://www.audiokinetic.com/library/edge/?source=Unity&id=unity__troubleshooting.html
+# >> Do not keep AkWwiseProjectData.asset under version control! 
+# >> This is a temporary cache file for the Wwise project data, 
+# >> so as to avoid having the Wwise Picker continuously parse the Work Unit files.
+Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
+
+# notes:
+# 1) if any other files go in Assets/Wwise/Editor/ProjectData/ besides AkWwiseProjectData.asset*,
+#    then don't ignore Assets/Wwise/Editor/ProjectData.meta. If AkWwiseProjectData.asset is the only item in there,
+#    then, it's OK to ignore this file.
+# 
+# Assets/Wwise/Editor/ProjectData.meta
+
+## --------------- ##
+## End WWise Stuff ##
+## --------------- ##
+
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
@@ -86,3 +118,15 @@ RoR2_SM64BBFUnity/Result/
 RoR2_SM64BBFUnity/ThunderKit/
 Thunderstore/plugins/
 Thunderstore/Thunderstore.zip
+RoR2_SM64BBFUnity/logRunSetup.txt
+RoR2_SM64BBFUnity/WwiseProject_WwiseProject.zip
+RoR2_SM64BBFUnity/WwiseUnityIntegration_Mac_Src.zip
+RoR2_SM64BBFUnity/WwiseUnityIntegration_Windows_Src.zip
+RoR2_SM64BBFUnity/.vscode/settings.json
+RoR2_SM64BBFUnity/Assets/StreamingAssets.meta
+RoR2_SM64BBFUnity/Assets/ThunderKitSettings.meta
+RoR2_SM64BBFUnity/Assets/Wwise.meta
+RoR2_SM64BBFUnity/Assets/WwiseSettings.xml
+RoR2_SM64BBFUnity/Assets/WwiseSettings.xml.meta
+RoR2_SM64BBFUnity/RoR2_SM64BBFWwise/GeneratedSoundBanks/
+RoR2_SM64BBFUnity/RoR2_SM64BBFWwise/Originals/

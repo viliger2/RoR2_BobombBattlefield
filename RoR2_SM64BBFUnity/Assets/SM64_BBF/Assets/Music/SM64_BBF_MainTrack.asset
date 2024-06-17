@@ -15,20 +15,20 @@ MonoBehaviour:
   soundBank:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 522414121ae785245805ac650a13025c,
+    WwiseObjectReference: {fileID: 11400000, guid: 28728b687c402814e92a1444d2e5c406,
       type: 2}
   states:
   - idInternal: 0
     valueGuidInternal: 
     groupIdInternal: 0
     groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 8eb7fc3ff52d5604b86df392591b764c,
+    WwiseObjectReference: {fileID: 11400000, guid: af2076067d49a9a48bbe8cc1ddee5310,
       type: 2}
   - idInternal: 0
     valueGuidInternal: 
     groupIdInternal: 0
     groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 5b47edace7f54f74d9e85be0c312e427,
+    WwiseObjectReference: {fileID: 11400000, guid: a878e9f5232119b438d9d799d33e6eb9,
       type: 2}
   comment: 'Bob-Omb Battlefield Theme
 

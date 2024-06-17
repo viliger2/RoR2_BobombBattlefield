@@ -15,20 +15,20 @@ MonoBehaviour:
   soundBank:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 522414121ae785245805ac650a13025c,
+    WwiseObjectReference: {fileID: 11400000, guid: 28728b687c402814e92a1444d2e5c406,
       type: 2}
   states:
   - idInternal: 0
     valueGuidInternal: 
     groupIdInternal: 0
     groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: b2f6fc87e5002c241b0592dc5f52d7e0,
+    WwiseObjectReference: {fileID: 11400000, guid: 8ac66c83af4708c4385cf5808954d145,
       type: 2}
   - idInternal: 0
     valueGuidInternal: 
     groupIdInternal: 0
     groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: f90638372275c7e43a78b136dcca8cf2,
+    WwiseObjectReference: {fileID: 11400000, guid: c665c16f6d281a2418f87ad2dfaa044d,
       type: 2}
   comment: 'Bowser''s Theme
 

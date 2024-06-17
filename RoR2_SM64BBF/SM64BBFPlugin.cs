@@ -19,14 +19,10 @@ namespace SM64BBF
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Version = "1.0.2";
+        public const string Version = "1.0.3";
         public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;
-
-        //public static GameObject wwiseSM64ObjectInstance;
-
-        //public static AssetBundle SM64AudioManagerBundle;
 
         private void Awake()
         {
@@ -46,20 +42,10 @@ namespace SM64BBF
         private void RegisterHooks()
         {
             On.RoR2.MusicController.Start += MusicController_Start;
-            //On.RoR2.MusicController.LateUpdate += MusicController_LateUpdate;
             ContentManager.collectContentPackProviders += GiveToRoR2OurContentPackProviders;
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;
             CharacterBody.onBodyInventoryChangedGlobal += SM64BBF.Items.MarioOneUpItemBehavior.CharacterBody_onBodyInventoryChangedGlobal;
             R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
-        }
-
-        private void MusicController_LateUpdate(On.RoR2.MusicController.orig_LateUpdate orig, MusicController self)
-        {
-            bool isPaused = Time.timeScale == 0f;
-            if (isPaused != self.wasPaused)
-            {
-                AkSoundEngine.PostEvent(isPaused ? "SM64_BBF_Pause_Music" : "SM64_BBF_Unpause_Music", base.gameObject);
-            }
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, R2API.RecalculateStatsAPI.StatHookEventArgs args)
