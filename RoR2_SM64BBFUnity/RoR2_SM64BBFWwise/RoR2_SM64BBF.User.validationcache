@@ -33,8 +33,8 @@
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\States\Default Work Unit.wwu" DateLow="1718627569" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1718626928" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\SoundBanks\Default Work Unit.wwu" DateLow="1718643123" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\RoR2_SM64BBF.wproj" DateLow="1718626928" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\RoR2_SM64BBF.User.wsettings" DateLow="1718643158" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\RoR2_SM64BBF.wproj" DateLow="1718643773" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\RoR2_SM64BBF.User.wsettings" DateLow="1718646811" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Queries\Factory Queries.wwu" DateLow="1713643002" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Queries\Default Work Unit.wwu" DateLow="1718626928" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Presets\Factory Spatial Audio.wwu" DateLow="1713643002" DateHigh="0"/>
@@ -42,8 +42,8 @@
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Modulators\Default Work Unit.wwu" DateLow="1718626928" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Mixing Sessions\Default Work Unit.wwu" DateLow="1718626928" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1718626928" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1718627653" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Game Parameters\Default Work Unit.wwu" DateLow="1718627569" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1718646713" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Game Parameters\Default Work Unit.wwu" DateLow="1718646602" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Events\Default Work Unit.wwu" DateLow="1718643123" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Effects\Factory Effects.wwu" DateLow="1713643002" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Effects\Default Work Unit.wwu" DateLow="1718626928" DateHigh="0"/>
@@ -53,5 +53,5 @@
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Control Surface Sessions\Default Work Unit.wwu" DateLow="1718626928" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Audio Devices\Default Work Unit.wwu" DateLow="1718626928" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Attenuations\Default Work Unit.wwu" DateLow="1718642962" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1718642962" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1718644893" DateHigh="0"/>
 </ValidationCache>

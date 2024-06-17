@@ -233,6 +233,8 @@ namespace SM64BBF
                 //Log.Debug("setup buffdefs");
             }));
 
+            RegisterSounds(contentPack);
+
             contentPack.entityStateTypes.Add(new Type[] { typeof(SM64BBF.States.StarManState), typeof(States.BobombAcquireTargetState), typeof(States.BobombDeathState), typeof(States.BobombExplodeState), typeof(States.BobombSpawnState), typeof(States.BobombSuicideDeathState) });
 
             var bossDroplet = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/BossOrb.prefab");
@@ -793,6 +795,38 @@ namespace SM64BBF
             bossCustomTrack.CustomStates.Add(cstate12);
 
             SM64BBFScene.bossTrack = bossCustomTrack;
+        }
+
+        private static void RegisterSounds(ContentPack contentPack)
+        {
+            contentPack.networkSoundEventDefs.Add(new NetworkSoundEventDef[] {
+                RegisterNetworkSound("SM64_BBF_Play_Coin"),
+                RegisterNetworkSound("SM64_BBF_Stop_StarmanComes"),
+                RegisterNetworkSound("SM64_BBF_StarmanKills"),
+                RegisterNetworkSound("SM64_BBF_Play_Star"),
+                RegisterNetworkSound("SM64_BBF_Stop_RollingStone"),
+                RegisterNetworkSound("SM64_BBF_Play_StarmanComes"),
+                RegisterNetworkSound("SM64_BBF_Play_RollingStone"),
+                RegisterNetworkSound("SM64_BBF_solonggaybowser"),
+                RegisterNetworkSound("SM64_BBF_Play_OneUp"),
+                RegisterNetworkSound("SM64_BBF_Play_Bobomb_Aggro"),
+                RegisterNetworkSound("SM64_BBF_Play_Bobomb_Fuse"),
+                RegisterNetworkSound("SM64_BBF_Stop_Bobomb_Fuse"),
+                RegisterNetworkSound("SM64_BBF_Play_Bobomb_Death"),
+                RegisterNetworkSound("SM64_BBF_Play_Shake_Tree"),
+            });
+        }
+
+        public static NetworkSoundEventDef RegisterNetworkSound(string eventName)
+        {
+            NetworkSoundEventDef networkSoundEventDef = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
+            networkSoundEventDef.eventName = eventName;
+
+            return networkSoundEventDef;
+
+
+
+            //return R2API.ContentAddition.AddNetworkSoundEventDef(networkSoundEventDef);
         }
 
         internal static void LoadSoundBanks(string soundbanksFolderPath)

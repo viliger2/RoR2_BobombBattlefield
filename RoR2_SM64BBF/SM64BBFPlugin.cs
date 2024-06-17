@@ -15,7 +15,6 @@ namespace SM64BBF
     [BepInPlugin(GUID, "SM64BBF", Version)]
     [BepInDependency(R2API.DirectorAPI.PluginGUID)]
     [BepInDependency(R2API.StageRegistration.PluginGUID)]
-    [BepInDependency(R2API.SoundAPI.PluginGUID)]
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
@@ -31,8 +30,6 @@ namespace SM64BBF
             Log.Init(Logger);
 
             RegisterHooks();
-
-            RegisterSounds();
 
 #if DEBUG == true
             On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
@@ -55,25 +52,6 @@ namespace SM64BBF
             {
                 args.armorAdd += 100f;
             }
-        }
-
-        // TODO: figure out why the hell just creating NetworkSoundEventDefs in editor doesn't work
-        private static void RegisterSounds()
-        {
-            RegisterNetworkSound("SM64_BBF_Play_Coin");
-            RegisterNetworkSound("SM64_BBF_Stop_StarmanComes");
-            RegisterNetworkSound("SM64_BBF_StarmanKills");
-            RegisterNetworkSound("SM64_BBF_Play_Star");
-            RegisterNetworkSound("SM64_BBF_Stop_RollingStone");
-            RegisterNetworkSound("SM64_BBF_Play_StarmanComes");
-            RegisterNetworkSound("SM64_BBF_Play_RollingStone");
-            RegisterNetworkSound("SM64_BBF_solonggaybowser");
-            RegisterNetworkSound("SM64_BBF_Play_OneUp");
-            RegisterNetworkSound("SM64_BBF_Play_Bobomb_Aggro");
-            RegisterNetworkSound("SM64_BBF_Play_Bobomb_Fuse");
-            RegisterNetworkSound("SM64_BBF_Stop_Bobomb_Fuse");
-            RegisterNetworkSound("SM64_BBF_Play_Bobomb_Death");
-            RegisterNetworkSound("SM64_BBF_Play_Shake_Tree");
         }
 
         private void MusicController_Start(On.RoR2.MusicController.orig_Start orig, MusicController self)
