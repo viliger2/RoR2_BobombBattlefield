@@ -1,4 +1,5 @@
-﻿using HG;
+﻿using BepInEx;
+using HG;
 using R2API;
 using RoR2;
 using RoR2.ContentManagement;
@@ -46,6 +47,15 @@ namespace SM64BBF
         public struct Buffs
         {
             public static BuffDef BobombArmor;
+        }
+
+        public struct CharacterSpawnCards
+        {
+            public static CharacterSpawnCard cscBobomb;
+            /// <summary>
+            /// It will only be filled if Regigigas is installed.
+            /// </summary>
+            public static CharacterSpawnCard cscKingBobomb;
         }
 
         public static Dictionary<string, string> ShaderLookup = new Dictionary<string, string>()
@@ -97,6 +107,16 @@ namespace SM64BBF
             {
                 contentPack.unlockableDefs.Add(assets);
                 //Log.Debug("loaded unlockableDefs");
+            }));
+
+            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<CharacterSpawnCard[]>)((assets) =>
+            {
+                CharacterSpawnCards.cscBobomb = assets.First(csc => csc.name == "cscBobomb");
+                RegisterBobombToStages();
+                if (RegigigasCompat.enabled)
+                {
+                    CharacterSpawnCards.cscKingBobomb = assets.First(csc => csc.name == "cscKingBobomb2");
+                }
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<Sprite[]>)((assets) =>
@@ -817,16 +837,70 @@ namespace SM64BBF
             });
         }
 
+        private static void RegisterBobombToStages()
+        {
+            DirectorAPI.DirectorCardHolder directorCardHolder = new DirectorAPI.DirectorCardHolder
+            {
+                Card = new DirectorCard
+                {
+                    spawnCard = CharacterSpawnCards.cscBobomb,
+                    selectionWeight = Config.BobombSpawning.SelectionWeight.Value,
+                    spawnDistance = DirectorCore.MonsterSpawnDistance.Standard,
+                    preventOverhead = true,
+                    minimumStageCompletions = Config.BobombSpawning.MinimumStageCount.Value
+                },
+                MonsterCategory = DirectorAPI.MonsterCategory.BasicMonsters,
+            };
+
+            AddMonsterToStage(Config.BobombSpawning.SpawnArena.Value, directorCardHolder, DirectorAPI.Stage.VoidCell);
+            AddMonsterToStage(Config.BobombSpawning.SpawnAncientLoft.Value, directorCardHolder, DirectorAPI.Stage.AphelianSanctuary);
+            AddMonsterToStage(Config.BobombSpawning.SpawnBlackBeach.Value, directorCardHolder, DirectorAPI.Stage.DistantRoost);
+            AddMonsterToStage(Config.BobombSpawning.SpawnDampCaveSimple.Value, directorCardHolder, DirectorAPI.Stage.AbyssalDepths);
+            AddMonsterToStage(Config.BobombSpawning.SpawnFoggySwamp.Value, directorCardHolder, DirectorAPI.Stage.WetlandAspect);
+            AddMonsterToStage(Config.BobombSpawning.SpawnFrozenWall.Value, directorCardHolder, DirectorAPI.Stage.RallypointDelta);
+            AddMonsterToStage(Config.BobombSpawning.SpawnGolemPlains.Value, directorCardHolder, DirectorAPI.Stage.TitanicPlains);
+            AddMonsterToStage(Config.BobombSpawning.SpawnGooLake.Value, directorCardHolder, DirectorAPI.Stage.AbandonedAqueduct);
+            AddMonsterToStage(Config.BobombSpawning.SpawnLakes.Value, directorCardHolder, DirectorAPI.Stage.VerdantFalls);
+            AddMonsterToStage(Config.BobombSpawning.SpawnRootJungle.Value, directorCardHolder, DirectorAPI.Stage.SunderedGrove);
+            AddMonsterToStage(Config.BobombSpawning.SpawnShipGraveyard.Value, directorCardHolder, DirectorAPI.Stage.SirensCall);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSkyMeadow.Value, directorCardHolder, DirectorAPI.Stage.SkyMeadow);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSnowyForest.Value, directorCardHolder, DirectorAPI.Stage.SiphonedForest);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSulfurPools.Value, directorCardHolder, DirectorAPI.Stage.SulfurPools);
+            AddMonsterToStage(Config.BobombSpawning.SpawnWispGraveyard.Value, directorCardHolder, DirectorAPI.Stage.ScorchedAcres);
+
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.AbandonedAqueductSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.AbyssalDepthsSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.AphelianSanctuarySimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.CommencementSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.RallypointDeltaSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.SkyMeadowSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.TitanicPlainsSimulacrum);
+
+            if (!Config.BobombSpawning.SpawnCustomStages.Value.IsNullOrWhiteSpace())
+            {
+                string cleanStageString = string.Join("", Config.BobombSpawning.SpawnCustomStages.Value.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+                string[] stages = cleanStageString.Split(',');
+                foreach (string stage in stages)
+                {
+                    AddMonsterToStage(true, directorCardHolder, DirectorAPI.Stage.Custom, false, stage);
+                }
+            }
+        }
+
+        private static void AddMonsterToStage(bool needToAdd, DirectorAPI.DirectorCardHolder cardHolder, DirectorAPI.Stage stage, bool addToFamilies = false, string customStage = "")
+        {
+            if (needToAdd)
+            {
+                DirectorAPI.Helpers.AddNewMonsterToStage(cardHolder, addToFamilies, stage, customStage);
+            }
+        }
+
         public static NetworkSoundEventDef RegisterNetworkSound(string eventName)
         {
             NetworkSoundEventDef networkSoundEventDef = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
             networkSoundEventDef.eventName = eventName;
 
             return networkSoundEventDef;
-
-
-
-            //return R2API.ContentAddition.AddNetworkSoundEventDef(networkSoundEventDef);
         }
 
         internal static void LoadSoundBanks(string soundbanksFolderPath)

@@ -19,7 +19,7 @@ namespace SM64BBF
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Version = "1.0.3";
+        public const string Version = "1.0.4";
         public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;
@@ -29,6 +29,8 @@ namespace SM64BBF
             instance = this;
 
             Log.Init(Logger);
+
+            SM64BBF.Config.PopulateConfig(Config);
 
             RegisterHooks();
 
