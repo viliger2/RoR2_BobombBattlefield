@@ -191,6 +191,10 @@ namespace SM64BBF
                     var bodyComponent2 = kingBobombBody2.GetComponent<CharacterBody>();
                     bodyComponent2._defaultCrosshairPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/StandardCrosshair.prefab").WaitForCompletion();
 
+                    var cameraParams2 = kingBobombBody2.GetComponent<CameraTargetParams>();
+                    cameraParams2.cameraParams = Addressables.LoadAssetAsync<CharacterCameraParams>("RoR2/Base/Common/ccpStandardHuge.asset").WaitForCompletion();
+
+
                     SM64BBF.RegigigasCompat.SetupKingBobombBody(kingBobombBody2, contentPack);
 
                     contentPack.bodyPrefabs.Add(new GameObject[] { kingBobombBody2 });
@@ -278,7 +282,7 @@ namespace SM64BBF
             SM64BBFScene.dioramaPrefab = dioramaPrefab.Result;
 
             // uncomment this if you don't want to use Wwise + Unity integration
-            //SetupMusic();
+            SetupMusic();
 
             StageRegistration.RegisterSceneDefToLoop(SM64BBFScene);
         }
@@ -788,9 +792,8 @@ namespace SM64BBF
             mainCustomTrack.CustomStates = new List<SoundAPI.Music.CustomMusicTrackDef.CustomState>();
 
             var cstate1 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
-            cstate1.GroupId = 1405583565U; // gathered from the MOD's Init bank txt file
-            cstate1.StateId = 693170834U; // Maxwell's theme
-            //cstate1.StateId = 145640315U; // Maxwell's theme
+            cstate1.GroupId = 1741660947U; // gathered from the MOD's Init bank txt file
+            cstate1.StateId = 693170834U; // BBF theme
 
             mainCustomTrack.CustomStates.Add(cstate1);
             var cstate2 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
@@ -805,8 +808,8 @@ namespace SM64BBF
             bossCustomTrack.CustomStates = new List<SoundAPI.Music.CustomMusicTrackDef.CustomState>();
 
             var cstate11 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
-            cstate11.GroupId = 1405583565U; // gathered from the MOD's Init bank txt file
-            cstate11.StateId = 1312500510U; // DiesIrae
+            cstate11.GroupId = 1741660947U; // gathered from the MOD's Init bank txt file
+            cstate11.StateId = 1312500510U; // Bowser theme
 
             bossCustomTrack.CustomStates.Add(cstate11);
             var cstate12 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();

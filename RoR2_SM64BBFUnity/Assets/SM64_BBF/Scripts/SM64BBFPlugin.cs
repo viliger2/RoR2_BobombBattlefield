@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using R2API;
 using RoR2;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
@@ -15,18 +16,13 @@ namespace SM64BBF
     [BepInPlugin(GUID, "SM64BBF", Version)]
     [BepInDependency(R2API.DirectorAPI.PluginGUID)]
     [BepInDependency(R2API.StageRegistration.PluginGUID)]
-    [BepInDependency(R2API.SoundAPI.PluginGUID)]
-    [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
+    //[BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.4";
         public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;
-
-        //public static GameObject wwiseSM64ObjectInstance;
-
-        //public static AssetBundle SM64AudioManagerBundle;
 
         private void Awake()
         {
@@ -34,9 +30,14 @@ namespace SM64BBF
 
             Log.Init(Logger);
 
+            SM64BBF.Config.PopulateConfig(Config);
+
             RegisterHooks();
 
-            RegisterSounds();
+            // if (!SM64BBF.RegigigasCompat.enabled)
+            // {
+            //     DirectorAPI.Helpers.RemoveExistingMonster("cscKingBobomb2");
+            // }
 
 #if DEBUG == true
             On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
@@ -45,21 +46,17 @@ namespace SM64BBF
 
         private void RegisterHooks()
         {
-            //On.RoR2.MusicController.Start += MusicController_Start;
-            //On.RoR2.MusicController.LateUpdate += MusicController_LateUpdate;
+            //On.RoR2.MusicController.StartIntroMusic += MusicController_StartIntroMusic;
             ContentManager.collectContentPackProviders += GiveToRoR2OurContentPackProviders;
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;
             CharacterBody.onBodyInventoryChangedGlobal += SM64BBF.Items.MarioOneUpItemBehavior.CharacterBody_onBodyInventoryChangedGlobal;
             R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
         }
 
-        private void MusicController_LateUpdate(On.RoR2.MusicController.orig_LateUpdate orig, MusicController self)
+        private void MusicController_StartIntroMusic(On.RoR2.MusicController.orig_StartIntroMusic orig, MusicController self)
         {
-            bool isPaused = Time.timeScale == 0f;
-            if (isPaused != self.wasPaused)
-            {
-                AkSoundEngine.PostEvent(isPaused ? "SM64_BBF_Pause_Music" : "SM64_BBF_Unpause_Music", base.gameObject);
-            }
+            // orig(self);
+            // AkSoundEngine.PostEvent("SM64_BBF_Play_Music_System", self.gameObject);
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, R2API.RecalculateStatsAPI.StatHookEventArgs args)
@@ -69,32 +66,6 @@ namespace SM64BBF
             {
                 args.armorAdd += 100f;
             }
-        }
-
-        // TODO: figure out why the hell just creating NetworkSoundEventDefs in editor doesn't work
-        private static void RegisterSounds()
-        {
-            RegisterNetworkSound("SM64_BBF_Play_Coin");
-            RegisterNetworkSound("SM64_BBF_Stop_StarmanComes");
-            RegisterNetworkSound("SM64_BBF_StarmanKills");
-            RegisterNetworkSound("SM64_BBF_Play_Star");
-            RegisterNetworkSound("SM64_BBF_Stop_RollingStone");
-            RegisterNetworkSound("SM64_BBF_Play_StarmanComes");
-            RegisterNetworkSound("SM64_BBF_Play_RollingStone");
-            RegisterNetworkSound("SM64_BBF_solonggaybowser");
-            RegisterNetworkSound("SM64_BBF_Play_OneUp");
-            RegisterNetworkSound("SM64_BBF_Play_Bobomb_Aggro");
-            RegisterNetworkSound("SM64_BBF_Play_Bobomb_Fuse");
-            RegisterNetworkSound("SM64_BBF_Stop_Bobomb_Fuse");
-            RegisterNetworkSound("SM64_BBF_Play_Bobomb_Death");
-            RegisterNetworkSound("SM64_BBF_Play_Shake_Tree");
-
-        }
-
-        private void MusicController_Start(On.RoR2.MusicController.orig_Start orig, MusicController self)
-        {
-            orig(self);
-            AkSoundEngine.PostEvent("SM64_BBF_Play_Music_System", self.gameObject);
         }
 
         private void Destroy()

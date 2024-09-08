@@ -87,6 +87,14 @@ namespace SM64BBF.Interactables
 
         private void DropStuff()
         {
+#if DEBUG
+            PickupIndex pickupIndex = PickupCatalog.FindPickupIndex(SM64BBF.SM64BBFContent.MiscPickups.Starman.miscPickupIndex);
+            PickupDropletController.CreatePickupDroplet(pickupIndex, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
+            PickupIndex pickupIndex2 = PickupCatalog.FindPickupIndex(SM64BBFContent.Items.MarioOneUp.itemIndex);
+            PickupDropletController.CreatePickupDroplet(pickupIndex2, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
+            PickupIndex pickupIndex3 = PickupCatalog.FindPickupIndex(SM64BBFContent.MiscPickups.Coin.miscPickupIndex);
+            PickupDropletController.CreatePickupDroplet(pickupIndex3, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
+#else
             int result = rng.RangeInt(0, 100);
 
             if (result > 98)
@@ -107,6 +115,7 @@ namespace SM64BBF.Interactables
                 PickupIndex pickupIndex3 = PickupCatalog.FindPickupIndex(SM64BBFContent.MiscPickups.Coin.miscPickupIndex);
                 PickupDropletController.CreatePickupDroplet(pickupIndex3, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
             }
+#endif
         }
 
         public bool ShouldIgnoreSpherecastForInteractibility([NotNull] Interactor activator)
@@ -117,6 +126,11 @@ namespace SM64BBF.Interactables
         public bool ShouldShowOnScanner()
         {
             return false;
+        }
+
+        public bool ShouldProximityHighlight()
+        {
+            return true;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using HG;
+﻿using BepInEx;
+using HG;
 using R2API;
 using RoR2;
 using RoR2.ContentManagement;
@@ -46,6 +47,15 @@ namespace SM64BBF
         public struct Buffs
         {
             public static BuffDef BobombArmor;
+        }
+
+        public struct CharacterSpawnCards
+        {
+            public static CharacterSpawnCard cscBobomb;
+            /// <summary>
+            /// It will only be filled if Regigigas is installed.
+            /// </summary>
+            public static CharacterSpawnCard cscKingBobomb;
         }
 
         public static Dictionary<string, string> ShaderLookup = new Dictionary<string, string>()
@@ -97,6 +107,16 @@ namespace SM64BBF
             {
                 contentPack.unlockableDefs.Add(assets);
                 //Log.Debug("loaded unlockableDefs");
+            }));
+
+            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<CharacterSpawnCard[]>)((assets) =>
+            {
+                CharacterSpawnCards.cscBobomb = assets.First(csc => csc.name == "cscBobomb");
+                RegisterBobombToStages();
+                // if (RegigigasCompat.enabled)
+                // {
+                //     CharacterSpawnCards.cscKingBobomb = assets.First(csc => csc.name == "cscKingBobomb2");
+                // }
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<Sprite[]>)((assets) =>
@@ -233,6 +253,8 @@ namespace SM64BBF
                 //Log.Debug("setup buffdefs");
             }));
 
+            RegisterSounds(contentPack);
+
             contentPack.entityStateTypes.Add(new Type[] { typeof(SM64BBF.States.StarManState), typeof(States.BobombAcquireTargetState), typeof(States.BobombDeathState), typeof(States.BobombExplodeState), typeof(States.BobombSpawnState), typeof(States.BobombSuicideDeathState) });
 
             var bossDroplet = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/BossOrb.prefab");
@@ -255,6 +277,7 @@ namespace SM64BBF
             }
             SM64BBFScene.dioramaPrefab = dioramaPrefab.Result;
 
+            // uncomment this if you don't want to use Wwise + Unity integration
             //SetupMusic();
 
             StageRegistration.RegisterSceneDefToLoop(SM64BBFScene);
@@ -794,55 +817,141 @@ namespace SM64BBF
             SM64BBFScene.bossTrack = bossCustomTrack;
         }
 
+        private static void RegisterSounds(ContentPack contentPack)
+        {
+            contentPack.networkSoundEventDefs.Add(new NetworkSoundEventDef[] {
+                RegisterNetworkSound("SM64_BBF_Play_Coin"),
+                RegisterNetworkSound("SM64_BBF_Stop_StarmanComes"),
+                RegisterNetworkSound("SM64_BBF_StarmanKills"),
+                RegisterNetworkSound("SM64_BBF_Play_Star"),
+                RegisterNetworkSound("SM64_BBF_Stop_RollingStone"),
+                RegisterNetworkSound("SM64_BBF_Play_StarmanComes"),
+                RegisterNetworkSound("SM64_BBF_Play_RollingStone"),
+                RegisterNetworkSound("SM64_BBF_solonggaybowser"),
+                RegisterNetworkSound("SM64_BBF_Play_OneUp"),
+                RegisterNetworkSound("SM64_BBF_Play_Bobomb_Aggro"),
+                RegisterNetworkSound("SM64_BBF_Play_Bobomb_Fuse"),
+                RegisterNetworkSound("SM64_BBF_Stop_Bobomb_Fuse"),
+                RegisterNetworkSound("SM64_BBF_Play_Bobomb_Death"),
+                RegisterNetworkSound("SM64_BBF_Play_Shake_Tree"),
+            });
+        }
+
+        private static void RegisterBobombToStages()
+        {
+            DirectorAPI.DirectorCardHolder directorCardHolder = new DirectorAPI.DirectorCardHolder
+            {
+                Card = new DirectorCard
+                {
+                    spawnCard = CharacterSpawnCards.cscBobomb,
+                    selectionWeight = Config.BobombSpawning.SelectionWeight.Value,
+                    spawnDistance = DirectorCore.MonsterSpawnDistance.Standard,
+                    preventOverhead = true,
+                    minimumStageCompletions = Config.BobombSpawning.MinimumStageCount.Value
+                },
+                MonsterCategory = DirectorAPI.MonsterCategory.BasicMonsters,
+            };
+
+            AddMonsterToStage(Config.BobombSpawning.SpawnArena.Value, directorCardHolder, DirectorAPI.Stage.VoidCell);
+            AddMonsterToStage(Config.BobombSpawning.SpawnAncientLoft.Value, directorCardHolder, DirectorAPI.Stage.AphelianSanctuary);
+            AddMonsterToStage(Config.BobombSpawning.SpawnBlackBeach.Value, directorCardHolder, DirectorAPI.Stage.DistantRoost);
+            AddMonsterToStage(Config.BobombSpawning.SpawnDampCaveSimple.Value, directorCardHolder, DirectorAPI.Stage.AbyssalDepths);
+            AddMonsterToStage(Config.BobombSpawning.SpawnFoggySwamp.Value, directorCardHolder, DirectorAPI.Stage.WetlandAspect);
+            AddMonsterToStage(Config.BobombSpawning.SpawnFrozenWall.Value, directorCardHolder, DirectorAPI.Stage.RallypointDelta);
+            AddMonsterToStage(Config.BobombSpawning.SpawnGolemPlains.Value, directorCardHolder, DirectorAPI.Stage.TitanicPlains);
+            AddMonsterToStage(Config.BobombSpawning.SpawnGooLake.Value, directorCardHolder, DirectorAPI.Stage.AbandonedAqueduct);
+            AddMonsterToStage(Config.BobombSpawning.SpawnLakes.Value, directorCardHolder, DirectorAPI.Stage.VerdantFalls);
+            AddMonsterToStage(Config.BobombSpawning.SpawnRootJungle.Value, directorCardHolder, DirectorAPI.Stage.SunderedGrove);
+            AddMonsterToStage(Config.BobombSpawning.SpawnShipGraveyard.Value, directorCardHolder, DirectorAPI.Stage.SirensCall);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSkyMeadow.Value, directorCardHolder, DirectorAPI.Stage.SkyMeadow);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSnowyForest.Value, directorCardHolder, DirectorAPI.Stage.SiphonedForest);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSulfurPools.Value, directorCardHolder, DirectorAPI.Stage.SulfurPools);
+            AddMonsterToStage(Config.BobombSpawning.SpawnWispGraveyard.Value, directorCardHolder, DirectorAPI.Stage.ScorchedAcres);
+
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.AbandonedAqueductSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.AbyssalDepthsSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.AphelianSanctuarySimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.CommencementSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.RallypointDeltaSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.SkyMeadowSimulacrum);
+            AddMonsterToStage(Config.BobombSpawning.SpawnSimulacrum.Value, directorCardHolder, DirectorAPI.Stage.TitanicPlainsSimulacrum);
+
+            if (!Config.BobombSpawning.SpawnCustomStages.Value.IsNullOrWhiteSpace())
+            {
+                string cleanStageString = string.Join("", Config.BobombSpawning.SpawnCustomStages.Value.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+                string[] stages = cleanStageString.Split(',');
+                foreach (string stage in stages)
+                {
+                    AddMonsterToStage(true, directorCardHolder, DirectorAPI.Stage.Custom, false, stage);
+                }
+            }
+        }
+
+        private static void AddMonsterToStage(bool needToAdd, DirectorAPI.DirectorCardHolder cardHolder, DirectorAPI.Stage stage, bool addToFamilies = false, string customStage = "")
+        {
+            if (needToAdd)
+            {
+                DirectorAPI.Helpers.AddNewMonsterToStage(cardHolder, addToFamilies, stage, customStage);
+            }
+        }
+
+        public static NetworkSoundEventDef RegisterNetworkSound(string eventName)
+        {
+            NetworkSoundEventDef networkSoundEventDef = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
+            networkSoundEventDef.eventName = eventName;
+
+            return networkSoundEventDef;
+        }
+
         internal static void LoadSoundBanks(string soundbanksFolderPath)
         {
-            var akResult = AkSoundEngine.AddBasePath(soundbanksFolderPath);
-            if (akResult == AKRESULT.AK_Success)
-            {
-                Log.Info($"Added bank base path : {soundbanksFolderPath}");
-            }
-            else
-            {
-                Log.Error(
-                    $"Error adding base path : {soundbanksFolderPath} " +
-                    $"Error code : {akResult}");
-            }
+            // var akResult = AkSoundEngine.AddBasePath(soundbanksFolderPath);
+            // if (akResult == AKRESULT.AK_Success)
+            // {
+            //     Log.Info($"Added bank base path : {soundbanksFolderPath}");
+            // }
+            // else
+            // {
+            //     Log.Error(
+            //         $"Error adding base path : {soundbanksFolderPath} " +
+            //         $"Error code : {akResult}");
+            // }
 
-            akResult = AkSoundEngine.LoadBank(InitSoundBankFileName, out var _);
-            if (akResult == AKRESULT.AK_Success)
-            {
-                Log.Info($"Added bank : {InitSoundBankFileName}");
-            }
-            else
-            {
-                Log.Error(
-                    $"Error loading bank : {InitSoundBankFileName} " +
-                    $"Error code : {akResult}");
-            }
+            // akResult = AkSoundEngine.LoadBank(InitSoundBankFileName, out var _);
+            // if (akResult == AKRESULT.AK_Success)
+            // {
+            //     Log.Info($"Added bank : {InitSoundBankFileName}");
+            // }
+            // else
+            // {
+            //     Log.Error(
+            //         $"Error loading bank : {InitSoundBankFileName} " +
+            //         $"Error code : {akResult}");
+            // }
 
-            akResult = AkSoundEngine.LoadBank(MusicSoundBankFileName, out var _);
-            if (akResult == AKRESULT.AK_Success)
-            {
-                Log.Info($"Added bank : {MusicSoundBankFileName}");
-            }
-            else
-            {
-                Log.Error(
-                    $"Error loading bank : {MusicSoundBankFileName} " +
-                    $"Error code : {akResult}");
-            }
+            // akResult = AkSoundEngine.LoadBank(MusicSoundBankFileName, out var _);
+            // if (akResult == AKRESULT.AK_Success)
+            // {
+            //     Log.Info($"Added bank : {MusicSoundBankFileName}");
+            // }
+            // else
+            // {
+            //     Log.Error(
+            //         $"Error loading bank : {MusicSoundBankFileName} " +
+            //         $"Error code : {akResult}");
+            // }
 
-            akResult = AkSoundEngine.LoadBank(SoundsSoundBankFileName, out var _);
-            if (akResult == AKRESULT.AK_Success)
-            {
-                Log.Info($"Added bank : {SoundsSoundBankFileName}");
-            }
-            else
-            {
-                Log.Error(
-                    $"Error loading bank : {SoundsSoundBankFileName} " +
-                    $"Error code : {akResult}");
-            }
+            // akResult = AkSoundEngine.LoadBank(SoundsSoundBankFileName, out var _);
+            // if (akResult == AKRESULT.AK_Success)
+            // {
+            //     Log.Info($"Added bank : {SoundsSoundBankFileName}");
+            // }
+            // else
+            // {
+            //     Log.Error(
+            //         $"Error loading bank : {SoundsSoundBankFileName} " +
+            //         $"Error code : {akResult}");
+            // }
         }
     }
 }

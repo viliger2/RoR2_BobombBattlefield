@@ -13,7 +13,7 @@ namespace SM64BBF.States
 
         public static AnimationCurve animCurve = null;
 
-        public TemporaryOverlay temporaryOverlay;
+        private TemporaryOverlayInstance temporaryOverlay;
 
         private readonly List<HealthComponent> ignoredHealthComponentList = new List<HealthComponent>();
 
@@ -35,12 +35,13 @@ namespace SM64BBF.States
             var model = GetModelTransform()?.GetComponent<CharacterModel>();
             if (model)
             {
-                temporaryOverlay = base.gameObject.AddComponent<TemporaryOverlay>(); // TODO: this doesn't work on clients for some reason
+                //temporaryOverlay = base.gameObject.AddComponent<TemporaryOverlay>(); // TODO: this doesn't work on clients for some reason
+                temporaryOverlay = TemporaryOverlayManager.AddOverlay(base.gameObject);
                 temporaryOverlay.duration = 0.2f;
                 temporaryOverlay.alphaCurve = animCurve;
                 temporaryOverlay.animateShaderAlpha = true;
                 temporaryOverlay.originalMaterial = LegacyResourcesAPI.Load<Material>("Materials/matFlashWhite");
-                temporaryOverlay.AddToCharacerModel(model);
+                temporaryOverlay.AddToCharacterModel(model);
             }
         }
 
@@ -48,7 +49,7 @@ namespace SM64BBF.States
         {
             base.FixedUpdate();
 
-            if (!base.isAuthority)
+            if (base.isAuthority)
             {
                 Collider[] array = Physics.OverlapBox(transform.position, transform.lossyScale * 0.5f, transform.rotation, LayerIndex.entityPrecise.mask);
                 foreach (Collider collider in array)
@@ -71,11 +72,11 @@ namespace SM64BBF.States
             }
             if (fixedAge > duration * 0.75f)
             {
-                temporaryOverlay.duration = 0.4f;
+                temporaryOverlay.duration = 0.6f;
                 EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Stop_StarmanComes", gameObject);
             }
 
-            if (fixedAge > duration)
+            if (fixedAge > duration && isAuthority)
             {
                 outer.SetNextStateToMain();
             }
@@ -91,7 +92,7 @@ namespace SM64BBF.States
             var gameObject = Util.FindNetworkObject(netId);
             if (gameObject)
             {
-                if (gameObject.TryGetComponent<CharacterBody>(out var body))
+                if (gameObject.TryGetComponent<CharacterBody>(out var body) && body.healthComponent)
                 {
                     body.healthComponent.Suicide();
                 }
@@ -102,7 +103,7 @@ namespace SM64BBF.States
         {
             if (!hurtBox.healthComponent)
             {
-                return true;
+                return false;
             }
             if (hurtBox.healthComponent.gameObject == gameObject)
             {
@@ -118,16 +119,21 @@ namespace SM64BBF.States
         public override void OnExit()
         {
             base.OnExit();
+            EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Stop_StarmanComes", gameObject);
             if (NetworkServer.active)
             {
-                EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Stop_StarmanComes", gameObject);
                 if (characterBody.HasBuff(RoR2Content.Buffs.Immune))
                 {
                     characterBody.RemoveBuff(RoR2Content.Buffs.Immune);
                 }
             }
-            temporaryOverlay.RemoveFromCharacterModel();
-            UnityEngine.Object.Destroy(temporaryOverlay);
+            if (temporaryOverlay != null)
+            {
+                //temporaryOverlay.RemoveFromCharacterModel();
+                temporaryOverlay.destroyComponentOnEnd = true;
+                temporaryOverlay.Destroy();
+                temporaryOverlay = null;
+            }
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

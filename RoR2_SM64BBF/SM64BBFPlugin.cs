@@ -46,11 +46,17 @@ namespace SM64BBF
 
         private void RegisterHooks()
         {
-            On.RoR2.MusicController.Start += MusicController_Start;
+            On.RoR2.MusicController.StartIntroMusic += MusicController_StartIntroMusic;
             ContentManager.collectContentPackProviders += GiveToRoR2OurContentPackProviders;
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;
             CharacterBody.onBodyInventoryChangedGlobal += SM64BBF.Items.MarioOneUpItemBehavior.CharacterBody_onBodyInventoryChangedGlobal;
             R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void MusicController_StartIntroMusic(On.RoR2.MusicController.orig_StartIntroMusic orig, MusicController self)
+        {
+            orig(self);
+            AkSoundEngine.PostEvent("SM64_BBF_Play_Music_System", self.gameObject);
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, R2API.RecalculateStatsAPI.StatHookEventArgs args)
@@ -60,12 +66,6 @@ namespace SM64BBF
             {
                 args.armorAdd += 100f;
             }
-        }
-
-        private void MusicController_Start(On.RoR2.MusicController.orig_Start orig, MusicController self)
-        {
-            orig(self);
-            AkSoundEngine.PostEvent("SM64_BBF_Play_Music_System", self.gameObject);
         }
 
         private void Destroy()

@@ -2,7 +2,7 @@
 <summary>1.0.4 </summary>
 
 * Exposed Bob-omb and King Bob-omb character spawn cards.
-	* _You can find them in SM64BBF.SM64BBFContent.CharacterSpawnCards. Do note however that due to fact that I used ContentProvider csc are filled rather late, they will be null on plug-in load. Also King Bob-omb spawn card will be null if Regigigas is not installed.
+	* _You can find them in `SM64BBF.SM64BBFContent.CharacterSpawnCards`. Do note however that due to fact that I used ContentProvider csc are filled rather late, they will be null on plug-in load. Also King Bob-omb spawn card will be null if Regigigas is not installed._
 * Added option to add Bob-ombs to any stage, including modded ones and Simulacrum.	
 * Lowered volume and range of Bob-omb fuse sound. 
 	* _You still should be able to hear them approaching you from behind. Just they would no longer block every other sound in 100m radius._

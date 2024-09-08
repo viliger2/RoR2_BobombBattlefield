@@ -8,7 +8,9 @@ namespace SM64BBF.Controllers
     {
         void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.layer == 0)
+            if (collision.gameObject.layer == LayerIndex.defaultLayer.intVal 
+                || collision.gameObject.layer == LayerIndex.enemyBody.intVal
+                || collision.gameObject.layer == LayerIndex.playerBody.intVal)
             {
                 if (NetworkServer.active)
                 {

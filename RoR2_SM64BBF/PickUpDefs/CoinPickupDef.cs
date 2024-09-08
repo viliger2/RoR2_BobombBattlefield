@@ -17,7 +17,7 @@ namespace SM64BBF.PickUpDefs
 
         public override string GetInternalName()
         {
-            return "MistPickupIndex.Coin";
+            return "MiscPickupIndex.Coin";
         }
     }
 }

@@ -1,8 +1,8 @@
 {
     "name": "SM64BBF",
+    "rootNamespace": "",
     "references": [
-        "GUID:a44f47cf3ada4435dbc516bad0bc86fe",
-        "GUID:d9adbb5bf5c9f674ebb7cc66c27c9083"
+        "GUID:a44f47cf3ada4435dbc516bad0bc86fe"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -18,7 +18,6 @@
         "MMHOOK_RoR2.dll",
         "LegacyResourcesAPI.dll",
         "Unity.Addressables.dll",
-        "Unity.TextMeshPro.dll",
         "R2API.Stages.dll",
         "R2API.Sound.dll",
         "R2API.Addressables.dll",

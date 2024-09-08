@@ -2,6 +2,7 @@
 using RoR2;
 using RoR2.Audio;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace SM64BBF.States
 {
@@ -12,12 +13,12 @@ namespace SM64BBF.States
         public static AnimationCurve animCurve = null;
         public static AnimationCurve sizeCurve = null;
 
-        private static GameObject smokeEmitter = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/snowyforest/SFFirepit.prefab").WaitForCompletion().transform.Find("SFFire/HeatGas").gameObject;
-        private static GameObject explosionEffect = LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXCommandoGrenade");
-        private static Material overlayMaterial = LegacyResourcesAPI.Load<Material>("Materials/matFlashWhite");
+        private static GameObject smokeEmitter = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/snowyforest/SF_Firepit.prefab").WaitForCompletion().transform.Find("SFFire/HeatGas").gameObject;
+        private static GameObject explosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/OmniExplosionVFXCommandoGrenade.prefab").WaitForCompletion();
+        private static Material overlayMaterial = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/matFlashWhite.mat").WaitForCompletion();
         public GameObject smoke;
 
-        public TemporaryOverlay temporaryOverlay;
+        public TemporaryOverlayInstance temporaryOverlay;
         public ObjectScaleCurve scale;
 
         public override void OnEnter()
@@ -38,12 +39,12 @@ namespace SM64BBF.States
             var model = GetModelTransform()?.GetComponent<CharacterModel>();
             if (model)
             {
-                temporaryOverlay = base.gameObject.AddComponent<TemporaryOverlay>();
+                temporaryOverlay = TemporaryOverlayManager.AddOverlay(base.gameObject);
                 temporaryOverlay.duration = 0.2f;
                 temporaryOverlay.alphaCurve = animCurve;
                 temporaryOverlay.animateShaderAlpha = true;
                 temporaryOverlay.originalMaterial = overlayMaterial;
-                temporaryOverlay.AddToCharacerModel(model);
+                temporaryOverlay.AddToCharacterModel(model);
             }
             var cl = GetModelChildLocator();
             var head = cl?.FindChild("Head");
@@ -90,17 +91,19 @@ namespace SM64BBF.States
                     origin = characterBody.corePosition,
                     scale = 5f
                 }, true);
+                //outer.SetNextStateToMain();
                 outer.SetNextState(new BobombSuicideDeathState());
             }
         }
 
         public override void OnExit()
         {
-            base.OnExit();
-            if (temporaryOverlay)
+            if (temporaryOverlay != null)
             {
-                temporaryOverlay.RemoveFromCharacterModel();
-                GameObject.Destroy(temporaryOverlay);
+                //temporaryOverlay.RemoveFromCharacterModel();
+                temporaryOverlay.destroyComponentOnEnd = true;
+                temporaryOverlay.Destroy();
+                temporaryOverlay = null;
             }
             if (scale)
             {
@@ -108,6 +111,7 @@ namespace SM64BBF.States
                 GameObject.Destroy(scale);
             }
             GameObject.Destroy(smoke);
+            base.OnExit();
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

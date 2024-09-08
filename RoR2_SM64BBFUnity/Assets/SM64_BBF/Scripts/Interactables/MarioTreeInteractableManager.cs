@@ -118,5 +118,10 @@ namespace SM64BBF.Interactables
         {
             return false;
         }
+
+        public bool ShouldProximityHighlight()
+        {
+            return true;
+        }
     }
 }

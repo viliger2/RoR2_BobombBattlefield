@@ -19,9 +19,9 @@ MonoBehaviour:
   descriptionToken: SM64_BBF_ITEM_1UP_DESCRIPTION
   loreToken: SM64_BBF_ITEM_1UP_LORE
   unlockableDef: {fileID: 0}
-  pickupModelPrefab: {fileID: 7244675390810836188, guid: 1043e222e9877284a99b5ceec9d458d0,
-    type: 3}
-  pickupIconSprite: {fileID: 21300000, guid: 66749ae27e3542340b421704686746e3, type: 3}
+  pickupModelPrefab: {fileID: 7244675390810836188, guid: 1043e222e9877284a99b5ceec9d458d0, type: 3}
+  pickupIconSprite: {fileID: 21300000, guid: fbf6d9390b24dad458a9a51ad1657ec0, type: 3}
+  isConsumed: 0
   hidden: 0
   canRemove: 0
   tags: 0c0000000d0000000f0000000400000009000000
