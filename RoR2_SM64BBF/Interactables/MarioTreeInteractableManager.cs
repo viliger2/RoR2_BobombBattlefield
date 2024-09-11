@@ -87,6 +87,7 @@ namespace SM64BBF.Interactables
 
         private void DropStuff()
         {
+
 #if DEBUG
             PickupIndex pickupIndex = PickupCatalog.FindPickupIndex(SM64BBF.SM64BBFContent.MiscPickups.Starman.miscPickupIndex);
             PickupDropletController.CreatePickupDroplet(pickupIndex, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
@@ -95,25 +96,17 @@ namespace SM64BBF.Interactables
             PickupIndex pickupIndex3 = PickupCatalog.FindPickupIndex(SM64BBFContent.MiscPickups.Coin.miscPickupIndex);
             PickupDropletController.CreatePickupDroplet(pickupIndex3, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
 #else
-            int result = rng.RangeInt(0, 100);
+            WeightedSelection<(string, PickupIndex)> selection = new WeightedSelection<(string, PickupIndex)>();
+            selection.AddChoice(("SM64_BBF_Play_Coin", PickupCatalog.FindPickupIndex(SM64BBFContent.MiscPickups.Coin.miscPickupIndex)), Config.TreeInteractable.CoinWeight.Value);
+            selection.AddChoice(("SM64_BBF_Play_OneUp", PickupCatalog.FindPickupIndex(SM64BBFContent.Items.MarioOneUp.itemIndex)), Config.TreeInteractable.OneUpWeight.Value);
+            selection.AddChoice(("SM64_BBF_Play_Star", PickupCatalog.FindPickupIndex(SM64BBF.SM64BBFContent.MiscPickups.Starman.miscPickupIndex)), Config.TreeInteractable.StarmanWeight.Value);
+            selection.AddChoice(default((string, PickupIndex)), Config.TreeInteractable.NothingWeight.Value);
 
-            if (result > 98)
+            var pickupIndex = selection.Evaluate(Run.instance.treasureRng.nextNormalizedFloat);
+            if(pickupIndex != default((string, PickupIndex)))
             {
-                EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_Star", gameObject);
-                PickupIndex pickupIndex = PickupCatalog.FindPickupIndex(SM64BBF.SM64BBFContent.MiscPickups.Starman.miscPickupIndex);
-                PickupDropletController.CreatePickupDroplet(pickupIndex, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
-            }
-            else if (result > 85)
-            {
-                EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_OneUp", gameObject);
-                PickupIndex pickupIndex2 = PickupCatalog.FindPickupIndex(SM64BBFContent.Items.MarioOneUp.itemIndex);
-                PickupDropletController.CreatePickupDroplet(pickupIndex2, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
-            }
-            else if (result > 30)
-            {
-                EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_Coin", gameObject);
-                PickupIndex pickupIndex3 = PickupCatalog.FindPickupIndex(SM64BBFContent.MiscPickups.Coin.miscPickupIndex);
-                PickupDropletController.CreatePickupDroplet(pickupIndex3, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
+                EntitySoundManager.EmitSoundServer((AkEventIdArg)pickupIndex.Item1, gameObject);
+                PickupDropletController.CreatePickupDroplet(pickupIndex.Item2, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
             }
 #endif
         }

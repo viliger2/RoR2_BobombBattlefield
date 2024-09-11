@@ -21,28 +21,6 @@ MonoBehaviour:
   - assetBundleName: sm64bbfstage
     assets:
     - {fileID: 102900000, guid: 4821e4f313af99148bbc2f8cfb869078, type: 3}
---- !u!114 &-3343665978110542670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3230df44b431ebc49a958dde5afa4f88, type: 3}
-  m_Name: LanguageFolderTree
-  m_EditorClassIdentifier: 
-  StagingPaths:
-  - <BuildPathPlugins>
-  rootFolderName: Language
-  languageFolders:
-  - languageName: en
-    languageFiles:
-    - {fileID: 4900000, guid: f12d3adfef32da641a5b63cc8774b451, type: 3}
-  - languageName: ru
-    languageFiles:
-    - {fileID: 4900000, guid: 2669def5dd0a16e41af2cafedce74198, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +39,6 @@ MonoBehaviour:
   - {fileID: -5436246688006546773}
   - {fileID: 7329958817165005719}
   - {fileID: 5562763721278239391}
-  - {fileID: -3343665978110542670}
   identity: {fileID: 7868347188680798219}
   QuickAccess: 0
 --- !u!114 &5562763721278239391

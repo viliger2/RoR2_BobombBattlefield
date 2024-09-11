@@ -61,7 +61,7 @@ namespace SM64BBF.States
                         EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_StarmanKills", gameObject);
                         if (NetworkServer.active)
                         {
-                            hurtBox.healthComponent.Suicide();
+                            DealStarmanDamage(hurtBox.healthComponent);
                         }
                         else
                         {
@@ -94,9 +94,25 @@ namespace SM64BBF.States
             {
                 if (gameObject.TryGetComponent<CharacterBody>(out var body) && body.healthComponent)
                 {
-                    body.healthComponent.Suicide();
+                    DealStarmanDamage(body.healthComponent);
                 }
             }
+        }
+
+        private void DealStarmanDamage(HealthComponent healthComponent)
+        {
+            DamageInfo damageInfo = new DamageInfo();
+            damageInfo.attacker = base.gameObject;
+            damageInfo.inflictor = base.gameObject;
+            damageInfo.force = Vector3.zero;
+            damageInfo.damage = 9999999f;
+            damageInfo.crit = false;
+            damageInfo.position = healthComponent.transform.position;
+            damageInfo.procChainMask = new ProcChainMask();
+            damageInfo.procCoefficient = 0f;
+            damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
+            damageInfo.damageType = (DamageTypeCombo)(DamageType.BypassArmor & DamageType.BypassBlock);
+            healthComponent.TakeDamage(damageInfo);
         }
 
         private bool HurtBoxPassesFilter(HurtBox hurtBox)

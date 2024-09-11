@@ -1,10 +1,13 @@
 ﻿using BepInEx;
 using R2API;
 using RoR2;
+using RoR2.CharacterAI;
 using RoR2.ContentManagement;
+using SM64BBF.Items;
 using System.Collections.Generic;
 using System.Security.Permissions;
 using UnityEngine;
+using UnityEngine.Networking;
 
 #pragma warning disable CS0618 // Type or member is obsolete
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -15,11 +18,10 @@ namespace SM64BBF
 {
     [BepInPlugin(GUID, "SM64BBF", Version)]
     [BepInDependency(R2API.DirectorAPI.PluginGUID)]
-    [BepInDependency(R2API.StageRegistration.PluginGUID)]
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Version = "1.0.4";
+        public const string Version = "1.0.5";
         public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;

@@ -188,9 +188,21 @@
 														<MediaID ID="948707196"/>
 													</MediaIDList>
 												</AudioFileSource>
+												<AudioFileSource Name="actual_star_appears" ID="{C6C89928-F2C9-4F0C-AA0A-3F9D8562F72B}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.521922084483661"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.47983122515142"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>actual_star_appears.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="557418506"/>
+													</MediaIDList>
+												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="star_appears" ID="{6B5AD37B-978A-4503-A99D-D4CD64D8602A}" Platform="Linked"/>
+												<ActiveSource Name="actual_star_appears" ID="{C6C89928-F2C9-4F0C-AA0A-3F9D8562F72B}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>

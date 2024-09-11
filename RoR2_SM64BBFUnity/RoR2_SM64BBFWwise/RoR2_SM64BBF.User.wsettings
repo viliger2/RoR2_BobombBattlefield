@@ -3,7 +3,7 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{E28D0B62-FD79-4C7F-A81E-AA2041E745D2}">
 			<PropertyList>
-				<Property Name="AudioFilesImporter\Path" Type="string" Value="F:\Projects\WwiseProjects\RoR2_SM64BBF\Originals\SFX\"/>
+				<Property Name="AudioFilesImporter\Path" Type="string" Value="F:\Projects\RoR2\RoR2_BobombBattlefield\RoR2_SM64BBFUnity\RoR2_SM64BBFWwise\Originals\SFX\"/>
 				<Property Name="Event Action List\{05BCE288-476A-4F40-8C9C-0A30C666A775}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{0C0E15C0-AEE4-4F18-B2AB-DE712536890C}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{1642A7F3-BF9E-4606-8DD6-94FA31A7BF2E}\x64_Expand States" Type="string" Value=""/>
@@ -82,10 +82,10 @@
 				<Property Name="ObjectTabPanel\x64_CurrentObjects_{618C1FF9-37D4-45A7-AF0A-E2D511E44707}" Type="string" Value=""/>
 				<Property Name="ObjectTabPanel\x64_CurrentObjects_{826CEF9F-ACB3-45D2-8319-9C9994E4CA5C}" Type="string" Value=""/>
 				<Property Name="ObjectTabPanel\x64_CurrentObjects_{A45AAC64-78D1-46A7-88FA-F242B38651B4}" Type="string" Value=""/>
-				<Property Name="ObjectTabPanel\x64_CurrentObjects_{D5805147-985E-4C5B-B817-369AF1B7184D}" Type="string" Value="ewBEADgAMwAyADYAOQA0ADEALQBBADAANgA5AC0ANAAxADQAOAAtAEEAOAAxAEEALQA5ADkAMgA0AEMAMgAyAEQAMABFADIAMwB9AAAAAQF7ADEAMQA1AEMANQA2AEMAMwAtADEANQA2ADMALQA0ADAARAA1AC0AOAA2ADMANAAtAEEAMwAxAEUAMgBFAEIANABCAEIARgA0AH0AAAAAAXsAMgA5ADMAMwBCADQARAA1AC0AMQBEAEQARgAtADQANgAwAEIALQA4AEQARABEAC0AMwBEADcAMgAwADEAQgAyADIARQBEAEUAfQAAAAEB"/>
+				<Property Name="ObjectTabPanel\x64_CurrentObjects_{D5805147-985E-4C5B-B817-369AF1B7184D}" Type="string" Value="ewBEADgAMwAyADYAOQA0ADEALQBBADAANgA5AC0ANAAxADQAOAAtAEEAOAAxAEEALQA5ADkAMgA0AEMAMgAyAEQAMABFADIAMwB9AAAAAQF7AEQANABFAEIARgAxADEANAAtADgAMwBEAEEALQA0ADEARQBGAC0AQgA1AEUAOAAtAEYAQgBDADIAMwBCADYANwBCAEIANwA5AH0AAAAAAXsAMgA5ADMAMwBCADQARAA1AC0AMQBEAEQARgAtADQANgAwAEIALQA4AEQARABEAC0AMwBEADcAMgAwADEAQgAyADIARQBEAEUAfQAAAAEB"/>
 				<Property Name="ObjectTabPanel\x64_CurrentObjects_{FB6925F8-3EDD-42F1-B446-654A30D756CF}" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\AudioSelectionChannel1\ProjectExplorer2LastScrollState" Type="int32" Value="0"/>
-				<Property Name="ProjectExplorer\AudioSelectionChannel1\x64_ProjectExplorer2LastExpandedState" Type="string" Value="iC8JJ1oiVBFnJcijTz1EguraiCN1l8ZGou3FIio5d1b4u6dewGRQSoghoH6L4h1ojlbZoFfY9kqYBdjHRQMqrdIPzgvSbzhDiwAfDkeaJ8kyKfSjdCz6Rrp77JIvXJiak4mt8MCoGkC1WoH5ASkK3GbT/kkwtahCmTuSSHOqtwfMwHmvdm4OT4QBKp6OgrETmkYoPomGSUqrZHJWhiqyoUFpMthpoEhBqBqZJMItDiPatxhd3zRhTp/lyeyRQo35lt7i0mNKXEWQcx8qkumo3tW0MynfHQtGjd09cgGyLt6PWAgRFwMsQYIJIjudqweEbNR7nTF7yEWRvmM9vLtOPw=="/>
+				<Property Name="ProjectExplorer\AudioSelectionChannel1\x64_ProjectExplorer2LastExpandedState" Type="string" Value="iC8JJ1oiVBFnJcijTz1EguraiCN1l8ZGou3FIio5d1b4u6dewGRQSoghoH6L4h1ojlbZoFfY9kqYBdjHRQMqrdIPzgvSbzhDiwAfDkeaJ8kyKfSjdCz6Rrp77JIvXJiak4mt8MCoGkC1WoH5ASkK3GbT/kkwtahCmTuSSHOqtwfMwHmvdm4OT4QBKp6OgrETmkYoPomGSUqrZHJWhiqyoQ=="/>
 				<Property Name="ProjectExplorer\AudioSelectionChannel2\ProjectExplorer2LastScrollState" Type="int32" Value="0"/>
 				<Property Name="ProjectExplorer\AudioSelectionChannel2\x64_ProjectExplorer2LastExpandedState" Type="string" Value="iC8JJ1oiVBFnJcijTz1EguraiCN1l8ZGou3FIio5d1b4u6dewGRQSoghoH6L4h1ojlbZoFfY9kqYBdjHRQMqrdIPzgvSbzhDiwAfDkeaJ8kyKfSjdCz6Rrp77JIvXJiak4mt8MCoGkC1WoH5ASkK3GbT/kkwtahCmTuSSHOqtwfMwHmvdm4OT4QBKp6OgrETmkYoPomGSUqrZHJWhiqyocNWXBFjFdVAhjSjHi60u/Q="/>
 				<Property Name="ProjectExplorer\EventsSelectionChannel1\ProjectExplorer2LastScrollState" Type="int32" Value="0"/>
@@ -154,7 +154,7 @@
 				<Property Name="SoundBank Manager\x64_Expand Folders User" Type="string" Value="BwAAAA=="/>
 				<Property Name="SoundBank Manager\x64_Expand States" Type="string" Value="CjVwOT2lmUewFy1/Kd04OQ=="/>
 				<Property Name="SoundBank Manager\x64_Expand States Auto" Type="string" Value=""/>
-				<Property Name="SoundBank Manager\x64_Expand States User" Type="string" Value=""/>
+				<Property Name="SoundBank Manager\x64_Expand States User" Type="string" Value="CjVwOT2lmUewFy1/Kd04OQ=="/>
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="GeneratedSoundBanks\"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>

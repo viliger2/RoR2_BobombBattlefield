@@ -29,7 +29,6 @@ namespace SM64BBF
 
         internal static SceneDef SM64BBFScene;
         internal static Sprite SM64BBFPreviewSprite;
-        internal static Material SM64BBFBazaarSeer;
 
         public static List<Material> SwappedMaterials = new List<Material>(); //apparently you need it because reasons?
 
@@ -187,17 +186,17 @@ namespace SM64BBF
 
                 if (SM64BBF.RegigigasCompat.enabled)
                 {
-                    var kingBobombBody2 = assets.First(bp => bp.name == "KingBobomb2Body");
-                    var bodyComponent2 = kingBobombBody2.GetComponent<CharacterBody>();
+                    var KingBobomb = assets.First(bp => bp.name == "KingBobomb2Body");
+                    var bodyComponent2 = KingBobomb.GetComponent<CharacterBody>();
                     bodyComponent2._defaultCrosshairPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/StandardCrosshair.prefab").WaitForCompletion();
 
-                    var cameraParams2 = kingBobombBody2.GetComponent<CameraTargetParams>();
+                    var cameraParams2 = KingBobomb.GetComponent<CameraTargetParams>();
                     cameraParams2.cameraParams = Addressables.LoadAssetAsync<CharacterCameraParams>("RoR2/Base/Common/ccpStandardHuge.asset").WaitForCompletion();
 
 
-                    SM64BBF.RegigigasCompat.SetupKingBobombBody(kingBobombBody2, contentPack);
+                    SM64BBF.RegigigasCompat.SetupKingBobombBody(KingBobomb, contentPack);
 
-                    contentPack.bodyPrefabs.Add(new GameObject[] { kingBobombBody2 });
+                    contentPack.bodyPrefabs.Add(new GameObject[] { KingBobomb });
                     //Log.Debug("added and setup RegigigasKingBobombBody");
                 }
                 //Log.Debug("loaded bodyPrefabs");
@@ -270,9 +269,10 @@ namespace SM64BBF
             MiscPickups.Starman.dropletDisplayPrefab = bossDroplet.Result;
             MiscPickups.Coin.dropletDisplayPrefab = bossDroplet.Result;
 
-            SM64BBFBazaarSeer = StageRegistration.MakeBazaarSeerMaterial(SM64BBFPreviewSprite.texture);
+            var bazaarSeerMaterial = UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/bazaar/matBazaarSeerWispgraveyard.mat").WaitForCompletion());
+            bazaarSeerMaterial.mainTexture = SM64BBFPreviewSprite.texture;
             SM64BBFScene.previewTexture = SM64BBFPreviewSprite.texture;
-            SM64BBFScene.portalMaterial = SM64BBFBazaarSeer;
+            SM64BBFScene.portalMaterial = bazaarSeerMaterial;
 
             var dioramaPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/golemplains/GolemplainsDioramaDisplay.prefab");
             while (!dioramaPrefab.IsDone)
@@ -284,7 +284,15 @@ namespace SM64BBF
             // uncomment this if you don't want to use Wwise + Unity integration
             SetupMusic();
 
-            StageRegistration.RegisterSceneDefToLoop(SM64BBFScene);
+            var normalSceneCollection = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage5.asset").WaitForCompletion();
+            HG.ArrayUtils.ArrayAppend(ref normalSceneCollection._sceneEntries, new SceneCollection.SceneEntry { sceneDef = SM64BBFScene, weight = 1f });
+            SM64BBFScene.destinationsGroup = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage1.asset").WaitForCompletion();
+
+            var loopSceneCollection = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/loopSgStage5.asset").WaitForCompletion();
+            HG.ArrayUtils.ArrayAppend(ref loopSceneCollection._sceneEntries, new SceneCollection.SceneEntry { sceneDef = SM64BBFScene, weight = 1f });
+            SM64BBFScene.loopedDestinationsGroup = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/loopSgStage1.asset").WaitForCompletion();
+
+            //StageRegistration.RegisterSceneDefToLoop(SM64BBFScene);
         }
 
         private static void SetupBobombItemDisplays(ref ItemDisplayRuleSet itemDisplayRuleSet)

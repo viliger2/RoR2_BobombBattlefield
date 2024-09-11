@@ -33,6 +33,14 @@ namespace SM64BBF
             public static ConfigEntry<string> SpawnCustomStages;
         }
 
+        public struct TreeInteractable
+        {
+            public static ConfigEntry<float> CoinWeight;
+            public static ConfigEntry<float> OneUpWeight;
+            public static ConfigEntry<float> StarmanWeight;
+            public static ConfigEntry<float> NothingWeight;
+        }
+
         public static void PopulateConfig(ConfigFile config)
         {
             BobombSpawning.SelectionWeight = config.Bind("Bobomb Spawn", "Bobomb Card Selection Weight", 6, "Selection weight for Bobomb Director Card. Does not affect spawning on Bobomb Battlefield, only for other stages.");
@@ -57,6 +65,11 @@ namespace SM64BBF
             BobombSpawning.SpawnSimulacrum = config.Bind("Bobomb Spawn", "Bobomb Can Spawn in Simulacrum", false, "Bobombs can spawn in Simulacrum, covers all Simulacrum stages.");
 
             BobombSpawning.SpawnCustomStages = config.Bind("Bobomb Spawn", "Bobomb Can Spawn in custom stages", "", "To make Bobombs spawn in custom stages, add internal names of custom stages separated by \",\". You can find their name by installing DebugToolkit and then entering \"list_scene\", it will give you the list of all available scenes as stages. For example, Fogbound Lagoon is FBLScene, Catacombs is catacombs_DS1_Catacombs, Bobomb Battlefield is sm64_bbf_SM64_BBF");
+
+            TreeInteractable.CoinWeight = config.Bind("Tree Interactable", "Coin Weight", 40f, "Weight to spawn Coin when shaking the tree. Higher the value - higher the chance.");
+            TreeInteractable.OneUpWeight = config.Bind("Tree Interactable", "One Up Weight", 5f, "Weight to spawn 1UP when shaking the tree. Higher the value - higher the chance.");
+            TreeInteractable.StarmanWeight = config.Bind("Tree Interactable", "Starman Weight", 10f, "Weight to spawn Starman when shaking the tree. Higher the value - higher the chance.");
+            TreeInteractable.NothingWeight = config.Bind("Tree Interactable", "Nothing Weight", 45f, "Weight to get nothing when shaking the tree. Higher the value - higher the chance.");
         }
 
     }

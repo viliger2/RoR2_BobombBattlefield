@@ -1,4 +1,13 @@
 <details>
+<summary>1.0.5 </summary>
+
+* SoTS update.
+* Rebalanced tree drops and exposed drop chances to config.
+* 1UP and Coin now have models. I would love to still have sprites but Gearbox\Unity changes made so they have a very ugly box around them.
+* Removed StageAPI dependency.
+* Music might be a bit quiet compared to vanilla stages due to Wwise update. Let me know how it feels.
+</details>
+<details>
 <summary>1.0.4 </summary>
 
 * Exposed Bob-omb and King Bob-omb character spawn cards.
