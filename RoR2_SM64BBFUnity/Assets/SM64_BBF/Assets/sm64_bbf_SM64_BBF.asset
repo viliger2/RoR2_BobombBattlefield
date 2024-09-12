@@ -16,7 +16,7 @@ MonoBehaviour:
     m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
-  baseSceneNameOverride: SM64_BBF
+  baseSceneNameOverride: sm64_bbf_SM64_BBF
   sceneType: 1
   isOfflineScene: 0
   stageOrder: 5
@@ -28,13 +28,21 @@ MonoBehaviour:
   portalSelectionMessageString: SM64_BBF_BAZAAR_SEER_SM64_BBF
   shouldIncludeInLogbook: 1
   loreToken: SM64_BBF_MAP_SM64_BBF_LORE
-  dioramaPrefab: {fileID: 0}
+  dioramaPrefab: {fileID: 8276600431417818558, guid: 3f246044cf69da344bbfc42a61bf3695, type: 3}
   mainTrack: {fileID: 11400000, guid: f568305194c8fce46b94b74d52b2e1b9, type: 2}
   bossTrack: {fileID: 11400000, guid: d2876038aa7b85947bd0abf692ad6c8d, type: 2}
+  environmentColor: {r: 0, g: 0, b: 0, a: 0}
+  hasSafeStart: 0
   suppressPlayerEntry: 0
   suppressNpcEntry: 0
   blockOrbitalSkills: 0
   validForRandomSelection: 1
+  allowItemsToSpawnObjects: 0
+  needSkipDevotionRespawn: 0
   destinationsGroup: {fileID: 0}
+  loopedDestinationsGroup: {fileID: 0}
+  shouldUpdateSceneCollectionAfterLooping: 1
+  isLockedBeforeLooping: 0
+  loopedSceneDef: {fileID: 0}
   destinations: []
   preferredPortalPrefab: {fileID: 0}

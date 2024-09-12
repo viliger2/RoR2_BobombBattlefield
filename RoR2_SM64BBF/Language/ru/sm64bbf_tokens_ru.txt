@@ -1,0 +1,28 @@
+{
+	"strings": {
+		"SM64_BBF_BOBOMB_BODY_NAME": "Боб-омб",
+		"SM64_BBF_BOBOMB_EXPLODE_JUMP_NAME": "Найти цель и взорваться",
+		"SM64_BBF_BOBOMB_EXPLODE_JUMP_DESCRIPTION": "Подпрыгивает в воздух и поджигает фитиль. Через 5 секунд взрывается нанося 500% базового урона.",
+		"SM64_BBF_BOBOMB_EXPLODE_NAME": "Взрыв",
+		"SM64_BBF_BOBOMB_EXPLODE_DESCRIPTION": "Поджигает филить. Через 5 секунд взрывается нанося 500% базового урона.",
+		"SM64_BBF_UNLOCKABLE_LOG_BOBOMB": "Запись о монстре: Боб-омб",
+		"SM64_BBF_KING_BOBOMB_BODY_NAME": "Король Боб-омб",
+		"SM64_BBF_KING_BOBOMB_BODY_SUBTITLE": "Его королевское величество",
+		"SM64_BBF_UNLOCKABLE_LOG_KING_BOBOMB": "Запись о монстре: Король Боб-омб",
+		"SM64_BBF_ITEM_1UP_NAME": "1UP",
+		"SM64_BBF_ITEM_1UP_PICKUP": "Дополнительная жизнь!",
+		"SM64_BBF_ITEM_1UP_DESCRIPTION": "Воскрешает при смерти. Пропадет при уходе с Поля Боб-омб.",
+		"SM64_BBF_PICKUP_COIN": "Монетка",
+		"SM64_BBF_PICKUP_COIN_CONTEXT": "Поднять монетку?",
+		"SM64_BBF_PICKUP_STARMAN": "Суперзвезда",
+		"SM64_BBF_PICKUP_STARMAN_CONTEXT": "Поднять суперзвезду?",
+		"SM64_BBF_UNLOCKABLE_LOG_MAP": "Запись об окружении: Поле Боб-омб",
+		"SM64_BBF_MAP_SM64_BBF_NAME": "Поле Боб-обм",
+		"SM64_BBF_MAP_SM64_BBF_SUBTITLE": "Луга охваченные войной",
+		"SM64_BBF_BAZAAR_SEER_SM64_BBF": "<style=cWorldEvent>Вы мечтаете о взрывах.</style>",
+		"SM64_BBF_MAP_SM64_BBF_LORE": "Мама мия!",
+		"SM64_BBF_INTERACTABLE_MARIOTREE_NAME": "Дерево",
+		"SM64_BBF_INTERACTABLE_MARIOTREE_CONTEXT": "Потрясти дерево?",
+		"SM64_BBF_FAMILY_BOBOMB": "Вы чуете запах пороха по ветру."
+	}
+}

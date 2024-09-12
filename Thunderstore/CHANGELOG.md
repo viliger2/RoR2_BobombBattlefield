@@ -1,4 +1,12 @@
 <details>
+<summary>1.0.6 </summary>
+
+* Added log entry for the stage.
+* Fixed some localization strings.
+* Added "better" diorama.
+* Added elite displays for Bob-omb and King Bob-omb for SoTS elites.
+</details>
+<details>
 <summary>1.0.5 </summary>
 
 * SoTS update.

@@ -274,13 +274,6 @@ namespace SM64BBF
             SM64BBFScene.previewTexture = SM64BBFPreviewSprite.texture;
             SM64BBFScene.portalMaterial = bazaarSeerMaterial;
 
-            var dioramaPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/golemplains/GolemplainsDioramaDisplay.prefab");
-            while (!dioramaPrefab.IsDone)
-            {
-                yield return null;
-            }
-            SM64BBFScene.dioramaPrefab = dioramaPrefab.Result;
-
             // uncomment this if you don't want to use Wwise + Unity integration
             SetupMusic();
 
@@ -498,6 +491,46 @@ namespace SM64BBF
             {
                 displayRuleGroup = displayRuleGroupVoid,
                 keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/DLC1/EliteVoid/EliteVoidEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region BeadElite
+            var displayRuleGroupBead = new DisplayRuleGroup();
+            displayRuleGroupBead.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC2/Elites/EliteBead/DisplayEliteBeadSpike.prefab").WaitForCompletion(),
+                childName = "Head",
+                localPos = new Vector3(0F, 0F, 0F),
+                localAngles = new Vector3(351.8527F, 1.20328F, 359.7321F),
+                localScale = new Vector3(0.10228F, 0.10228F, 0.10228F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupBead,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/DLC2/Elites/EliteBead/EliteBeadEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region GoldElite
+            var displayRuleGroupGold = new DisplayRuleGroup();
+            displayRuleGroupGold.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC2/Elites/EliteAurelionite/DisplayEliteAurelioniteEquipment.prefab").WaitForCompletion(),
+                childName = "Head",
+                localPos = new Vector3(-0.70343F, 0.297F, -0.0293F),
+                localAngles = new Vector3(0F, 265.192F, 4F),
+                localScale = new Vector3(1F, 1F, 1F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupGold,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/DLC2/Elites/EliteAurelionite/EliteAurelioniteEquipment.asset").WaitForCompletion()
             });
             #endregion
 
@@ -755,6 +788,46 @@ namespace SM64BBF
             {
                 displayRuleGroup = displayRuleGroupVoid,
                 keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/DLC1/EliteVoid/EliteVoidEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region BeadElite
+            var displayRuleGroupBead = new DisplayRuleGroup();
+            displayRuleGroupBead.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC2/Elites/EliteBead/DisplayEliteBeadSpike.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(-0.00333F, 1.08781F, -0.20362F),
+                localAngles = new Vector3(0F, 0F, 0F),
+                localScale = new Vector3(0.20273F, 0.13253F, 0.20273F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupBead,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/DLC2/Elites/EliteBead/EliteBeadEquipment.asset").WaitForCompletion()
+            });
+            #endregion
+
+            #region GoldElite
+            var displayRuleGroupGold = new DisplayRuleGroup();
+            displayRuleGroupGold.AddDisplayRule(new ItemDisplayRule
+            {
+                ruleType = ItemDisplayRuleType.ParentedPrefab,
+                followerPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC2/Elites/EliteAurelionite/DisplayEliteAurelioniteEquipment.prefab").WaitForCompletion(),
+                childName = "Chest",
+                localPos = new Vector3(0.04781F, 1.64264F, 1.12044F),
+                localAngles = new Vector3(0F, 0F, 0F),
+                localScale = new Vector3(1.65698F, 1.65698F, 1.65698F),
+                limbMask = LimbFlags.None
+            });
+
+            ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
+            {
+                displayRuleGroup = displayRuleGroupGold,
+                keyAsset = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/DLC2/Elites/EliteAurelionite/EliteAurelioniteEquipment.asset").WaitForCompletion()
             });
             #endregion
 

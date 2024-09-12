@@ -215,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3913062537316251698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.819, z: 1.782}
+  m_LocalPosition: {x: 0, y: 0.819, z: 3.502}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1633,7 +1633,7 @@ MonoBehaviour:
   cameraPositionTransform: {fileID: 3975860083172941199}
   modelRotation: {x: 0, y: 0, z: 0, w: 1}
   minDistance: 1.5
-  maxDistance: 2.5
+  maxDistance: 6
 --- !u!114 &6669294184588081045
 MonoBehaviour:
   m_ObjectHideFlags: 0

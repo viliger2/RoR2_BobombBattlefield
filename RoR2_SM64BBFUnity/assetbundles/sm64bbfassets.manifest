@@ -1,0 +1,555 @@
+ManifestFileVersion: 0
+CRC: 4204014150
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9aea086cdc3ed6c75d6272f913a4ec4c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9430db191653a26fc9eedfe8490ffda3
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1143142494, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 13d6c522af31447398568cc65334232b, type: 3}
+- Class: 114
+  Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 35331000, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1392865457, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1512185436, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 161585894, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 306635731, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 952828898, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 114
+  Script: {fileID: 1144835783, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1480773730, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1530905962, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9a3ea8bcb337b364986b38a6c2cd7dc9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5b585ce31f93d58489807db4907df51d, type: 3}
+- Class: 114
+  Script: {fileID: 495100722, guid: 45feadaaa90b2d2217207fb8b533753e, type: 3}
+- Class: 114
+  Script: {fileID: 2099981080, guid: 45feadaaa90b2d2217207fb8b533753e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cc66948c7c3583940926760a310c64e0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 95b7094200176ce49867dcf95157b0dd, type: 3}
+- Class: 114
+  Script: {fileID: -1811796171, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -46258121, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1357070253, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 422384671, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1067940895, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -197296741, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 953270592, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1277448904, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1077198318, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 261648291, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -2096938146, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -380008858, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -226763392, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1558202198, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 2014855634, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -578974823, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1164381806, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -104859921, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1161602148, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 140337805, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1620867292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 298587437, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -365436499, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 871971028, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1294804675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -202159943, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1792105662, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1549848242, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -359660931, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 682687671, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1888550019, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -703206264, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1578512655, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1699741063, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1864444436, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -255427816, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -609359282, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -460905027, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -794597441, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1124653335, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -789927658, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -565067572, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1391837873, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1627637702, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -315171339, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1746479147, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 61e8b51e2e250df468fc6c895d717ba9, type: 3}
+- Class: 114
+  Script: {fileID: -1568778350, guid: 050936fea8909af15a3fd3b64da1ff83, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cede34d6ffb2aba4c80207695811c361, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 57f881d4a59de294a8b57bf78c6022ae, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7e7ce69acda300c4b971bbb3cffd2b99, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: AK.Wwise.Unity.API.WwiseTypes
+  ClassName: AK.Wwise.Bank
+- AssemblyName: AK.Wwise.Unity.API.WwiseTypes
+  ClassName: AK.Wwise.State
+- AssemblyName: HGUnityUtils
+  ClassName: HG.BlendableTypes.BlendableBool
+- AssemblyName: HGUnityUtils
+  ClassName: HG.BlendableTypes.BlendableFloat
+- AssemblyName: HGUnityUtils
+  ClassName: HG.BlendableTypes.BlendableVector3
+- AssemblyName: R2API.Addressables
+  ClassName: R2API.AddressReferencedAssets.AddressReferencedExpansionDef
+- AssemblyName: R2API.Addressables
+  ClassName: R2API.AddressReferencedAssets.AddressReferencedSpawnCard
+- AssemblyName: R2API.Addressables
+  ClassName: R2API.AddressReferencedAssets.AddressReferencedUnlockableDef
+- AssemblyName: R2API.Director
+  ClassName: R2API.AddressableDCCSPool/Category
+- AssemblyName: R2API.Director
+  ClassName: R2API.AddressableDCCSPool/ConditionalPoolEntry
+- AssemblyName: R2API.Director
+  ClassName: R2API.AddressableDCCSPool/PoolEntry
+- AssemblyName: R2API.Director
+  ClassName: R2API.AddressableDirectorCard
+- AssemblyName: R2API.Director
+  ClassName: R2API.AddressableDirectorCardCategorySelection/Category
+- AssemblyName: RoR2
+  ClassName: ChildLocator/NameTransformPair
+- AssemblyName: RoR2
+  ClassName: EntityStates.SerializableEntityStateType
+- AssemblyName: RoR2
+  ClassName: RoR2.AssetReferenceScene
+- AssemblyName: RoR2
+  ClassName: RoR2.CharacterCameraParamsData
+- AssemblyName: RoR2
+  ClassName: RoR2.CharacterFlightParameters
+- AssemblyName: RoR2
+  ClassName: RoR2.CharacterGravityParameters
+- AssemblyName: RoR2
+  ClassName: RoR2.CharacterModel/RendererInfo
+- AssemblyName: RoR2
+  ClassName: RoR2.DisplayRuleGroup
+- AssemblyName: RoR2
+  ClassName: RoR2.ItemDisplayRuleSet/KeyAssetRuleGroup
+- AssemblyName: RoR2
+  ClassName: RoR2.Navigation.NodeGraph/Link
+- AssemblyName: RoR2
+  ClassName: RoR2.Navigation.NodeGraph/LinkListIndex
+- AssemblyName: RoR2
+  ClassName: RoR2.Navigation.NodeGraph/Node
+- AssemblyName: RoR2
+  ClassName: RoR2.Navigation.NodeGraph/NodeIndex
+- AssemblyName: RoR2
+  ClassName: RoR2.PickupIndex
+- AssemblyName: RoR2
+  ClassName: RoR2.SerializableLoadout
+- AssemblyName: RoR2
+  ClassName: RoR2.SerializablePickupIndex
+- AssemblyName: RoR2
+  ClassName: RoR2.SkillLocator/PassiveSkill
+- AssemblyName: RoR2
+  ClassName: RoR2.Skills.SkillFamily/Variant
+- AssemblyName: RoR2
+  ClassName: SerializableBitArray
+- AssemblyName: RoR2
+  ClassName: Wave
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent
+- AssemblyName: com.unity.multiplayer-hlapi.Runtime
+  ClassName: UnityEngine.Networking.NetworkHash128
+- AssemblyName: com.unity.multiplayer-hlapi.Runtime
+  ClassName: UnityEngine.Networking.NetworkSceneId
+Assets:
+- Assets/SM64_BBF/Assets/Enemies/OLD_KingBobomb/OLD_cscKingBobomb.asset
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombModel.fbx
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_GrabFail.anim
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/Mario64.FBX
+- Assets/SM64_BBF/Assets/Items/matOneUpEyes.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_AimYaw.anim
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/Family/Gup/fdccsSM64BBFGupFamily.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/CalmWater/CalmWater - SingleSided.shader
+- Assets/SM64_BBF/Assets/Mesh/Textures/4020CDFE_c.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_GrabSuccess.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_Ascend.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_Spawn.anim
+- Assets/SM64_BBF/Assets/Mesh/Textures/C1DF883_c.png
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/PostProcess/HGVisionLimit.shader
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Flinch3.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_Death.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_GigaImpact.anim
+- Assets/SM64_BBF/Assets/Buffs/bdBobombArmorBuff.asset
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/Mario64Eye_alb.0.png
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombMaster.prefab
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombExplodeLowHealth.asset
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_IdleIn.anim
+- Assets/SM64_BBF/Assets/Cannon/cannon_base.fbx
+- Assets/SM64_BBF/Assets/Mesh/Textures/41A41EE3_c.png
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/texCoinNormal.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_Descend.anim
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Jump.anim
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/Mario64Face_alb.png
+- Assets/SM64_BBF/Assets/Materials/Pebbles 1.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Logs.KingBobombBod.asset
+- Assets/SM64_BBF/Assets/Diorama/Diorama.prefab
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/DCCS/Vanilla/dccsSM64BBFMonsters.asset
+- Assets/SM64_BBF/Assets/Skybox/water.png
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombBodyIcon.png
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/OLD/coin_tilt_right.ia16.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Skills/SkillDefs/KingBobombSlam.asset
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombModel_backup.fbx
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_FireAncientPower.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Skills/SkillDefs/KingBobombEarthquake.asset
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_JumpWindup.anim
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/OLD/coin_front.ia16.png
+- Assets/SM64_BBF/Assets/Materials/Fence 1.mat
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/FaceMT.mat
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombExplode.asset
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/Family/Lemurian/adccsSM64BBFLemurianFamily.asset
+- Assets/SM64_BBF/Assets/Mesh/Textures/6C631877_c.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Skills/SkillFamilies/KingBobombSecondaryFamily.asset
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Death.anim
+- Assets/SM64_BBF/Assets/TreeInteractable/TreeShadow.mat
+- Assets/SM64_BBF/Assets/Items/texOneUpEyes.png
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/OLD/coin_side.ia16.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/KingBobombBody2Icon.png
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/Mario64Body_alb.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Materials/matKingBobomb.mat
+- Assets/SM64_BBF/Assets/Mesh/Textures/6B2D96F_c.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Skills/SkillDefs/KingBobombRevenge.asset
+- Assets/SM64_BBF/Assets/Materials/RedRock 1.mat
+- Assets/SM64_BBF/Assets/StubbedShaders/CalmWater/CalmWater - DX11.shader
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_aimHorizontal.anim
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Logs.BobombBody.0.asset
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombBodyPrimaryFamily.asset
+- Assets/SM64_BBF/Assets/SpawnThings/Interactables/adpSM64BBFInteractables.asset
+- Assets/SM64_BBF/Assets/RollingStones/bully_left_side.rgba16.png
+- Assets/SM64_BBF/Assets/Materials/Wood 1.mat
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/Family/Void/fdccsSM64BBFVoidFamily.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/PostProcess/HGOutlineHighlight.shader
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/Deferred/HGStandardWithDistortion.shader
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Idle.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/FX/HGVertexOnly.shader
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Textures/blackbomb_grp.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/animRegigigas.controller
+- Assets/SM64_BBF/Assets/Items/OneUp.asset
+- Assets/SM64_BBF/Assets/SpawnThings/Interactables/dpSM64BBFInteractables.asset
+- Assets/SM64_BBF/Assets/Materials/YetAnotherStone 1.mat
+- Assets/SM64_BBF/Assets/Materials/NormalStones 1.mat
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/OLD/CoinPrefab.controller
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/KingBobomb2Body.prefab
+- Assets/SM64_BBF/Assets/Items/texOneUpBody.png
+- Assets/SM64_BBF/Assets/Materials/Grass 1.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_Jump.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/Decalicious/DecaliciousDeferredDecal.shader
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_SprintSmooth.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_WalkB.anim
+- Assets/SM64_BBF/Assets/Materials/FlowerBase 1.mat
+- Assets/SM64_BBF/Assets/PickupDefs/Starman/Textures/body.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Materials/matKingBobombBodySprite.mat
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/Deferred/HGTriplanarTerrainBlend.shader
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/UI/HGUIIgnoreZ.shader
+- Assets/SM64_BBF/Assets/Diorama/Clipboard02.png
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/Deferred/HGSnowTopped.shader
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/cscBobomb.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/PsychoseNGGS/NGSS_ContactShadows.shader
+- Assets/SM64_BBF/Assets/Skybox/Skybox.mat
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/UI/HGUIAnimateAlpha.shader
+- Assets/SM64_BBF/Assets/Enemies/OLD_KingBobomb/OLD_KingBobombBody.prefab
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_WalkRSmooth.anim
+- Assets/SM64_BBF/Assets/PreviewImage/texSM64BBFPreview.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_Inactive.anim
+- Assets/SM64_BBF/Assets/Mesh/Textures/1B46C8C_c.png
+- Assets/SM64_BBF/Assets/StubbedShaders/LeTai'sAsset/TranslucentImage.shader
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/cscKingBobomb2.asset
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/animBobomb.controller
+- Assets/SM64_BBF/Assets/StubbedShaders/CalmWater/UnderWaterFog.shader
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Spawn.anim
+- Assets/SM64_BBF/Assets/Mesh/Textures/574B138E_c.png
+- Assets/SM64_BBF/Assets/StubbedShaders/CalmWater/CalmWater - DoubleSided.shader
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_DefaultPose.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/CalmWater/ProjectorCaustics.shader
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/FX/HGCloudRemap.shader
+- Assets/SM64_BBF/Assets/SpawnThings/Interactables/DLC1/dccsSM64BBFInteractablesDLC1.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/LeTai'sAsset/EfficientBlur.shader
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Skills/SkillFamilies/KingBobombPrimaryFamily.asset
+- Assets/SM64_BBF/Assets/Items/texOneUpIcon.png
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Flinch2.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/Decalicious/DecaliciousGameObjectID.shader
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_WalkR.anim
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_AscendDescend.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/PostProcess/HGScreenDamage.shader
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/idrsKingBobomb2.asset
+- Assets/SM64_BBF/Assets/Items/matOneUpBody.mat
+- Assets/SM64_BBF/Assets/Materials/BrownStoneRoad 1.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_RevengeEnd.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_WalkL.anim
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/Mario64Eye_alb.2.png
+- Assets/SM64_BBF/Assets/Cannon/Cannon.prefab
+- Assets/SM64_BBF/Assets/Enemies/OLD_KingBobomb/OLD_idrsKingBobomb.asset
+- Assets/SM64_BBF/Assets/PickupDefs/Starman/Materials/Material_065_713E77D_c_bmp.mat
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/Deferred/HGWavyCloth.shader
+- Assets/SM64_BBF/Assets/Materials/MetalBars 1.mat
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/idrsBobomb.asset
+- Assets/SM64_BBF/Assets/Mesh/Textures/10E99677_c.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_IdleInSmooth.anim
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_IdleSingle.anim
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/Family/Bobomb/fdccsSM64BBFBobombsFamily.asset
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/OLD_BobombBody 1.prefab
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_Sprint.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/FX/HGIntersectionCloudRemap.shader
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/MarioHair_nrm.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_FullJump.anim
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/Family/Bobomb/adccsSM64BBFBobombFamily.asset
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_RevengeEntry.anim
+- Assets/SM64_BBF/Assets/PickupDefs/Starman/StarmanMesh.fbx
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/Deferred/HGStandard.shader
+- Assets/SM64_BBF/Assets/Items/OLD/1-up_mushroom.rgba16.png
+- Assets/SM64_BBF/Assets/SpawnThings/Interactables/Vanilla/adccsSM64BBFInteractables.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/CustomPostProcess/RampFog.shader
+- Assets/SM64_BBF/Assets/NodeGraphs/AirNodeGraph.asset
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Textures/kingbobomb_emission.png
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/EyeMT.mat
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/Family/Void/adccsSM64BBFVoidFamily.asset
+- Assets/SM64_BBF/Assets/Materials/Flowers 1.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_SpawnIn.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Textures/kingbobomb.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_Stomp.anim
+- Assets/SM64_BBF/Assets/TreeInteractable/TreeInteractable.prefab
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/Mario64Eye_alb.1.png
+- Assets/SM64_BBF/Assets/Materials/StonePlates 1.mat
+- Assets/SM64_BBF/Assets/StubbedShaders/PsychoseNGGS/NGSS_Directional.shader
+- Assets/SM64_BBF/Assets/Mesh/Textures/12436720_c.png
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/PostProcess/HGScopeShader.shader
+- Assets/SM64_BBF/Assets/Materials/ShadowDecal 1.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Skills/SkillFamilies/KingBobombUtilityFamily.asset
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/Mario64Hand_alb.png
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Sprint.anim
+- Assets/SM64_BBF/Assets/Mesh/Textures/275F399C_c.png
+- Assets/SM64_BBF/Assets/Materials/BrownStoneRoadWithGrass 1.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_LightImpact.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_PunchR.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/ccpKingBobomb2.asset
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/kingbobomb_arm_backup.fbx
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_PunchLCombo.anim
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/DCCS/DLC1/dccsSM64BBFMonstersDLC1.asset
+- Assets/SM64_BBF/Assets/Mesh/Textures/3D49A9D5_c.png
+- Assets/SM64_BBF/Assets/Mesh/Textures/6B1A233B_c.png
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/Environment/HGDistantWater.shader
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_WalkLSmooth.anim
+- Assets/SM64_BBF/Assets/Items/OneUpItemPickupModel.prefab
+- Assets/SM64_BBF/Assets/Cannon/Textures/cannon_barrel.rgba16.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_PunchL.anim
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/OLD/coin_tilt_left.ia16.png
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/CapMT.mat
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/HandMT.mat
+- Assets/SM64_BBF/Assets/TreeInteractable/shadow.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/kingbobomb_arm.fbx
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/CoinPickUp.prefab
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/MarioHair_alb.png
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/FX/HGDamageNumber.shader
+- Assets/SM64_BBF/Assets/Cannon/Materials/CannonBaseMaterial.mat
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/UI/HGUIBlur.shader
+- Packages/com.unity.postprocessing/PostProcessing/Textures/LUTs/NeutralLdrLut.png
+- Assets/SM64_BBF/Assets/TreeInteractable/tree_left_side.rgba16.png
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Textures/kingbobomb_blue_ball.png
+- Assets/SM64_BBF/Assets/StubbedShaders/CalmWater/CalmWater - DX11 - DoubleSided.shader
+- Assets/SM64_BBF/Assets/Mesh/Textures/3F485258_c.png
+- Assets/SM64_BBF/Assets/Materials/Thingy.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Skills/SkillFamilies/KingBobombSpecialFamily.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/UI/HGUIOverbrighten.shader
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/OLD_NEWER_BobombBody.prefab
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_SelfStun.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/LeTai'sAsset/FillCrop.shader
+- Assets/SM64_BBF/Assets/Music/SM64_BBF_BossTrack.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/Environment/HGGrass.shader
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Skills/SkillDefs/KingBobombGrab.asset
+- Assets/SM64_BBF/Assets/Mesh/Textures/359289F2_c.png
+- Assets/SM64_BBF/Assets/Mesh/Textures/1FAAE88D_c.png
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/dpSM64BBF.asset
+- Assets/SM64_BBF/Assets/NodeGraphs/GroundNodeGraph.asset
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_Idle.anim
+- Assets/SM64_BBF/Assets/Mesh/Textures/6E3A21B_c.png
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_JumpSurprise.anim
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/matCoin.mat
+- Assets/SM64_BBF/Assets/sm64_bbf_SM64_BBF.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/CustomPostProcess/SobelOutline.shader
+- Assets/SM64_BBF/Assets/Materials/GreeStone 1.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Textures/kingbobomb_yellow_ball.png
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_aimVertical.anim
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Walk.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/FX/HGDistortion.shader
+- Assets/SM64_BBF/Assets/Enemies/OLD_KingBobomb/OLD_ccpKingBobomb.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/FX/HGSolidParallax.shader
+- Assets/SM64_BBF/Assets/Mesh/untitled.fbx
+- Assets/SM64_BBF/Assets/Logs.Stages.sm64_bbf_SM64_BBF.asset
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/KingBobomb2Master.prefab
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Materials/Material.mat
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Materials/BodySprite.mat
+- Assets/SM64_BBF/Assets/PickupDefs/Starman/PickupStarman.prefab
+- Assets/SM64_BBF/Assets/Materials/Grass Diorama.mat
+- Assets/SM64_BBF/Assets/SpawnThings/Interactables/Vanilla/dccsSM64BBFInteractables.asset
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_ChargeAncientPower.anim
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombBody.prefab
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/CustomPostProcess/HopooSSR.shader
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombBodySecondaryFamily.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/PsychoseNGGS/NGSS_FrustumShadows.shader
+- Assets/SM64_BBF/Assets/SpawnThings/Interactables/DLC1/adccsSM64BBFInteractablesDLC1.asset
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/Family/Gup/adccsSM64BBFGupFamily.asset
+- Assets/SM64_BBF/Assets/RollingStones/RollingRock.prefab
+- Assets/SM64_BBF/Assets/Materials/WhiteStone 1.mat
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/Family/Lemurian/fdccsSM64BBFLemurianFamily.asset
+- Assets/SM64_BBF/Assets/PickupDefs/Starman/Textures/eye.png
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/Environment/HGWaterfall.shader
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/PostProcess/HGSobelBuffer.shader
+- Assets/SM64_BBF/Assets/Cannon/Textures/cannon_base.rgba16.png
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/UI/HGUICustomBlend.shader
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/CoinPickUpDef.asset
+- Assets/SM64_BBF/Assets/PickupDefs/Starman/Materials/Material_063_3ED452ED_c_bmp.mat
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Hit.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_ChargeAncientPowerLoop.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/CustomPostProcess/SobelRain.shader
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/BodyMT.mat
+- Assets/SM64_BBF/Assets/Enemies/OLD_KingBobomb/OLD_KingBobombMaster.prefab
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/MobileBlur.shader
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_FullJumpSmooth.anim
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/skymeadow/Fill-Linear.shader
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/Mario64Cap_alb.png
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/DCCS/Vanilla/adccsSM64BBFMonsters.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/UI/HGUIBarRemap.shader
+- Assets/SM64_BBF/Assets/Cannon/Materials/CannonBarrelMaterial.mat
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/images/MarioHair_rgh.png
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Animations/Bobomb_Armature_Flinch1.anim
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/DCCS/DLC1/adccsSM64BBFMonstersDLC1.asset
+- Assets/SM64_BBF/Assets/Music/SM64_BBF_MainTrack.asset
+- Assets/SM64_BBF/Assets/Diorama/Materials/Clipboard02.mat
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/OLD/CoinRotate.anim
+- Assets/SM64_BBF/Assets/PickupDefs/Starman/CustomStarmanPickupDef.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/Decalicious/DecaliciousUnlitDecal.shader
+- Assets/SM64_BBF/Assets/SpawnThings/Monsters/adpSM64BBF.asset
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/FX/HGOpaqueCloudRemap.shader
+- Assets/SM64_BBF/Assets/StubbedShaders/RoR2/FX/HGForwardPlanet.shader
+- Assets/SM64_BBF/Assets/Diorama/Mario_Oddessy/HairMT.mat
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_WalkF.anim
+- Assets/SM64_BBF/Assets/Items/mdlOneUp.fbx
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_GrabAttempt.anim
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_WalkBSmooth.anim
+- Assets/SM64_BBF/Assets/Cannon/cannon_barrel.fbx
+- Assets/SM64_BBF/Assets/PickupDefs/Coin/mdlCoin.fbx
+- Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_WalkFSmooth.anim
+- Assets/SM64_BBF/Assets/Enemies/Bobomb/Textures/blackbomb_grp_original.png
+Dependencies: []

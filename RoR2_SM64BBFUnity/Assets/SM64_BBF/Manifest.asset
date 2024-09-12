@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AssetBundleDefinitions
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <BuildPathAssets>
+  - assetbundles
   assetBundles:
   - assetBundleName: sm64bbfassets
     assets:

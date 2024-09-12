@@ -23,7 +23,7 @@ Please send bug reports either by tagging me on Discord in RoR2 Modding server, 
 ## Known issues
 <details>
 
-  * Stage lacks proper diorama.
+  * <s>Stage lacks proper diorama</s>.
   * Rolling rocks are laggy\stuttery for network clients.
 </details>
 

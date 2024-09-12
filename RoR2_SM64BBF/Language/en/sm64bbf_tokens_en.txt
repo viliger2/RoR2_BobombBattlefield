@@ -1,0 +1,28 @@
+{
+	"strings": {
+		"SM64_BBF_BOBOMB_BODY_NAME": "Bob-omb",
+		"SM64_BBF_BOBOMB_EXPLODE_JUMP_NAME": "Get Target and Explode",
+		"SM64_BBF_BOBOMB_EXPLODE_JUMP_DESCRIPTION": "Jump in the air and start exploding. After 5 seconds explode dealing 500% base damage.",
+		"SM64_BBF_BOBOMB_EXPLODE_NAME": "Explode",
+		"SM64_BBF_BOBOMB_EXPLODE_DESCRIPTION": "Start exploding instantly. After 5 seconds explode, dealing 500% base damage.",
+		"SM64_BBF_UNLOCKABLE_LOG_BOBOMB": "Monster Log: Bob-omb",
+		"SM64_BBF_KING_BOBOMB_BODY_NAME": "King Bob-omb",
+		"SM64_BBF_KING_BOBOMB_BODY_SUBTITLE": "His Royal Majesty",
+		"SM64_BBF_UNLOCKABLE_LOG_KING_BOBOMB": "Monster Log: King Bob-omb",
+		"SM64_BBF_ITEM_1UP_NAME": "1UP",
+		"SM64_BBF_ITEM_1UP_PICKUP": "Extra life!",
+		"SM64_BBF_ITEM_1UP_DESCRIPTION": "Revives on death. Will disappear on leaving Bob-omb Battlefield.",
+		"SM64_BBF_PICKUP_COIN": "Coin",
+		"SM64_BBF_PICKUP_COIN_CONTEXT": "Pick up Coin?",
+		"SM64_BBF_PICKUP_STARMAN": "Starman",
+		"SM64_BBF_PICKUP_STARMAN_CONTEXT": "Pick up Starman?",
+		"SM64_BBF_UNLOCKABLE_LOG_MAP": "Environment Log: Bob-omb Battlefield",
+		"SM64_BBF_MAP_SM64_BBF_NAME": "Bob-omb Battlefield",
+		"SM64_BBF_MAP_SM64_BBF_SUBTITLE": "Wartorn Grassland",
+		"SM64_BBF_BAZAAR_SEER_SM64_BBF": "<style=cWorldEvent>You dream of explosions.</style>",
+		"SM64_BBF_MAP_SM64_BBF_LORE": "Something something mama mia",
+		"SM64_BBF_INTERACTABLE_MARIOTREE_NAME": "Tree",
+		"SM64_BBF_INTERACTABLE_MARIOTREE_CONTEXT": "Shake the tree?",
+		"SM64_BBF_FAMILY_BOBOMB": "You smell black powder in the air."
+	}
+}
