@@ -18,6 +18,8 @@ namespace SM64BBF
 {
     [BepInPlugin(GUID, "SM64BBF", Version)]
     [BepInDependency(R2API.DirectorAPI.PluginGUID)]
+    [BepInDependency(R2API.RecalculateStatsAPI.PluginGUID)]
+    [BepInDependency(R2API.SoundAPI.PluginGUID)]
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {

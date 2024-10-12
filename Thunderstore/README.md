@@ -9,7 +9,7 @@ Bob-omb Battlefield is a new Stage 5, in which survivors will have to explore a 
 
 ![Bobombs](https://raw.githubusercontent.com/viliger2/RoR2_BobombBattlefield/main/Images/Bobombs.gif)
 
-* And if you have certain [pokemon](https://thunderstore.io/package/TheTimesweeper/Regigigas/) installed you might even get to fight something with a lot more punch.
+* And if you have certain [pokemon](https://thunderstore.io/package/rob_gaming/Regigigas/) installed you might even get to fight something with a lot more punch.
 * Shake the trees to find powerups!
 
 ![Coin](https://raw.githubusercontent.com/viliger2/RoR2_BobombBattlefield/main/Images/Coin.gif) ![OneUp](https://raw.githubusercontent.com/viliger2/RoR2_BobombBattlefield/main/Images/OneUp.gif)

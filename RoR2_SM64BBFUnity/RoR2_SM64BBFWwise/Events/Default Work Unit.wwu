@@ -232,6 +232,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="SM64_BBF_ThankYou" ID="{CF0028FD-E93F-4F0A-885D-5A905505D6C6}">
+							<ChildrenList>
+								<Action Name="" ID="{EFD05A26-C116-4852-8436-49207942AE01}" ShortID="980714473">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ThankYou" ID="{DC97B4CE-E86F-472A-B3E4-71F73DAE9DCC}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

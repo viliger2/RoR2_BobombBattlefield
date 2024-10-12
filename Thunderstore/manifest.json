@@ -8,6 +8,8 @@
         "bbepis-BepInExPack-5.4.2113",
         "RiskofThunder-HookGenPatcher-1.2.3",
         "RiskofThunder-R2API_Director-2.1.2",
+		"RiskofThunder-R2API_Sound-1.0.3",
+		"RiskofThunder-R2API_RecalculateStats-1.4.0",
         "JaceDaDorito-LocationsOfPrecipitation-1.1.2"
     ]
 }

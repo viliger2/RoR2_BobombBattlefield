@@ -16,6 +16,7 @@ namespace SM64BBF.Controllers
                 return;
             }
             GlobalEventManager.onCharacterDeathGlobal += OnCharacterDeath;
+            RoR2.TeleporterInteraction.onTeleporterFinishGlobal += TeleporterInteraction_onTeleporterFinishGlobal;
         }
 
         private void OnDisable()
@@ -25,6 +26,17 @@ namespace SM64BBF.Controllers
                 return;
             }
             GlobalEventManager.onCharacterDeathGlobal -= OnCharacterDeath;
+            RoR2.TeleporterInteraction.onTeleporterFinishGlobal -= TeleporterInteraction_onTeleporterFinishGlobal;
+        }
+
+        private void TeleporterInteraction_onTeleporterFinishGlobal(TeleporterInteraction teleporterInteraction)
+        {
+            if (!NetworkServer.active)
+            {
+                return;
+            }
+
+            EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_ThankYou", teleporterInteraction.gameObject);
         }
 
         private void OnCharacterDeath(DamageReport damageReport)

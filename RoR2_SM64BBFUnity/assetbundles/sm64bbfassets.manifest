@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4204014150
+CRC: 3331065047
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9aea086cdc3ed6c75d6272f913a4ec4c
+    Hash: aea380a94094cc19adca41cd325ee54e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9430db191653a26fc9eedfe8490ffda3
@@ -501,7 +501,7 @@ Assets:
 - Assets/SM64_BBF/Assets/Enemies/Bobomb/Materials/Material.mat
 - Assets/SM64_BBF/Assets/Enemies/Bobomb/Materials/BodySprite.mat
 - Assets/SM64_BBF/Assets/PickupDefs/Starman/PickupStarman.prefab
-- Assets/SM64_BBF/Assets/Materials/Grass Diorama.mat
+- Assets/SM64_BBF/Assets/Diorama/Grass Diorama.mat
 - Assets/SM64_BBF/Assets/SpawnThings/Interactables/Vanilla/dccsSM64BBFInteractables.asset
 - Assets/SM64_BBF/Assets/Enemies/KingBobomb2/Animations/Bobomb_Extracted_Armature_ChargeAncientPower.anim
 - Assets/SM64_BBF/Assets/Enemies/Bobomb/BobombBody.prefab

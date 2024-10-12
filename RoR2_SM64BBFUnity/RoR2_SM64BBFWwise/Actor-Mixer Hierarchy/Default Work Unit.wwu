@@ -378,6 +378,37 @@
 										<ActiveSource Name="solonggaybowser" ID="{0B305DBE-2749-490D-B152-0628806026BE}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="ThankYou" ID="{DC97B4CE-E86F-472A-B3E4-71F73DAE9DCC}" ShortID="214687894">
+									<PropertyList>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{771D6CBF-140E-47CD-93B6-E5A159AA9468}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9518C50E-D086-4522-A170-8D8A16DD4B5A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="thank you" ID="{C94C4C9F-8743-40D8-AF55-22685109E172}">
+											<Language>SFX</Language>
+											<AudioFile>thank you.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="919872964"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="thank you" ID="{C94C4C9F-8743-40D8-AF55-22685109E172}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 							<ObjectLists>
 								<ObjectList Name="RTPC">

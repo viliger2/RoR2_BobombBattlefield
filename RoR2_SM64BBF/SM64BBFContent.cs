@@ -873,7 +873,7 @@ namespace SM64BBF
             mainCustomTrack.CustomStates = new List<SoundAPI.Music.CustomMusicTrackDef.CustomState>();
 
             var cstate1 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
-            cstate1.GroupId = 1741660947U; // gathered from the MOD's Init bank txt file
+            cstate1.GroupId = 3906687288U; // gathered from the MOD's Init bank txt file
             cstate1.StateId = 693170834U; // BBF theme
 
             mainCustomTrack.CustomStates.Add(cstate1);
@@ -889,7 +889,7 @@ namespace SM64BBF
             bossCustomTrack.CustomStates = new List<SoundAPI.Music.CustomMusicTrackDef.CustomState>();
 
             var cstate11 = new SoundAPI.Music.CustomMusicTrackDef.CustomState();
-            cstate11.GroupId = 1741660947U; // gathered from the MOD's Init bank txt file
+            cstate11.GroupId = 3906687288U; // gathered from the MOD's Init bank txt file
             cstate11.StateId = 1312500510U; // Bowser theme
 
             bossCustomTrack.CustomStates.Add(cstate11);
@@ -918,6 +918,7 @@ namespace SM64BBF
                 RegisterNetworkSound("SM64_BBF_Stop_Bobomb_Fuse"),
                 RegisterNetworkSound("SM64_BBF_Play_Bobomb_Death"),
                 RegisterNetworkSound("SM64_BBF_Play_Shake_Tree"),
+                RegisterNetworkSound("SM64_BBF_ThankYou")
             });
         }
 

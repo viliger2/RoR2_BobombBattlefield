@@ -3,7 +3,7 @@
 	<States>
 		<WorkUnit Name="Default Work Unit" ID="{FFA91675-87ED-462B-9EBB-F38296694E91}" PersistMode="Standalone">
 			<ChildrenList>
-				<StateGroup Name="gameplaySongChoice" ID="{352D5737-9BD2-42C6-891C-180F8B0073D8}">
+				<StateGroup Name="SM64_gameplaySongChoice" ID="{352D5737-9BD2-42C6-891C-180F8B0073D8}">
 					<ChildrenList>
 						<State Name="None" ID="{4671EBC1-6E3F-4168-AE2B-4E9D67C21622}"/>
 						<State Name="BoBombBattlefield" ID="{C771414C-078E-4174-BE56-0F075E6FFDB0}"/>
@@ -17,6 +17,13 @@
 						<State Name="Gameplay" ID="{752AFA99-DB2C-4A76-AD24-D05D97CA314E}"/>
 						<State Name="SecretLevel" ID="{6D90AEA8-42EB-46F9-B365-5813D4A71D42}"/>
 						<State Name="Menu" ID="{2DDD0221-DB4D-4A7E-9122-44A0DE5E39F9}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="bossStatus" ID="{BACB89CB-A1A5-48D5-A5C5-76140D4B2A33}">
+					<ChildrenList>
+						<State Name="None" ID="{8CEDE70B-441D-43A3-86C9-E3A7D809E357}"/>
+						<State Name="alive" ID="{69E4B2E6-E731-4F76-AAEA-2FF6FB049940}"/>
+						<State Name="dead" ID="{1C108ED3-8A51-4D33-B390-83CA9C042C14}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>
