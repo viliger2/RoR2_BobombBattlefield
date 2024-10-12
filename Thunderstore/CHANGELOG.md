@@ -1,4 +1,12 @@
 <details>
+<summary>1.0.7 </summary>
+
+* Removed diorama under the stage.
+	* _Some people thought it was an easter egg, its not. I just forgot to remove it from the scene after I made it._
+* Added sound effect on using teleporter to leave the stage and added music exit cue on teleporter being charged, similar to vanilla stages.
+* Added missing dependencies.
+</details>
+<details>
 <summary>1.0.6 </summary>
 
 * Added log entry for the stage.
