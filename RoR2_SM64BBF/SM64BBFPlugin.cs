@@ -20,10 +20,11 @@ namespace SM64BBF
     [BepInDependency(R2API.DirectorAPI.PluginGUID)]
     [BepInDependency(R2API.RecalculateStatsAPI.PluginGUID)]
     [BepInDependency(R2API.SoundAPI.PluginGUID)]
+    [BepInDependency("JaceDaDorito.LocationsOfPrecipitation")]
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Version = "1.0.7";
+        public const string Version = "1.0.8";
         public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;

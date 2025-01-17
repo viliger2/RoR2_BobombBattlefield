@@ -1,4 +1,9 @@
 <details>
+<summary>1.0.8 </summary>
+
+* Fixed an issue with MiniMapMod dropping performance to a crawl.
+</details>
+<details>
 <summary>1.0.7 </summary>
 
 * Removed diorama under the stage.
