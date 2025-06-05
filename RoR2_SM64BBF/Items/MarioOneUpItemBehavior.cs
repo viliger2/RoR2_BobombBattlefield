@@ -43,30 +43,24 @@ namespace SM64BBF.Items
 
         private void CharacterMaster_OnBodyDeath(On.RoR2.CharacterMaster.orig_OnBodyDeath orig, CharacterMaster self, CharacterBody body)
         {
-            if (NetworkServer.active)
+            if (NetworkServer.active &&
+                self && self == master && self.inventory && self.inventory.GetItemCount(SM64BBFContent.Items.MarioOneUp) > 0)
             {
-                if (self && self == master && self.inventory && self.inventory.GetItemCount(SM64BBFContent.Items.MarioOneUp) > 0)
+                self.lostBodyToDeath = true;
+                self.deathFootPosition = body.footPosition;
+                BaseAI[] array = self.aiComponents;
+                for (int i = 0; i < array.Length; i++)
                 {
-                    self.lostBodyToDeath = true;
-                    self.deathFootPosition = body.footPosition;
-                    BaseAI[] array = self.aiComponents;
-                    for (int i = 0; i < array.Length; i++)
-                    {
-                        array[i].OnBodyDeath(body);
-                    }
-                    if ((bool)self.playerCharacterMasterController)
-                    {
-                        self.playerCharacterMasterController.OnBodyDeath();
-                    }
-                    Invoke("Respawn", 2f);
-                    Invoke("PlayExtraLifeSFX", 1f);
-                    self.ResetLifeStopwatch();
-                    self.onBodyDeath?.Invoke();
+                    array[i].OnBodyDeath(body);
                 }
-                else
+                if ((bool)self.playerCharacterMasterController)
                 {
-                    orig(self, body);
+                    self.playerCharacterMasterController.OnBodyDeath();
                 }
+                Invoke("Respawn", 2f);
+                Invoke("PlayExtraLifeSFX", 1f);
+                self.ResetLifeStopwatch();
+                self.onBodyDeath?.Invoke();
             }
             else
             {

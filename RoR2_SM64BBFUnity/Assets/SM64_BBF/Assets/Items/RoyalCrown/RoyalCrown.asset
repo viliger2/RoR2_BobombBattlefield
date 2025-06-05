@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: RoyalCrown
+  m_EditorClassIdentifier: 
+  deprecatedTier: 4
+  _itemTierDef: {fileID: 0}
+  nameToken: SM64_BBF_ITEM_ROYAL_CROWN_NAME
+  pickupToken: SM64_BBF_ITEM_ROYAL_CROWN_PICKUP
+  descriptionToken: SM64_BBF_ITEM_ROYAL_CROWN_DESCRIPTION
+  loreToken: 
+  unlockableDef: {fileID: 0}
+  pickupModelPrefab: {fileID: 7244675390810836188, guid: 3f518f80ad8070448a2aedbda755003e, type: 3}
+  pickupModelReference:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  pickupIconSprite: {fileID: 21300000, guid: 46c63594c6d618a44bfcf5ab120a1dcf, type: 3}
+  isConsumed: 0
+  hidden: 0
+  canRemove: 1
+  tags: 0300000006000000
+  requiredExpansion: {fileID: 0}

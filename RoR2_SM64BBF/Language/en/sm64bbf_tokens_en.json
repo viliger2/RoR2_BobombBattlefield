@@ -23,6 +23,10 @@
 		"SM64_BBF_MAP_SM64_BBF_LORE": "Something something mama mia",
 		"SM64_BBF_INTERACTABLE_MARIOTREE_NAME": "Tree",
 		"SM64_BBF_INTERACTABLE_MARIOTREE_CONTEXT": "Shake the tree?",
-		"SM64_BBF_FAMILY_BOBOMB": "You smell black powder in the air."
+		"SM64_BBF_FAMILY_BOBOMB": "You smell black powder in the air.",
+
+		"SM64_BBF_ITEM_ROYAL_CROWN_NAME": "Royal Crown",
+		"SM64_BBF_ITEM_ROYAL_CROWN_PICKUP": "You must fight with honor!",
+		"SM64_BBF_ITEM_ROYAL_CROWN_DESCRIPTION": "Killing an elite enemy <style=cIsUtility>summons a friendly Bob-omb</style> with the <style=cIsDamage>same elite affix</style> and bonus <style=cIsDamage>0%</style> damage <style=cStack>(+100% per stack)</style>."
 	}
 }

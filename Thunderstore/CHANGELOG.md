@@ -1,4 +1,11 @@
 <details>
+<summary>1.1.0 </summary>
+
+* 1.3.9 update.
+* Added King Bob-omb boss item: Royal Crown.
+* Removed separate stage spawn configs for Bob-ombs, now there is a single config where you list stages that it can spawn in by coma.
+</details>
+<details>
 <summary>1.0.8 </summary>
 
 * Fixed an issue with MiniMapMod dropping performance to a crawl.

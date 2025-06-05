@@ -24,7 +24,7 @@ namespace SM64BBF
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Version = "1.0.8";
+        public const string Version = "1.1.0";
         public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;
@@ -54,8 +54,20 @@ namespace SM64BBF
             On.RoR2.MusicController.StartIntroMusic += MusicController_StartIntroMusic;
             ContentManager.collectContentPackProviders += GiveToRoR2OurContentPackProviders;
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;
-            CharacterBody.onBodyInventoryChangedGlobal += SM64BBF.Items.MarioOneUpItemBehavior.CharacterBody_onBodyInventoryChangedGlobal;
+            CharacterBody.onBodyInventoryChangedGlobal += CharacterBody_onBodyInventoryChangedGlobal;
             R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void CharacterBody_onBodyInventoryChangedGlobal(CharacterBody body)
+        {
+            MarioOneUpItemBehavior.CharacterBody_onBodyInventoryChangedGlobal(body);
+            if (NetworkServer.active)
+            {
+                if(body && body.inventory)
+                {
+                    body.AddItemBehavior<RoyalCrownItemBehavior>(body.inventory.GetItemCount(SM64BBFContent.Items.RoyalCrown));
+                }
+            }
         }
 
         private void MusicController_StartIntroMusic(On.RoR2.MusicController.orig_StartIntroMusic orig, MusicController self)

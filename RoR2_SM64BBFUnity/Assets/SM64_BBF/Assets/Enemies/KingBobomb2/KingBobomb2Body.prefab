@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeedPenaltyCoefficient: 1
+  gravityScale: 1
   characterDirection: {fileID: 255188370034847721}
   muteWalkMotion: 0
   mass: 10000
@@ -213,6 +214,7 @@ MonoBehaviour:
     environmentalAntiGravityGranterCount: 0
     antiGravityNeutralizerCount: 0
     channeledAntiGravityGranterCount: 0
+  useHangtimeGravity: 0
   _flightParameters:
     channeledFlightGranterCount: 0
 --- !u!114 &4485758054293592707
@@ -242,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyIndex: -1
+  altDeathEventBodyIndex: -1
   CharacterIsVisible: 0
   cost: -1
   dontCull: 0
@@ -277,14 +280,16 @@ MonoBehaviour:
   levelAttackSpeed: 0
   levelCrit: 0
   levelArmor: 0
+  amputatedMaxHealth: 0
+  amputateMaxHealthMinimum: 1
   extraSecondaryFromSkill: 0
   extraSpecialFromSkill: 0
-  lowerHealthHigherDamageEffectUpdater: {fileID: 0}
-  canBoostAllStats: 0
   increaseDamageOnMultiKillItemDisplayUpdater: {fileID: 0}
   allSkillsDisabled: 0
   isTeleporting: 0
-  solitudeLevelCount: 0
+  boostAllStatsDisplay: {fileID: 0}
+  currentGrowthNectarBuffCount: 0
+  maxGrowthNectarBuffCount: 0
   wasLucky: 0
   spreadBloomDecayTime: 0.45
   spreadBloomCurve:
@@ -295,22 +300,28 @@ MonoBehaviour:
     m_RotationOrder: 4
   _defaultCrosshairPrefab: {fileID: 0}
   hideCrosshair: 0
-  increasePrimaryDamageEffectUpdater: {fileID: 0}
-  protectFromOneShot: 0
-  hasTeleported: 0
+  canAddIncrasePrimaryDamage: 0
+  knockBackFinGroundedTimer: 0
+  runicLensPosition: {x: 0, y: 0, z: 0}
+  meteorVictimBody: {fileID: 0}
+  runicLensStartTime: 0
+  runicLensImpactTime: 0
   runicLensMeteorReady: 0
+  spawnedPickupCount: 0
   aimOriginTransform: {fileID: 2401707260688027144}
   hullClassification: 1
   portraitIcon: {fileID: 2800000, guid: 3b345924b01339442af22939d0d96ae1, type: 3}
   bodyColor: {r: 1, g: 0.8183049, b: 0, a: 0}
   doNotReassignToTeamBasedCollisionLayer: 0
   isChampion: 1
+  altDeathBodyName: 
   currentVehicle: {fileID: 0}
   preferredPodPrefab: {fileID: 0}
   preferredInitialStateType:
     _typeName: EntityStates.Uninitialized, RoR2, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   skinIndex: 0
+  requestEquipmentFire: 0
   customKillTotalStatName: 
   overrideCoreTransform: {fileID: 0}
 --- !u!114 &2559377091511133218
@@ -467,9 +478,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   shield: 0
+  echoDamage: 0
   barrier: 0
   magnetiCharge: 0
   dontShowHealthbar: 0
+  isDefaultGodMode: 0
   globalDeathEventChanceCoefficient: 1
   body: {fileID: 0}
   forceCulled: 0
@@ -535,7 +548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logUnlockableName: 
   logUnlockableDef: {fileID: 0}
-  bossDropTable: {fileID: 0}
+  bossDropTable: {fileID: 11400000, guid: 8189357cd34f9714a9df8c7e549d35ff, type: 2}
   bossPickup:
     pickupName: 
 --- !u!114 &9163837989631981177
@@ -2956,45 +2969,85 @@ MonoBehaviour:
   gameObjectActivationTransforms: []
   baseRendererInfos:
   - renderer: {fileID: 721072442188438818}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: a924c8c8f59d8164f8fd69dcacd98de7, type: 2}
     defaultShadowCastingMode: 0
     ignoreOverlays: 0
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
   - renderer: {fileID: 541808409900503953}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: 4e43a8461a131794882e820e78face27, type: 2}
     defaultShadowCastingMode: 0
     ignoreOverlays: 1
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
   - renderer: {fileID: 5151756591730390524}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: 4e43a8461a131794882e820e78face27, type: 2}
     defaultShadowCastingMode: 0
     ignoreOverlays: 1
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
   - renderer: {fileID: 428530718002647976}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: 4e43a8461a131794882e820e78face27, type: 2}
     defaultShadowCastingMode: 0
     ignoreOverlays: 1
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
   - renderer: {fileID: 6940812733371558473}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: 4e43a8461a131794882e820e78face27, type: 2}
     defaultShadowCastingMode: 0
     ignoreOverlays: 1
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
   - renderer: {fileID: 8736073753777414007}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: 4e43a8461a131794882e820e78face27, type: 2}
     defaultShadowCastingMode: 0
     ignoreOverlays: 1
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
   - renderer: {fileID: 1112644626039622150}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: 4e43a8461a131794882e820e78face27, type: 2}
     defaultShadowCastingMode: 0
     ignoreOverlays: 1
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
   - renderer: {fileID: 3119300376285589345}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: 4e43a8461a131794882e820e78face27, type: 2}
     defaultShadowCastingMode: 0
     ignoreOverlays: 1
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
   baseLightInfos: []
   corpseFade: 1
   CharacterOnScreen: 0

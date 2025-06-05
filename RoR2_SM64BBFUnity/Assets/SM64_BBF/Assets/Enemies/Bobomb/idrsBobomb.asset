@@ -16,23 +16,51 @@ MonoBehaviour:
   namedEquipmentRuleGroups: []
   keyAssetRuleGroups:
   - keyAsset: {fileID: 0}
+    keyAssetAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     displayRuleGroup:
       rules: []
   - keyAsset: {fileID: 0}
+    keyAssetAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     displayRuleGroup:
       rules: []
   - keyAsset: {fileID: 0}
+    keyAssetAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     displayRuleGroup:
       rules: []
   - keyAsset: {fileID: 0}
+    keyAssetAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     displayRuleGroup:
       rules: []
   - keyAsset: {fileID: 0}
+    keyAssetAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     displayRuleGroup:
       rules: []
   - keyAsset: {fileID: 0}
+    keyAssetAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     displayRuleGroup:
       rules: []
   - keyAsset: {fileID: 0}
+    keyAssetAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     displayRuleGroup:
       rules: []

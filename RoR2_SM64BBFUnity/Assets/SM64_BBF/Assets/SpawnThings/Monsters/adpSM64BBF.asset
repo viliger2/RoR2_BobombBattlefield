@@ -19,6 +19,10 @@ MonoBehaviour:
     alwaysIncluded: []
     includedIfConditionsMet:
     - dccs: {fileID: 11400000, guid: d524b718cb4504146bbb80bf36a82562, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
       weight: 1
       requiredExpansions:
       - _asset: {fileID: 0}
@@ -26,15 +30,31 @@ MonoBehaviour:
         _useDirectReference: 0
     includedIfNoConditionsMet:
     - dccs: {fileID: 11400000, guid: c1ebe24e60fca2e4bbd4b426bc3eece0, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
       weight: 1
   - name: Family
     categoryWeight: 0.02
     alwaysIncluded:
     - dccs: {fileID: 11400000, guid: 4e32ec21fd421b743ba58fc3816f6396, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
       weight: 3
     - dccs: {fileID: 11400000, guid: 45887349e1498f3408db44f2aa663a31, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
       weight: 1
     - dccs: {fileID: 11400000, guid: 60a04ace9c1d24548b19f9542c6afee2, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
       weight: 1
     includedIfConditionsMet: []
     includedIfNoConditionsMet: []
@@ -43,6 +63,10 @@ MonoBehaviour:
     alwaysIncluded: []
     includedIfConditionsMet:
     - dccs: {fileID: 11400000, guid: ec6205b819de01849b85ea35c37246ac, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
       weight: 0
       requiredExpansions:
       - _asset: {fileID: 0}
