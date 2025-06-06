@@ -300,7 +300,7 @@ namespace SM64BBF
             displayRuleGroupFire.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire_DisplayEliteHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire.DisplayEliteHorn_prefab),
                 childName = "Head",
                 localPos = new Vector3(-0.15365F, 0.21462F, -0.27426F),
                 localAngles = new Vector3(354.7525F, 302.5303F, 7.12234F),
@@ -311,7 +311,7 @@ namespace SM64BBF
             displayRuleGroupFire.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire_DisplayEliteHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire.DisplayEliteHorn_prefab),
                 childName = "Head",
                 localPos = new Vector3(-0.12521F, 0.3066F, 0.3031F),
                 localAngles = new Vector3(354.7525F, 231.6184F, 351.6044F),
@@ -321,7 +321,7 @@ namespace SM64BBF
 
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire_EliteFireEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire.EliteFireEquipment_asset),
                 displayRuleGroup = displayRuleGroupFire,
             });
             #endregion
@@ -331,7 +331,7 @@ namespace SM64BBF
             displayRuleGroupHaunted.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteHaunted_DisplayEliteStealthCrown_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteHaunted.DisplayEliteStealthCrown_prefab),
                 childName = "Head",
                 localPos = new Vector3(-0.02002F, 0.36085F, 0.01142F),
                 localAngles = new Vector3(84.62356F, 329.7962F, 243.3615F),
@@ -342,7 +342,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupHaunted,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteHaunted_EliteHauntedEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteHaunted.EliteHauntedEquipment_asset)
             });
             #endregion
 
@@ -351,7 +351,7 @@ namespace SM64BBF
             displayRuleGroupIce.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteIce_DisplayEliteIceCrown_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteIce.DisplayEliteIceCrown_prefab),
                 childName = "Head",
                 localPos = new Vector3(0.05636F, 0.20679F, 0.06288F),
                 localAngles = new Vector3(283.3743F, 102.7717F, 166.9378F),
@@ -362,7 +362,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupIce,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteIce_EliteIceEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteIce.EliteIceEquipment_asset),
             });
             #endregion
 
@@ -371,7 +371,7 @@ namespace SM64BBF
             displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_DisplayEliteRhinoHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.DisplayEliteRhinoHorn_prefab),
                 childName = "Head",
                 localPos = new Vector3(-0.47095F, 0.3003F, -0.02387F),
                 localAngles = new Vector3(355.5493F, 269.5843F, 12.25919F),
@@ -381,7 +381,7 @@ namespace SM64BBF
             displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_DisplayEliteRhinoHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.DisplayEliteRhinoHorn_prefab),
                 childName = "Head",
                 localPos = new Vector3(-0.41474F, 0.41538F, -0.02514F),
                 localAngles = new Vector3(323.8193F, 261.7038F, 7.48606F),
@@ -392,7 +392,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupLightning,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_EliteLightningEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.EliteLightningEquipment_asset)
             });
             #endregion
 
@@ -401,7 +401,7 @@ namespace SM64BBF
             displayRuleGroupLunar.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_DisplayEliteLunar__Fire_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_DisplayEliteLunar.Fire_prefab),
                 childName = "Head",
                 localPos = new Vector3(0.64709F, -0.88823F, 0.02083F),
                 localAngles = new Vector3(11.76858F, 84.12247F, 3.64591F),
@@ -412,7 +412,7 @@ namespace SM64BBF
             displayRuleGroupLunar.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_DisplayEliteLunar_Eye_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_DisplayEliteLunar.Eye_prefab),
                 childName = "Head",
                 localPos = new Vector3(-0.05048F, -0.05632F, -0.00397F),
                 localAngles = new Vector3(81.85596F, 299.8571F, 309.0397F),
@@ -423,7 +423,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupLunar,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_EliteLunarEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar.EliteLunarEquipment_asset),
             });
             #endregion
 
@@ -432,7 +432,7 @@ namespace SM64BBF
             displayRuleGroupPoison.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_ElitePoison_DisplayEliteUrchinCrown_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_ElitePoison.DisplayEliteUrchinCrown_prefab),
                 childName = "Head",
                 localPos = new Vector3(0.05243F, 0.2016F, -0.02218F),
                 localAngles = new Vector3(280.5813F, 114.8507F, 252.4087F),
@@ -443,7 +443,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupPoison,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_ElitePoison_ElitePoisonEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_ElitePoison.ElitePoisonEquipment_asset),
             });
             #endregion
 
@@ -452,7 +452,7 @@ namespace SM64BBF
             displayRuleGroupEarth.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteEarth_DisplayEliteMendingAntlers_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteEarth.DisplayEliteMendingAntlers_prefab),
                 childName = "Head",
                 localPos = new Vector3(-0.12323F, 0.22929F, 0.00569F),
                 localAngles = new Vector3(13.38845F, 89.25855F, 356.7623F),
@@ -463,7 +463,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupEarth,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteEarth_EliteEarthEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteEarth.EliteEarthEquipment_asset),
             });
             #endregion
 
@@ -472,7 +472,7 @@ namespace SM64BBF
             displayRuleGroupVoid.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid_DisplayAffixVoid_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid.DisplayAffixVoid_prefab),
                 childName = "Eyes",
                 localPos = new Vector3(-0.01601F, 0.35024F, -0.22315F),
                 localAngles = new Vector3(20.17711F, 258.0909F, 2.55114F),
@@ -482,7 +482,7 @@ namespace SM64BBF
             displayRuleGroupVoid.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid_DisplayAffixVoid_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid.DisplayAffixVoid_prefab),
                 childName = "Eyes",
                 localPos = new Vector3(-0.1112F, 0.35393F, 0.20253F),
                 localAngles = new Vector3(20.17711F, 258.0909F, 2.55114F),
@@ -493,7 +493,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupVoid,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid_EliteVoidEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid.EliteVoidEquipment_asset),
             });
             #endregion
 
@@ -502,7 +502,7 @@ namespace SM64BBF
             displayRuleGroupBead.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteBead_DisplayEliteBeadSpike_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteBead.DisplayEliteBeadSpike_prefab),
                 childName = "Head",
                 localPos = new Vector3(0F, 0F, 0F),
                 localAngles = new Vector3(351.8527F, 1.20328F, 359.7321F),
@@ -513,7 +513,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupBead,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteBead_EliteBeadEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteBead.DisplayEliteBeadEquipment_prefab)
             });
             #endregion
 
@@ -522,7 +522,7 @@ namespace SM64BBF
             displayRuleGroupGold.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteAurelionite_DisplayEliteAurelioniteEquipment_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteAurelionite.DisplayEliteAurelioniteEquipment_prefab),
                 childName = "Head",
                 localPos = new Vector3(-0.70343F, 0.297F, -0.0293F),
                 localAngles = new Vector3(0F, 265.192F, 4F),
@@ -533,7 +533,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupGold,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteAurelionite_EliteAurelioniteEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteAurelionite.EliteAurelioniteEquipment_asset)
             });
             #endregion
 
@@ -565,7 +565,7 @@ namespace SM64BBF
             displayRuleGroupFire.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire_DisplayEliteHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire.DisplayEliteHorn_prefab),
                 childName = "Chest",
                 localPos = new Vector3(0.59218F, 1.54394F, -0.05067F),
                 localAngles = new Vector3(0F, 339.9597F, 0F),
@@ -576,7 +576,7 @@ namespace SM64BBF
             displayRuleGroupFire.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire_DisplayEliteHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire.DisplayEliteHorn_prefab),
                 childName = "Chest",
                 localPos = new Vector3(-0.71898F, 1.56142F, -0.13889F),
                 localAngles = new Vector3(0F, 21.92726F, 0F),
@@ -586,7 +586,7 @@ namespace SM64BBF
 
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire_EliteFireEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteFire.EliteFireEquipment_asset),
                 displayRuleGroup = displayRuleGroupFire,
             });
             #endregion
@@ -596,7 +596,7 @@ namespace SM64BBF
             displayRuleGroupHaunted.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteHaunted_DisplayEliteStealthCrown_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteHaunted.DisplayEliteStealthCrown_prefab),
                 childName = "Chest",
                 localPos = new Vector3(-0.00001F, 1.59462F, -0.12945F),
                 localAngles = new Vector3(280.6838F, 180F, 180F),
@@ -607,7 +607,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupHaunted,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteHaunted_EliteHauntedEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteHaunted.EliteHauntedEquipment_asset)
             });
             #endregion
 
@@ -616,7 +616,7 @@ namespace SM64BBF
             displayRuleGroupIce.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteIce_DisplayEliteIceCrown_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteIce.DisplayEliteIceCrown_prefab),
                 childName = "Chest",
                 localPos = new Vector3(0F, 1.62464F, -0.2518F),
                 localAngles = new Vector3(278.8098F, 180F, 180F),
@@ -627,7 +627,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupIce,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteIce_EliteIceEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteIce.EliteIceEquipment_asset),
             });
             #endregion
 
@@ -636,7 +636,7 @@ namespace SM64BBF
             displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_DisplayEliteRhinoHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.DisplayEliteRhinoHorn_prefab),
                 childName = "Chest",
                 localPos = new Vector3(-0.00001F, 1.92614F, 0.98929F),
                 localAngles = new Vector3(0F, 0F, 0F),
@@ -646,7 +646,7 @@ namespace SM64BBF
             displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_DisplayEliteRhinoHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.DisplayEliteRhinoHorn_prefab),
                 childName = "Chest",
                 localPos = new Vector3(0.8654F, 1.92616F, 0.56131F),
                 localAngles = new Vector3(0F, 55.35863F, 0F),
@@ -656,7 +656,7 @@ namespace SM64BBF
             displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_DisplayEliteRhinoHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.DisplayEliteRhinoHorn_prefab),
                 childName = "Chest",
                 localPos = new Vector3(0.93271F, 1.92613F, -0.572F),
                 localAngles = new Vector3(0F, 120.2551F, 0F),
@@ -666,7 +666,7 @@ namespace SM64BBF
             displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_DisplayEliteRhinoHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.DisplayEliteRhinoHorn_prefab),
                 childName = "Chest",
                 localPos = new Vector3(-0.02104F, 1.9261F, -1.07331F),
                 localAngles = new Vector3(0F, 173.6604F, 0F),
@@ -676,7 +676,7 @@ namespace SM64BBF
             displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_DisplayEliteRhinoHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.DisplayEliteRhinoHorn_prefab),
                 childName = "Chest",
                 localPos = new Vector3(-0.91867F, 1.92607F, -0.55149F),
                 localAngles = new Vector3(0F, 239.4073F, 0F),
@@ -686,7 +686,7 @@ namespace SM64BBF
             displayRuleGroupLightning.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_DisplayEliteRhinoHorn_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.DisplayEliteRhinoHorn_prefab),
                 childName = "Chest",
                 localPos = new Vector3(-0.94588F, 1.92609F, 0.53167F),
                 localAngles = new Vector3(0F, 295.5718F, 0F),
@@ -697,7 +697,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupLightning,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning_EliteLightningEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLightning.EliteLightningEquipment_asset)
             });
             #endregion
 
@@ -706,7 +706,7 @@ namespace SM64BBF
             displayRuleGroupLunar.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_DisplayEliteLunar__Fire_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_DisplayEliteLunar.Fire_prefab),
                 childName = "Chest",
                 localPos = new Vector3(0F, -0.00001F, -1.46488F),
                 localAngles = new Vector3(-0.00001F, 180F, 180F),
@@ -717,7 +717,7 @@ namespace SM64BBF
             displayRuleGroupLunar.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_DisplayEliteLunar_Eye_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_DisplayEliteLunar.Eye_prefab),
                 childName = "Chest",
                 localPos = new Vector3(-0.06016F, 1.72845F, 0.00001F),
                 localAngles = new Vector3(270F, 0F, 0F),
@@ -728,7 +728,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupLunar,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar_EliteLunarEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_EliteLunar.EliteLunarEquipment_asset),
             });
             #endregion
 
@@ -737,7 +737,7 @@ namespace SM64BBF
             displayRuleGroupPoison.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_ElitePoison_DisplayEliteUrchinCrown_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_Base_ElitePoison.DisplayEliteUrchinCrown_prefab),
                 childName = "Chest",
                 localPos = new Vector3(0F, 1.82306F, 0F),
                 localAngles = new Vector3(270F, 0F, 0F),
@@ -748,7 +748,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupPoison,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_ElitePoison_ElitePoisonEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_Base_ElitePoison.ElitePoisonEquipment_asset),
             });
             #endregion
 
@@ -757,7 +757,7 @@ namespace SM64BBF
             displayRuleGroupEarth.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteEarth_DisplayEliteMendingAntlers_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteEarth.DisplayEliteMendingAntlers_prefab),
                 childName = "Chest",
                 localPos = new Vector3(-0.00012F, 1.66408F, -0.25776F),
                 localAngles = new Vector3(0F, 0F, 0F),
@@ -768,7 +768,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupEarth,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteEarth_EliteEarthEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteEarth.EliteEarthEquipment_asset),
             });
             #endregion
 
@@ -777,7 +777,7 @@ namespace SM64BBF
             displayRuleGroupVoid.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid_DisplayAffixVoid_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid.DisplayAffixVoid_prefab),
                 childName = "Chest",
                 localPos = new Vector3(0F, -0.83569F, 1.7186F),
                 localAngles = new Vector3(90F, 0F, 0F),
@@ -788,7 +788,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupVoid,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid_EliteVoidEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_EliteVoid.EliteVoidEquipment_asset),
             });
             #endregion
 
@@ -797,7 +797,7 @@ namespace SM64BBF
             displayRuleGroupBead.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteBead_DisplayEliteBeadSpike_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteBead.DisplayEliteBeadSpike_prefab),
                 childName = "Chest",
                 localPos = new Vector3(-0.00333F, 1.08781F, -0.20362F),
                 localAngles = new Vector3(0F, 0F, 0F),
@@ -808,7 +808,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupBead,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteBead_EliteBeadEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteBead.DisplayEliteBeadEquipment_prefab)
             });
             #endregion
 
@@ -817,7 +817,7 @@ namespace SM64BBF
             displayRuleGroupGold.AddDisplayRule(new ItemDisplayRule
             {
                 ruleType = ItemDisplayRuleType.ParentedPrefab,
-                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteAurelionite_DisplayEliteAurelioniteEquipment_prefab),
+                followerPrefabAddress = new AssetReferenceGameObject(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteAurelionite.DisplayEliteAurelioniteEquipment_prefab),
                 childName = "Chest",
                 localPos = new Vector3(0.04781F, 1.64264F, 1.12044F),
                 localAngles = new Vector3(0F, 0F, 0F),
@@ -828,7 +828,7 @@ namespace SM64BBF
             ArrayUtils.ArrayAppend(ref itemDisplayRuleSet.keyAssetRuleGroups, new KeyAssetRuleGroup
             {
                 displayRuleGroup = displayRuleGroupGold,
-                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteAurelionite_EliteAurelioniteEquipment_asset),
+                keyAssetAddress = new RoR2.AddressableAssets.IDRSKeyAssetReference(RoR2BepInExPack.GameAssetPaths.RoR2_DLC2_Elites_EliteAurelionite.EliteAurelioniteEquipment_asset)
             });
             #endregion
 

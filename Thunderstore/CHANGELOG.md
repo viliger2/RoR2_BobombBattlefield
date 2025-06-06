@@ -1,4 +1,9 @@
 <details>
+<summary>1.1.1 </summary>
+
+* Fixed an issue causing the game to not load.
+</details>
+<details>
 <summary>1.1.0 </summary>
 
 * 1.3.9 update.
