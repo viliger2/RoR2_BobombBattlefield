@@ -63,6 +63,13 @@ namespace SM64BBF.Items
 
                     spawnedMaster.inventory.GiveItem(RoR2Content.Items.BoostHp, Mathf.RoundToInt((healthBoost - 1f) * 10f));
                     spawnedMaster.inventory.GiveItem(RoR2Content.Items.BoostDamage, Mathf.RoundToInt((damageBoost - 1f) * 10f));
+                    spawnedMaster.inventory.GiveItem(RoR2Content.Items.HealthDecay, 30);
+
+                    var baseAI = spawnResult.spawnedInstance.GetComponent<BaseAI>();
+                    if (baseAI && baseAI.body)
+                    {
+                        baseAI.ForceAcquireNearestEnemyIfNoCurrentEnemy();
+                    }
                 }
             };
             DirectorCore.instance?.TrySpawnObject(directorSpawnRequest);
