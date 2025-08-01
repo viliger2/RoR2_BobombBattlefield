@@ -14,6 +14,9 @@ using UnityEngine.Networking;
 #pragma warning restore CS0618 // Type or member is obsolete
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
+// TODO:
+// 1. starman doesn't kill allies on clients, maybe just redo the implementation entirely and just have overlaping attack that is constantly dealing damage instead of collision detection
+// 2. rocks are broken on clients, maybe it is because of my giant ping
 namespace SM64BBF
 {
     [BepInPlugin(GUID, "SM64BBF", Version)]
@@ -52,11 +55,14 @@ namespace SM64BBF
         private void RegisterHooks()
         {
             On.RoR2.MusicController.StartIntroMusic += MusicController_StartIntroMusic;
+            IL.RoR2.GenericPickupController.HandlePickupMessage += PickUpDefs.StarmanPickupDef.GenericPickupController_HandlePickupMessage;
             ContentManager.collectContentPackProviders += GiveToRoR2OurContentPackProviders;
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;
             CharacterBody.onBodyInventoryChangedGlobal += CharacterBody_onBodyInventoryChangedGlobal;
             R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
         }
+
+
 
         private void CharacterBody_onBodyInventoryChangedGlobal(CharacterBody body)
         {
@@ -78,7 +84,6 @@ namespace SM64BBF
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, R2API.RecalculateStatsAPI.StatHookEventArgs args)
         {
-            //throw new NotImplementedException();
             if (sender.HasBuff(SM64BBF.SM64BBFContent.Buffs.BobombArmor))
             {
                 args.armorAdd += 100f;

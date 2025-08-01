@@ -144,6 +144,17 @@
 										</Sound>
 										<Sound Name="Starman_ImpactKill" ID="{7EFBA5ED-F4CD-429A-972C-9B15128BAFF2}" ShortID="383615392">
 											<PropertyList>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>2</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>7</Value>

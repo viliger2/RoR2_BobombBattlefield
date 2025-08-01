@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 3144712723364437618}
   - component: {fileID: 7450467484668857974}
   - component: {fileID: 5647262304753148559}
-  - component: {fileID: 8526420236630731756}
+  - component: {fileID: 760831391687256591}
   m_Layer: 15
   m_Name: RollingRock
   m_TagString: Untagged
@@ -311,6 +311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeOnStart: 1
   shakeOnEnable: 0
+  shakeOnDelay: 0
+  startDelay: 1
   wave:
     amplitude: 0.3
     frequency: 100
@@ -319,7 +321,7 @@ MonoBehaviour:
   radius: 12.5
   scaleShakeRadiusWithLocalScale: 0
   amplitudeTimeDecay: 0
---- !u!114 &8526420236630731756
+--- !u!114 &760831391687256591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -328,19 +330,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3144712723364437621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13d6c522af31447398568cc65334232b, type: 3}
+  m_Script: {fileID: 161585894, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.033333335
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 0.1
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
+  positionTransmitInterval: 0.1
+  lastPositionTransmitTime: -Infinity
+  interpolationFactor: 2
+  debugDuplicatePositions: 0
+  debugSnapshotReceived: 0
 --- !u!1 &8658795103165278374
 GameObject:
   m_ObjectHideFlags: 0

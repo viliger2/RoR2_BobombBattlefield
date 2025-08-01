@@ -158,10 +158,7 @@ namespace SM64BBF
             // networkedObjectPrefabs
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<GameObject[]>)((assets) =>
             {
-                var MarioTreeIntractable = assets.First(interactable => interactable.name == "TreeInteractable");
-                var RollingRock = assets.First(gameObject => gameObject.name == "RollingRock");
-                contentPack.networkedObjectPrefabs.Add(new GameObject[] { MarioTreeIntractable, RollingRock });
-                //Log.Debug("loaded networkedObjects");
+
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<ItemDef[]>)((assets) =>
@@ -204,21 +201,21 @@ namespace SM64BBF
                     contentPack.bodyPrefabs.Add(new GameObject[] { KingBobomb });
                     //Log.Debug("added and setup RegigigasKingBobombBody");
                 }
-                //Log.Debug("loaded bodyPrefabs");
-            }));
 
-            // masterPrefabs
-            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<GameObject[]>)((assets) =>
-            {
+                var MarioTreeIntractable = assets.First(interactable => interactable.name == "TreeInteractable");
+                var RollingRock = assets.First(gameObject => gameObject.name == "RollingRock");
+                contentPack.networkedObjectPrefabs.Add(new GameObject[] { MarioTreeIntractable, RollingRock });
+
                 var bobombMaster = assets.First(bp => bp.name == "BobombMaster");
                 contentPack.masterPrefabs.Add(new GameObject[] { bobombMaster });
                 if (SM64BBF.RegigigasCompat.enabled)
                 {
                     var kingBobombMaster2 = assets.First(bp => bp.name == "KingBobomb2Master");
                     contentPack.masterPrefabs.Add(new GameObject[] { kingBobombMaster2 });
-                    //Log.Debug("added and setup RegigigasKingBobombMaster");
                 }
-                //Log.Debug("loaded masterPrefabs");
+
+                States.StarManState.starmanKillsEffect = assets.First(asset => asset.name == "KIlledByStarmanEffect");
+                contentPack.effectDefs.Add(new EffectDef[] { new EffectDef(States.StarManState.starmanKillsEffect) });
             }));
 
             yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<SkillDef[]>)((assets) =>
@@ -906,18 +903,9 @@ namespace SM64BBF
         {
             contentPack.networkSoundEventDefs.Add(new NetworkSoundEventDef[] {
                 RegisterNetworkSound("SM64_BBF_Play_Coin"),
-                RegisterNetworkSound("SM64_BBF_Stop_StarmanComes"),
-                RegisterNetworkSound("SM64_BBF_StarmanKills"),
                 RegisterNetworkSound("SM64_BBF_Play_Star"),
-                RegisterNetworkSound("SM64_BBF_Stop_RollingStone"),
-                RegisterNetworkSound("SM64_BBF_Play_StarmanComes"),
-                RegisterNetworkSound("SM64_BBF_Play_RollingStone"),
                 RegisterNetworkSound("SM64_BBF_solonggaybowser"),
                 RegisterNetworkSound("SM64_BBF_Play_OneUp"),
-                RegisterNetworkSound("SM64_BBF_Play_Bobomb_Aggro"),
-                RegisterNetworkSound("SM64_BBF_Play_Bobomb_Fuse"),
-                RegisterNetworkSound("SM64_BBF_Stop_Bobomb_Fuse"),
-                RegisterNetworkSound("SM64_BBF_Play_Bobomb_Death"),
                 RegisterNetworkSound("SM64_BBF_Play_Shake_Tree"),
                 RegisterNetworkSound("SM64_BBF_ThankYou")
             });

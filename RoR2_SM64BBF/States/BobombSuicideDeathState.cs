@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using RoR2;
 using RoR2.Audio;
 using UnityEngine.Networking;
 
@@ -9,7 +10,7 @@ namespace SM64BBF.States
         public override void OnEnter()
         {
             base.OnEnter();
-            EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Stop_Bobomb_Fuse", gameObject);
+            Util.PlaySound("SM64_BBF_Stop_Bobomb_Fuse", gameObject);
             if (NetworkServer.active)
             {
                 healthComponent.Suicide(); // this ensures OnDeath events like elite things

@@ -18,7 +18,7 @@ namespace SM64BBF.Controllers
         // Start is called before the first frame update
         void Start()
         {
-            EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_RollingStone", gameObject);
+            Util.PlaySound("SM64_BBF_Play_RollingStone", gameObject);
         }
 
         void FixedUpdate()
@@ -46,7 +46,7 @@ namespace SM64BBF.Controllers
 
         void OnDestroy()
         {
-            EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Stop_RollingStone", gameObject);
+            Util.PlaySound("SM64_BBF_Stop_RollingStone", gameObject);
         }
     }
 }

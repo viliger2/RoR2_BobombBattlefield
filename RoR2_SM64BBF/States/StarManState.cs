@@ -3,7 +3,9 @@ using RoR2;
 using RoR2.Audio;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace SM64BBF.States
 {
@@ -13,9 +15,15 @@ namespace SM64BBF.States
 
         public static AnimationCurve animCurve = null;
 
+        public static GameObject starmanKillsEffect;
+
         private TemporaryOverlayInstance temporaryOverlay;
 
-        private readonly List<HealthComponent> ignoredHealthComponentList = new List<HealthComponent>();
+        private BlastAttack blastAttack;
+
+        private bool stopped;
+
+        private AsyncOperationHandle<Material> operationHandle;
 
         public override void OnEnter()
         {
@@ -23,25 +31,38 @@ namespace SM64BBF.States
             if (NetworkServer.active)
             {
                 characterBody.AddTimedBuff(RoR2Content.Buffs.Immune, duration);
-                EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_StarmanComes", gameObject);
             }
+            Util.PlaySound("SM64_BBF_Play_StarmanComes", gameObject);
             if (animCurve == null)
             {
                 animCurve = AnimationCurve.Linear(0, 0, 1, 1);
                 animCurve.postWrapMode = WrapMode.PingPong;
                 animCurve.preWrapMode = WrapMode.PingPong;
             }
-
-            var model = GetModelTransform()?.GetComponent<CharacterModel>();
-            if (model)
+            blastAttack = CreateBlastAttack();
+            operationHandle = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Common.matFlashWhite_mat);
+            if (operationHandle.IsValid())
             {
-                //temporaryOverlay = base.gameObject.AddComponent<TemporaryOverlay>(); // TODO: this doesn't work on clients for some reason
-                temporaryOverlay = TemporaryOverlayManager.AddOverlay(base.gameObject);
-                temporaryOverlay.duration = 0.2f;
-                temporaryOverlay.alphaCurve = animCurve;
-                temporaryOverlay.animateShaderAlpha = true;
-                temporaryOverlay.originalMaterial = LegacyResourcesAPI.Load<Material>("Materials/matFlashWhite");
-                temporaryOverlay.AddToCharacterModel(model);
+                operationHandle.Completed += (operationResult) =>
+                {
+                    if (operationResult.Status == AsyncOperationStatus.Succeeded)
+                    {
+                        var model = GetModelTransform();
+                        if (model)
+                        {
+                            temporaryOverlay = TemporaryOverlayManager.AddOverlay(base.gameObject);
+                            temporaryOverlay.duration = 0.2f;
+                            temporaryOverlay.alphaCurve = animCurve;
+                            temporaryOverlay.animateShaderAlpha = true;
+                            temporaryOverlay.originalMaterial = operationResult.Result;
+                            temporaryOverlay.AddToCharacterModel(model.GetComponent<CharacterModel>());
+                        }
+                    }
+                    else
+                    {
+                        Addressables.Release(operationHandle);
+                    }
+                };
             }
         }
 
@@ -51,29 +72,20 @@ namespace SM64BBF.States
 
             if (base.isAuthority)
             {
-                Collider[] array = Physics.OverlapBox(transform.position, transform.lossyScale * 0.5f, transform.rotation, LayerIndex.entityPrecise.mask);
-                foreach (Collider collider in array)
+                if (blastAttack != null)
                 {
-                    var hurtBox = collider.GetComponent<HurtBox>();
-                    if (hurtBox && HurtBoxPassesFilter(hurtBox))
-                    {
-                        ignoredHealthComponentList.Add(hurtBox.healthComponent);
-                        EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_StarmanKills", gameObject);
-                        if (NetworkServer.active)
-                        {
-                            DealStarmanDamage(hurtBox.healthComponent);
-                        }
-                        else
-                        {
-                            CmdKill(hurtBox.healthComponent?.body?.networkIdentity?.netId ?? default(NetworkInstanceId));
-                        }
-                    }
+                    blastAttack.position = transform.position;
+                    blastAttack.Fire();
                 }
             }
-            if (fixedAge > duration * 0.75f)
+            if (fixedAge > duration * 0.75f && !stopped)
             {
-                temporaryOverlay.duration = 0.6f;
-                EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Stop_StarmanComes", gameObject);
+                if (temporaryOverlay != null)
+                {
+                    temporaryOverlay.duration = 0.6f;
+                    Util.PlaySound("SM64_BBF_Stop_StarmanComes", gameObject);
+                    stopped = true;
+                }
             }
 
             if (fixedAge > duration && isAuthority)
@@ -82,60 +94,32 @@ namespace SM64BBF.States
             }
         }
 
-        [Command]
-        public void CmdKill(NetworkInstanceId netId)
+        private BlastAttack CreateBlastAttack()
         {
-            if (netId == default(NetworkInstanceId))
-            {
-                return;
-            }
-            var gameObject = Util.FindNetworkObject(netId);
-            if (gameObject)
-            {
-                if (gameObject.TryGetComponent<CharacterBody>(out var body) && body.healthComponent)
-                {
-                    DealStarmanDamage(body.healthComponent);
-                }
-            }
-        }
+            BlastAttack blastAttack = new BlastAttack();
+            blastAttack.radius = characterBody.bestFitActualRadius * 2f;
+            blastAttack.procCoefficient = 0f;
+            blastAttack.attacker = base.gameObject;
+            blastAttack.inflictor = base.gameObject;
+            blastAttack.baseForce = 0f;
+            blastAttack.bonusForce = Vector3.zero;
+            blastAttack.baseDamage = 999999f;
+            blastAttack.canRejectForce = false;
+            blastAttack.crit = false;
+            blastAttack.procChainMask = default;
+            blastAttack.damageColorIndex = DamageColorIndex.WeakPoint;
+            blastAttack.damageType = DamageType.BypassArmor & DamageType.BypassBlock;
+            blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
+            blastAttack.teamIndex = TeamIndex.Neutral;
+            blastAttack.impactEffect = EffectCatalog.FindEffectIndexFromPrefab(starmanKillsEffect);
 
-        private void DealStarmanDamage(HealthComponent healthComponent)
-        {
-            DamageInfo damageInfo = new DamageInfo();
-            damageInfo.attacker = base.gameObject;
-            damageInfo.inflictor = base.gameObject;
-            damageInfo.force = Vector3.zero;
-            damageInfo.damage = 9999999f;
-            damageInfo.crit = false;
-            damageInfo.position = healthComponent.transform.position;
-            damageInfo.procChainMask = new ProcChainMask();
-            damageInfo.procCoefficient = 0f;
-            damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
-            damageInfo.damageType = (DamageTypeCombo)(DamageType.BypassArmor & DamageType.BypassBlock);
-            healthComponent.TakeDamage(damageInfo);
-        }
-
-        private bool HurtBoxPassesFilter(HurtBox hurtBox)
-        {
-            if (!hurtBox.healthComponent)
-            {
-                return false;
-            }
-            if (hurtBox.healthComponent.gameObject == gameObject)
-            {
-                return false;
-            }
-            if (ignoredHealthComponentList.Contains(hurtBox.healthComponent))
-            {
-                return false;
-            }
-            return true;
+            return blastAttack;
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Stop_StarmanComes", gameObject);
+            Util.PlaySound("SM64_BBF_Stop_StarmanComes", gameObject);
             if (NetworkServer.active)
             {
                 if (characterBody.HasBuff(RoR2Content.Buffs.Immune))
@@ -150,11 +134,15 @@ namespace SM64BBF.States
                 temporaryOverlay.Destroy();
                 temporaryOverlay = null;
             }
+            if (operationHandle.IsValid())
+            {
+                Addressables.Release(operationHandle);
+            }
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill; // only falling into the pit can stop the starman, also stops some movement abilities
+            return InterruptPriority.Death; // only falling into the pit can stop the starman, also stops some movement abilities
         }
     }
 }

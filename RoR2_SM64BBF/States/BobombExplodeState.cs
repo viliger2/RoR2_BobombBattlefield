@@ -47,14 +47,18 @@ namespace SM64BBF.States
                 temporaryOverlay.AddToCharacterModel(model);
             }
             var cl = GetModelChildLocator();
-            var head = cl?.FindChild("Head");
+            if (cl)
+            {
+                var head = cl?.FindChild("Head");
 
-            smoke = GameObject.Instantiate(smokeEmitter, head ?? characterBody.coreTransform);
-            var particleSystem = smoke.GetComponent<ParticleSystem>();
-            var particleMain = particleSystem.main;
-            particleMain.simulationSpace = ParticleSystemSimulationSpace.World;
-            smoke.transform.localPosition = Vector3.zero;
-            EntitySoundManager.EmitSoundServer((AkEventIdArg)"SM64_BBF_Play_Bobomb_Fuse", gameObject);
+                smoke = GameObject.Instantiate(smokeEmitter, head ?? characterBody.coreTransform);
+                var particleSystem = smoke.GetComponent<ParticleSystem>();
+                var particleMain = particleSystem.main;
+                particleMain.simulationSpace = ParticleSystemSimulationSpace.World;
+                smoke.transform.localPosition = Vector3.zero;
+            }
+
+            Util.PlaySound("SM64_BBF_Play_Bobomb_Fuse", gameObject);
         }
 
         public override void FixedUpdate()
