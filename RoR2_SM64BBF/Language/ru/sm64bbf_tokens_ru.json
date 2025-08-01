@@ -23,7 +23,7 @@
 		"SM64_BBF_MAP_SM64_BBF_LORE": "Мама мия!",
 		"SM64_BBF_INTERACTABLE_MARIOTREE_NAME": "Дерево",
 		"SM64_BBF_INTERACTABLE_MARIOTREE_CONTEXT": "Потрясти дерево?",
-		"SM64_BBF_FAMILY_BOBOMB": "Вы чуете запах пороха по ветру.",
+		"SM64_BBF_FAMILY_BOBOMB": "<style=cWorldEvent>[ВНИМАНИЕ] Вы чуете запах пороха по ветру.</style>",
 
 		"SM64_BBF_ITEM_ROYAL_CROWN_NAME": "Королевская корона",
 		"SM64_BBF_ITEM_ROYAL_CROWN_PICKUP": "Деритесь с честью!",

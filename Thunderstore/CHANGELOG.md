@@ -2,8 +2,8 @@
 <summary>1.1.2 </summary>
 
 * Fixed Starman not working on clients. Overhauled how Starman works.
-  * _This should make Starman more reliable, since now it is just an invisible explosion around you instead of collision detection which can be questionable._
-* Coin now gives you enough money to buy a chest.
+  * _This should make Starman more reliable, since now it is just an invisible explosion around you instead of collision detection which can be questionable at high movement speed._
+* Coin now gives you enough money to buy a chest in addition to current effect.
 * Made adjustments to rolling rocks so they are less stuttery on clients.
   * _There is more work to be done here but hopefully now rocks are smoother and don't break on high ping connections._
 * Redid DCCS.

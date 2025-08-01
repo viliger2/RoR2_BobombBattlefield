@@ -11,7 +11,7 @@ namespace SM64BBF.Interactables
     {
         [SyncVar]
         public string displayNameToken;
-
+ 
         [SyncVar]
         public string contextToken;
 

@@ -23,7 +23,7 @@
 		"SM64_BBF_MAP_SM64_BBF_LORE": "Something something mama mia",
 		"SM64_BBF_INTERACTABLE_MARIOTREE_NAME": "Tree",
 		"SM64_BBF_INTERACTABLE_MARIOTREE_CONTEXT": "Shake the tree?",
-		"SM64_BBF_FAMILY_BOBOMB": "You smell black powder in the air.",
+		"SM64_BBF_FAMILY_BOBOMB": "<style=cWorldEvent>[WARNING} You smell black powder in the air.</style>",
 
 		"SM64_BBF_ITEM_ROYAL_CROWN_NAME": "Royal Crown",
 		"SM64_BBF_ITEM_ROYAL_CROWN_PICKUP": "You must fight with honor!",

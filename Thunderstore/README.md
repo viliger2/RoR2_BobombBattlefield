@@ -33,6 +33,6 @@ Please send bug reports either by tagging me on Discord in RoR2 Modding server, 
   * Pretty much entire thing - Super Mario 64, property of Nintendo
   * [RandomlyAwesome](https://thunderstore.io/package/RandomlyAwesome/) - for providing initial Bobomb EntityState script.
   * [FORCED_REASSEMBLY](https://thunderstore.io/package/Forced_Reassembly/) - for idea to use Regigigas as a template for King Bobomb. Oops, spoilers.
-  * [rob](https://thunderstore.io/package/rob_gaming/) and [TheTimesweeper](https://thunderstore.io/package/TheTimesweeper/) - for creating and maintaining Regigigas.
+  * [rob](https://thunderstore.io/package/rob_gaming/), [TheTimesweeper](https://thunderstore.io/package/TheTimesweeper/) and [score](https://thunderstore.io/package/score/) - for creating and maintaining Regigigas.
   * Tree shadow script - https://www.reddit.com/r/Unity3D/comments/c31gwd/a_very_simple_shadow_casting_solution_for_mobile/
 </details>
