@@ -14,9 +14,6 @@ using UnityEngine.Networking;
 #pragma warning restore CS0618 // Type or member is obsolete
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 
-// TODO:
-// 1. starman doesn't kill allies on clients, maybe just redo the implementation entirely and just have overlaping attack that is constantly dealing damage instead of collision detection
-// 2. rocks are broken on clients, maybe it is because of my giant ping
 namespace SM64BBF
 {
     [BepInPlugin(GUID, "SM64BBF", Version)]

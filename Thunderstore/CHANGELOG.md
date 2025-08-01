@@ -1,4 +1,16 @@
 <details>
+<summary>1.1.2 </summary>
+
+* Fixed Starman not working on clients. Overhauled how Starman works.
+  * _This should make Starman more reliable, since now it is just an invisible explosion around you instead of collision detection which can be questionable._
+* Coin now gives you enough money to buy a chest.
+* Made adjustments to rolling rocks so they are less stuttery on clients.
+  * _There is more work to be done here but hopefully now rocks are smoother and don't break on high ping connections._
+* Redid DCCS.
+  * _First of all, this should've been done on 1.3.9 update to, well, update them to new patch. Second, I've had report that sometimes stage spawns with zero interactables, so this should hopefully fix it._
+* Modified volume curve to close match volume on in-game music.
+</details>
+<details>
 <summary>1.1.1 </summary>
 
 * Fixed an issue causing the game to not load.

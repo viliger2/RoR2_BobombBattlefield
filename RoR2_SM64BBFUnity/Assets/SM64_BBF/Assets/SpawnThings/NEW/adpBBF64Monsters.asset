@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 495100722, guid: 45feadaaa90b2d2217207fb8b533753e, type: 3}
+  m_Name: adpBBF64Monsters
+  m_EditorClassIdentifier: 
+  targetPool: {fileID: 11400000, guid: f12b2e99a0f7da948a6c04380083407f, type: 2}
+  poolCategories:
+  - name: Standard
+    categoryWeight: 0.98
+    alwaysIncluded:
+    - dccs: {fileID: 11400000, guid: a5fcd3d029a6c2e4a8de270ff0d605de, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+      weight: 1
+    includedIfConditionsMet:
+    - dccs: {fileID: 11400000, guid: bad5daa649fe45647842209f4bc1fba3, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+      weight: 1
+      requiredExpansions: []
+    - dccs: {fileID: 11400000, guid: 34f983a5e9e1e19488c5d0e2d193a7c4, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+      weight: 1
+      requiredExpansions:
+      - _asset: {fileID: 0}
+        _address: RoR2/DLC1/Common/DLC1.asset
+        _useDirectReference: 0
+    - dccs: {fileID: 11400000, guid: 846b7348bdc7543499ebe3b040be4e27, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+      weight: 1
+      requiredExpansions:
+      - _asset: {fileID: 0}
+        _address: RoR2/DLC2/Common/DLC2.asset
+        _useDirectReference: 0
+    includedIfNoConditionsMet: []
+  - name: Family
+    categoryWeight: 0.02
+    alwaysIncluded: []
+    includedIfConditionsMet:
+    - dccs: {fileID: 11400000, guid: 4e32ec21fd421b743ba58fc3816f6396, type: 2}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: 
+        _useDirectReference: 0
+      weight: 3
+      requiredExpansions: []
+    - dccs: {fileID: 0}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: RoR2/Base/Common/dccsLemurianFamily.asset
+        _useDirectReference: 0
+      weight: 1
+      requiredExpansions:
+      - _asset: {fileID: 0}
+        _address: RoR2/DLC1/Common/DLC1.asset
+        _useDirectReference: 0
+    - dccs: {fileID: 0}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: RoR2/Base/Common/dccsGupFamily.asset
+        _useDirectReference: 0
+      weight: 1
+      requiredExpansions:
+      - _asset: {fileID: 0}
+        _address: RoR2/DLC2/Common/DLC2.asset
+        _useDirectReference: 0
+    includedIfNoConditionsMet: []
+  - name: Void Invasion
+    categoryWeight: 0.02
+    alwaysIncluded: []
+    includedIfConditionsMet:
+    - dccs: {fileID: 0}
+      familyDccs:
+        _asset: {fileID: 0}
+        _address: RoR2/DLC1/Common/dccsVoidFamily.asset
+        _useDirectReference: 0
+      weight: 1
+      requiredExpansions:
+      - _asset: {fileID: 0}
+        _address: RoR2/DLC1/Common/DLC1.asset
+        _useDirectReference: 0
+    includedIfNoConditionsMet: []
