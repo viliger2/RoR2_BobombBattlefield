@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C16CBCDE-094D-4132-897A-C0D7FBD21B87}" SchemaVersion="119">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{C16CBCDE-094D-4132-897A-C0D7FBD21B87}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="SM64_BBF_Play_Music_System" ID="{0C0E15C0-AEE4-4F18-B2AB-DE712536890C}">
+					<ChildrenList>
+						<Action Name="" ID="{2BB4DEAC-538C-403E-8EE4-942ACFC29A8E}" ShortID="239641416">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SM64_BBF_Music_System" ID="{3E28469A-8689-4A49-AB64-7256862AB2A1}" WorkUnitID="{AF79C0CC-6E76-4F0E-8401-2A9E8E82B113}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SM64_BBF_Unpause_Music" ID="{F24FBEAE-8BE1-4DF0-8AB3-2097B1DEC853}">
+					<ChildrenList>
+						<Action Name="" ID="{63D9FC3A-516E-4318-8646-D4E0DA77E732}" ShortID="498919927">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SM64_BBF_Music_System" ID="{3E28469A-8689-4A49-AB64-7256862AB2A1}" WorkUnitID="{AF79C0CC-6E76-4F0E-8401-2A9E8E82B113}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SM64_BBF_Pause_Music" ID="{4BA1D2E3-4A86-4B57-A086-E690D9A3945A}">
+					<ChildrenList>
+						<Action Name="" ID="{C70C993A-2466-4623-AC59-6AB735540474}" ShortID="386896636">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SM64_BBF_Music_System" ID="{3E28469A-8689-4A49-AB64-7256862AB2A1}" WorkUnitID="{AF79C0CC-6E76-4F0E-8401-2A9E8E82B113}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="Sounds" ID="{BD74BF3D-1DE3-42A7-B905-0CA176D8A740}" ShortID="704391792">
+					<ChildrenList>
+						<Folder Name="Bobomb" ID="{4C81DEDA-EF34-4461-AE27-93979F5C5539}" ShortID="901354483">
+							<ChildrenList>
+								<Event Name="SM64_BBF_Play_Bobomb_Aggro" ID="{CBB79A3E-91B0-4AEB-94EC-C55B1F885592}">
+									<ChildrenList>
+										<Action Name="" ID="{FC388ED2-8432-44C9-B17D-91887A359F2F}" ShortID="67092222">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Bobomb_Aggro" ID="{2F3D8A27-FF2E-478C-96C1-64E8A2E257FA}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SM64_BBF_Play_Bobomb_Death" ID="{2E7F4E3E-D40A-455C-8638-76FFCC334FE8}">
+									<ChildrenList>
+										<Action Name="" ID="{4ACF27C9-9C60-44CA-9B28-2F77E8019A31}" ShortID="561110922">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Bobomb_Death" ID="{C7068A5E-B431-4639-A544-DA6B15F3A502}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SM64_BBF_Play_Bobomb_Fuse" ID="{EDD876A0-799E-4FDA-BDBA-A6E28E5ECEB7}">
+									<ChildrenList>
+										<Action Name="" ID="{2EC4C2D4-A087-4FD4-9AAF-4B5A93458EC4}" ShortID="990778186">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Bobomb_Fuse" ID="{A4862788-1523-47E9-97DA-8DF016007505}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SM64_BBF_Stop_Bobomb_Fuse" ID="{05BCE288-476A-4F40-8C9C-0A30C666A775}">
+									<ChildrenList>
+										<Action Name="" ID="{7087D2AE-A0F9-43B1-8922-0076B6929823}" ShortID="926435875">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Bobomb_Fuse" ID="{A4862788-1523-47E9-97DA-8DF016007505}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="RollingStone" ID="{CE918DF0-552D-42B7-ACC9-DD332310EFDD}" ShortID="71610301">
+							<ChildrenList>
+								<Event Name="SM64_BBF_Play_RollingStone" ID="{621837B1-4684-4482-BE2F-482D449CB7EA}">
+									<ChildrenList>
+										<Action Name="" ID="{8ECCAD66-571E-4073-AC5C-766AC2E08AF9}" ShortID="107227810">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RollingRock" ID="{DAC91517-CC9E-4397-81AD-5D2F25BB8D14}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SM64_BBF_Stop_RollingStone" ID="{567F1F42-D69B-4C2B-AB00-3A3BEF357208}">
+									<ChildrenList>
+										<Action Name="" ID="{2405A691-F3B1-4B72-ABCA-8FBF421183F0}" ShortID="87268848">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RollingRock" ID="{DAC91517-CC9E-4397-81AD-5D2F25BB8D14}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Starman" ID="{E1BDDC4C-1699-482A-960E-3D72D71DB923}" ShortID="566578267">
+							<ChildrenList>
+								<Event Name="SM64_BBF_Play_Star" ID="{945971BA-8592-4B46-9AE6-38DD998C29B8}">
+									<ChildrenList>
+										<Action Name="" ID="{D4214E7C-5E36-4EA0-81BC-BEE7406BB76E}" ShortID="937181292">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Starman_Spawn" ID="{D4EBF114-83DA-41EF-B5E8-FBC23B67BB79}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SM64_BBF_Play_StarmanComes" ID="{8EB00BA6-292F-4C2A-90DE-462C03FFC092}">
+									<ChildrenList>
+										<Action Name="" ID="{B38823E4-985C-40B3-BCB5-507A6F279ED9}" ShortID="926182831">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Starman_ComesForYou" ID="{30E4A999-F8FC-4EF0-BDB6-1DF93D8D0104}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SM64_BBF_StarmanKills" ID="{1642A7F3-BF9E-4606-8DD6-94FA31A7BF2E}">
+									<ChildrenList>
+										<Action Name="" ID="{FCA47CE2-C4BD-4BD7-A34E-BED98A14FEA6}" ShortID="748222988">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Starman_ImpactKill" ID="{7EFBA5ED-F4CD-429A-972C-9B15128BAFF2}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SM64_BBF_Stop_StarmanComes" ID="{906D7E4A-8725-4EC3-AE67-074700495830}">
+									<ChildrenList>
+										<Action Name="" ID="{0EE1E260-A22D-40E2-B6DB-DAC547490151}" ShortID="839979852">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="FadeOutCurve" Type="int16" Value="6"/>
+												<Property Name="FadeTime" Type="Real64" Value="5"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Starman_ComesForYou" ID="{30E4A999-F8FC-4EF0-BDB6-1DF93D8D0104}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Event Name="SM64_BBF_Play_Cannon_Shoot" ID="{61690BE8-ED7F-466C-B90F-FF7E261CAFEA}">
+							<ChildrenList>
+								<Action Name="" ID="{9F54B4D0-CF2A-4D8B-9592-D18488688D1A}" ShortID="1072748447">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cannon_Shoot" ID="{0BA07390-6907-47F7-ADDE-713A943FE99B}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SM64_BBF_Play_Coin" ID="{FB7B49B9-8E04-4AE7-A2B2-B2B11D973884}">
+							<ChildrenList>
+								<Action Name="" ID="{29A9ADD2-44BD-4FB0-9C8E-AAADC2924EBF}" ShortID="206698193">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Coin" ID="{115F4498-ED70-47C4-9D5C-EBB6D7CE490D}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SM64_BBF_Play_OneUp" ID="{FA613AAE-AC9E-4D74-9835-1000991D0253}">
+							<ChildrenList>
+								<Action Name="" ID="{FE48E05E-D79C-4E6B-A07E-24D014232BC7}" ShortID="608170215">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="OneUp" ID="{4D5BC2F3-6FDE-431F-87D3-8BB1A7FE7E86}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SM64_BBF_Play_Shake_Tree" ID="{BEF0652E-C292-4067-8C53-3E500D3FF5CF}">
+							<ChildrenList>
+								<Action Name="" ID="{D069B7FF-DF09-4EE4-A73D-04DDB145534E}" ShortID="82822372">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ShakeTree" ID="{98356ED3-55C4-4D74-BFA5-B5919D2BE16A}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SM64_BBF_solonggaybowser" ID="{D7BC8C9D-B9C8-4B38-9C14-5EE561BB136E}">
+							<ChildrenList>
+								<Action Name="" ID="{448880EA-4ED3-4374-A90F-683763872286}" ShortID="894957577">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SoLongGayBowser" ID="{89594C09-98C9-42DB-9135-F08203944655}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SM64_BBF_ThankYou" ID="{CF0028FD-E93F-4F0A-885D-5A905505D6C6}">
+							<ChildrenList>
+								<Action Name="" ID="{EFD05A26-C116-4852-8436-49207942AE01}" ShortID="980714473">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ThankYou" ID="{DC97B4CE-E86F-472A-B3E4-71F73DAE9DCC}" WorkUnitID="{A0D9568E-D857-4AF6-9805-D8C745032AAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

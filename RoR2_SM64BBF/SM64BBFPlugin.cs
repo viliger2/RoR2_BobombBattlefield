@@ -24,7 +24,7 @@ namespace SM64BBF
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Version = "1.1.2";
+        public const string Version = "1.1.3";
         public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;
@@ -68,7 +68,7 @@ namespace SM64BBF
             {
                 if(body && body.inventory)
                 {
-                    body.AddItemBehavior<RoyalCrownItemBehavior>(body.inventory.GetItemCount(SM64BBFContent.Items.RoyalCrown));
+                    body.AddItemBehavior<RoyalCrownItemBehavior>(body.inventory.GetItemCountEffective(SM64BBFContent.Items.RoyalCrown));
                 }
             }
         }

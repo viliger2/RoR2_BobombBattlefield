@@ -92,6 +92,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 0
@@ -210,11 +211,15 @@ MonoBehaviour:
   disableAirControlUntilCollision: 0
   generateParametersOnAwake: 1
   doNotTriggerJumpVolumes: 0
+  ignoredRigidbodies: []
+  minWalkSpeedPenaltyCoefficient: 0.1
   _gravityParameters:
     environmentalAntiGravityGranterCount: 0
     antiGravityNeutralizerCount: 0
     channeledAntiGravityGranterCount: 0
   useHangtimeGravity: 0
+  useCustomGravity: 0
+  CustomGravity: 0
   _flightParameters:
     channeledFlightGranterCount: 0
 --- !u!114 &4485758054293592707
@@ -255,6 +260,7 @@ MonoBehaviour:
   subtitleNameToken: SM64_BBF_KING_BOBOMB_BODY_SUBTITLE
   bodyFlags: 1
   lavaCooldown: 0.2
+  shieldBrokeSinceDangerCheck: 0
   rootMotionInMainState: 0
   mainRootSpeed: 7.5
   baseMaxHealth: 4200
@@ -280,8 +286,6 @@ MonoBehaviour:
   levelAttackSpeed: 0
   levelCrit: 0
   levelArmor: 0
-  amputatedMaxHealth: 0
-  amputateMaxHealthMinimum: 1
   extraSecondaryFromSkill: 0
   extraSpecialFromSkill: 0
   increaseDamageOnMultiKillItemDisplayUpdater: {fileID: 0}
@@ -290,6 +294,7 @@ MonoBehaviour:
   boostAllStatsDisplay: {fileID: 0}
   currentGrowthNectarBuffCount: 0
   maxGrowthNectarBuffCount: 0
+  alwaysAim: 0
   wasLucky: 0
   spreadBloomDecayTime: 0.45
   spreadBloomCurve:
@@ -300,6 +305,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   _defaultCrosshairPrefab: {fileID: 0}
   hideCrosshair: 0
+  sprintCrosshairPrefabOverride: {fileID: 0}
+  useSprintCrosshair: 1
   canAddIncrasePrimaryDamage: 0
   knockBackFinGroundedTimer: 0
   runicLensPosition: {x: 0, y: 0, z: 0}
@@ -308,13 +315,18 @@ MonoBehaviour:
   runicLensImpactTime: 0
   runicLensMeteorReady: 0
   spawnedPickupCount: 0
+  useTemporaryPathfindingFootposition: 0
   aimOriginTransform: {fileID: 2401707260688027144}
+  scanOverrideTransform: {fileID: 0}
+  limitCooldown: 0
+  minCooldownCoefficient: 0
   hullClassification: 1
   portraitIcon: {fileID: 2800000, guid: 3b345924b01339442af22939d0d96ae1, type: 3}
   bodyColor: {r: 1, g: 0.8183049, b: 0, a: 0}
   doNotReassignToTeamBasedCollisionLayer: 0
   isChampion: 1
   altDeathBodyName: 
+  vehicleIdleStateMachine: []
   currentVehicle: {fileID: 0}
   preferredPodPrefab: {fileID: 0}
   preferredInitialStateType:
@@ -357,6 +369,7 @@ MonoBehaviour:
   modelVisibility: {fileID: 0}
   modelBaseTransform: {fileID: 516784998688012910}
   modelScaleCompensation: 1
+  initialScale: {x: 0, y: 0, z: 0}
   autoUpdateModelTransform: 1
   dontDetatchFromParent: 0
   noCorpse: 0
@@ -366,6 +379,8 @@ MonoBehaviour:
   normalizeToFloor: 0
   normalSmoothdampTime: 0.1
   normalMaxAngleDelta: 90
+  shouldOverrideLogbookModel: 0
+  logbookOverrideBodyName: 
 --- !u!114 &5598586533809228462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +419,7 @@ MonoBehaviour:
   rootMotionAccumulator: {fileID: 0}
   modelAnimator: {fileID: 0}
   driveFromRootRotation: 0
+  shouldDirectPitch: 0
   turnSpeed: 90
   turnSoundName: 
 --- !u!114 &5004151261409774365
@@ -485,6 +501,7 @@ MonoBehaviour:
   isDefaultGodMode: 0
   globalDeathEventChanceCoefficient: 1
   body: {fileID: 0}
+  isRepairing: 0
   forceCulled: 0
 --- !u!114 &7536704658987606462
 MonoBehaviour:
@@ -499,6 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxInteractionDistance: 3
+  isRemoteOp: 0
 --- !u!114 &6687438611684930230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,6 +551,10 @@ MonoBehaviour:
     _typeName: EntityStates.GenericCharacterDeath, RoR2, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   idleStateMachine: []
+  deathAkEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   bypassDeathLayerChange: 0
 --- !u!114 &915900971212243579
 MonoBehaviour:
@@ -549,6 +571,7 @@ MonoBehaviour:
   logUnlockableName: 
   logUnlockableDef: {fileID: 0}
   bossDropTable: {fileID: 11400000, guid: 8189357cd34f9714a9df8c7e549d35ff, type: 2}
+  overrideBossDropRewards: 0
   bossPickup:
     pickupName: 
 --- !u!114 &9163837989631981177
@@ -626,6 +649,7 @@ MonoBehaviour:
   deathSound: sfx_regigigas_death
   barkSound: 
   openSound: 
+  jumpSound: 
   landingSound: Play_gravekeeper_land
   fallDamageSound: 
   aliveLoopStart: 
@@ -702,9 +726,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skillFamily: {fileID: 11400000, guid: c4356989a7bae154d890d196b38e698f, type: 2}
   skillName: Primary
+  loadoutTitleToken: 
   hideInCharacterSelect: 0
-  baseStock: 0
-  baseRechargeStopwatch: 0
+  hideInLoadoutSelect: 0
+  skillAkEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   hasExecutedSuccessfully: 0
 --- !u!114 &760569622252213209
 MonoBehaviour:
@@ -720,9 +748,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skillFamily: {fileID: 11400000, guid: 744b71a5ca1eab344aac757870e52fb3, type: 2}
   skillName: Secondary
+  loadoutTitleToken: 
   hideInCharacterSelect: 0
-  baseStock: 0
-  baseRechargeStopwatch: 0
+  hideInLoadoutSelect: 0
+  skillAkEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   hasExecutedSuccessfully: 0
 --- !u!114 &3376210515836258297
 MonoBehaviour:
@@ -738,9 +770,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skillFamily: {fileID: 11400000, guid: e43df670c85017c4db06780f8c73a713, type: 2}
   skillName: Special
+  loadoutTitleToken: 
   hideInCharacterSelect: 0
-  baseStock: 0
-  baseRechargeStopwatch: 0
+  hideInLoadoutSelect: 0
+  skillAkEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   hasExecutedSuccessfully: 0
 --- !u!114 &1877052283193361608
 MonoBehaviour:
@@ -756,9 +792,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skillFamily: {fileID: 11400000, guid: f88c5c2c487fa1e44ab52ece966ccdf1, type: 2}
   skillName: Utility
+  loadoutTitleToken: 
   hideInCharacterSelect: 0
-  baseStock: 0
-  baseRechargeStopwatch: 0
+  hideInLoadoutSelect: 0
+  skillAkEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   hasExecutedSuccessfully: 0
 --- !u!1 &644825846085875630
 GameObject:
@@ -821,6 +861,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 7
@@ -885,6 +926,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 3
@@ -949,6 +991,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 4
@@ -1110,6 +1153,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 1
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 6
@@ -1206,6 +1250,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 1
@@ -1478,6 +1523,7 @@ MonoBehaviour:
   m_Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showAsSphere: 0
 --- !u!1 &4610908020850935486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1682,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 9
@@ -1732,6 +1779,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 8
@@ -1827,6 +1875,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 10
@@ -1891,6 +1940,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 2
@@ -2149,6 +2199,7 @@ MonoBehaviour:
   healthComponent: {fileID: 3537337634793638376}
   isBullseye: 1
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 6704623793607161288}
   indexInGroup: 5
@@ -2863,8 +2914,12 @@ MonoBehaviour:
   focusPointTransform: {fileID: 3779949465844248272}
   cameraPositionTransform: {fileID: 2636785176715522858}
   modelRotation: {x: 0, y: 0, z: 0, w: 1}
+  modelPositionOffset: {x: 0, y: 0, z: 0}
   minDistance: 1.75
   maxDistance: 4.21
+  triggerOnLogbook:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3934778111475070946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2967,6 +3022,7 @@ MonoBehaviour:
   itemDisplayRuleSet: {fileID: 11400000, guid: 37e5cc881fc21df42b46521778954f1f, type: 2}
   autoPopulateLightInfos: 1
   gameObjectActivationTransforms: []
+  customGameObjectActivationTransforms: []
   baseRendererInfos:
   - renderer: {fileID: 721072442188438818}
     defaultMaterialAddress:
@@ -3048,10 +3104,15 @@ MonoBehaviour:
     ignoreOverlays: 1
     hideOnDeath: 0
     ignoresMaterialOverrides: 0
+  fullBodyPing: 0
   baseLightInfos: []
+  constraintItemDisplaysScale: 0
+  ignoreJitterBones: 0
   corpseFade: 1
+  speedFade: 1
   CharacterOnScreen: 0
   visibilityChecker: {fileID: 0}
+  useHullForFadeCalc: 0
   activeOverlays: 0
   oldOverlays: 0
   hitFlashValue: 0
@@ -3085,6 +3146,32 @@ MonoBehaviour:
     transform: {fileID: 5589689208194508819}
   - name: HandL
     transform: {fileID: 1702322597775838202}
+--- !u!114 &4054077766009194325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6497160231504339640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1533710874, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DelayLoadingAnimatorUntilMaterialsHaveCompleted: 0
+  _animatorControllerAddress:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  _animatorController: {fileID: 9100000, guid: d32cec9e897d96348a95af715b1b1035, type: 2}
+  _avatarAddress:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  _avatar: {fileID: 9000000, guid: ef401d13b0937bb4aabb783e6e89c244, type: 3}
+  skins:
+  - {fileID: 11400000, guid: 8bc4dcfd22a4b4c4ab5af77841603a97, type: 2}
+  prefabInstantiationDatas: []
 --- !u!4 &7700767672549279705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4884863553463527376, guid: ef401d13b0937bb4aabb783e6e89c244, type: 3}

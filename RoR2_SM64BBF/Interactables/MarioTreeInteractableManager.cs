@@ -106,7 +106,7 @@ namespace SM64BBF.Interactables
             if(pickupIndex != default((string, PickupIndex)))
             {
                 EntitySoundManager.EmitSoundServer((AkEventIdArg)pickupIndex.Item1, gameObject);
-                PickupDropletController.CreatePickupDroplet(pickupIndex.Item2, itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f);
+                PickupDropletController.CreatePickupDroplet(new UniquePickup(pickupIndex.Item2), itemSpawnPoint.position, Vector3.up * 5f + transform.forward * 3f, false);
             }
 #endif
         }

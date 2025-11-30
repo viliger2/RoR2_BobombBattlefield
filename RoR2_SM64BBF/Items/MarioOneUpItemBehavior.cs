@@ -34,9 +34,9 @@ namespace SM64BBF.Items
         {
             if (master)
             {
-                while (master.inventory.GetItemCount(SM64BBFContent.Items.MarioOneUp) > 0)
+                while (master.inventory.GetItemCountPermanent(SM64BBFContent.Items.MarioOneUp) > 0)
                 {
-                    master.inventory.RemoveItem(SM64BBFContent.Items.MarioOneUp);
+                    master.inventory.RemoveItemPermanent(SM64BBFContent.Items.MarioOneUp);
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace SM64BBF.Items
         private void CharacterMaster_OnBodyDeath(On.RoR2.CharacterMaster.orig_OnBodyDeath orig, CharacterMaster self, CharacterBody body)
         {
             if (NetworkServer.active &&
-                self && self == master && self.inventory && self.inventory.GetItemCount(SM64BBFContent.Items.MarioOneUp) > 0)
+                self && self == master && self.inventory && self.inventory.GetItemCountPermanent(SM64BBFContent.Items.MarioOneUp) > 0)
             {
                 self.lostBodyToDeath = true;
                 self.deathFootPosition = body.footPosition;
@@ -71,20 +71,7 @@ namespace SM64BBF.Items
         public void Respawn()
         {
             master.RespawnExtraLife();
-            master.inventory.RemoveItem(SM64BBFContent.Items.MarioOneUp);
-            master.inventory.RemoveItem(RoR2Content.Items.ExtraLifeConsumed);
-            //master.Respawn(gameObject.transform.position, gameObject.transform.rotation);
-            //master.GetBody().AddTimedBuff(RoR2Content.Buffs.Immune, 3f);
-
-            //GameObject respawnEffect = Resources.Load<GameObject>("Prefabs/Effects/HippoRezEffect");
-            //if (respawnEffect)
-            //{
-            //    EffectManager.SpawnEffect(respawnEffect, new EffectData
-            //    {
-            //        origin = gameObject.transform.position,
-            //        rotation = gameObject.transform.rotation
-            //    }, true);
-            //}
+            master.inventory.RemoveItemPermanent(SM64BBFContent.Items.MarioOneUp);
         }
 
         public void PlayExtraLifeSFX()
@@ -96,7 +83,7 @@ namespace SM64BBF.Items
         {
             if (body && body.inventory && body.master)
             {
-                var itemCount = body.inventory.GetItemCount(SM64BBFContent.Items.MarioOneUp);
+                var itemCount = body.inventory.GetItemCountPermanent(SM64BBFContent.Items.MarioOneUp);
                 var component = body.master.gameObject.GetComponent<MarioOneUpItemBehavior>();
                 if (!component && itemCount > 0)
                 {

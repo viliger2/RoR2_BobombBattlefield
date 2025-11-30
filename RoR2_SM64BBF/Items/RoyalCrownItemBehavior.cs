@@ -45,7 +45,7 @@ namespace SM64BBF.Items
 
                     for(uint i = 0; i < damageReport.victimMaster.inventory.GetEquipmentSlotCount(); i++)
                     {
-                        var equipment = damageReport.victimMaster.inventory.GetEquipment(i);
+                        var equipment = damageReport.victimMaster.inventory.GetEquipment(i, damageReport.victimMaster.inventory.FindBestEquipmentSetIndex());
                         if(equipment.equipmentDef && equipment.equipmentDef.passiveBuffDef && equipment.equipmentDef.passiveBuffDef.isElite) // checking for passive buff def so 
                         {
                             eliteDef = equipment.equipmentDef.passiveBuffDef.eliteDef;
@@ -53,17 +53,17 @@ namespace SM64BBF.Items
                         }
                     }
 
-                    var healthBoost = eliteDef?.healthBoostCoefficient ?? 1f + (base.body.inventory.GetItemCount(SM64BBF.SM64BBFContent.Items.RoyalCrown) - 1);
+                    var healthBoost = eliteDef?.healthBoostCoefficient ?? 1f + (base.body.inventory.GetItemCountEffective(SM64BBF.SM64BBFContent.Items.RoyalCrown) - 1);
                     var damageBoost = eliteDef?.damageBoostCoefficient ?? 1f;
                     var equipmentIndex = eliteDef?.eliteEquipmentDef?.equipmentIndex ?? EquipmentIndex.None;
                     if(equipmentIndex != EquipmentIndex.None)
                     {
-                        spawnedMaster.inventory.SetEquipmentIndex(equipmentIndex);
+                        spawnedMaster.inventory.SetEquipmentIndex(equipmentIndex, false);
                     }
 
-                    spawnedMaster.inventory.GiveItem(RoR2Content.Items.BoostHp, Mathf.RoundToInt((healthBoost - 1f) * 10f));
-                    spawnedMaster.inventory.GiveItem(RoR2Content.Items.BoostDamage, Mathf.RoundToInt((damageBoost - 1f) * 10f));
-                    spawnedMaster.inventory.GiveItem(RoR2Content.Items.HealthDecay, 30);
+                    spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.BoostHp, Mathf.RoundToInt((healthBoost - 1f) * 10f));
+                    spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.BoostDamage, Mathf.RoundToInt((damageBoost - 1f) * 10f));
+                    spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.HealthDecay, 30);
 
                     var baseAI = spawnResult.spawnedInstance.GetComponent<BaseAI>();
                     if (baseAI && baseAI.body)

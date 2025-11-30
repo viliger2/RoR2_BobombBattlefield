@@ -92,6 +92,7 @@ MonoBehaviour:
   healthComponent: {fileID: 8746344267700816977}
   isBullseye: 1
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 207489967435162157}
   indexInGroup: 0
@@ -156,6 +157,7 @@ MonoBehaviour:
   healthComponent: {fileID: 8746344267700816977}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 207489967435162157}
   indexInGroup: 3
@@ -283,6 +285,7 @@ MonoBehaviour:
   healthComponent: {fileID: 8746344267700816977}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 207489967435162157}
   indexInGroup: 2
@@ -412,6 +415,7 @@ MonoBehaviour:
   healthComponent: {fileID: 8746344267700816977}
   isBullseye: 0
   isSniperTarget: 0
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 207489967435162157}
   indexInGroup: 4
@@ -519,6 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeedPenaltyCoefficient: 1
+  gravityScale: 1
   characterDirection: {fileID: 6201210606751169667}
   muteWalkMotion: 0
   mass: 100
@@ -526,10 +531,15 @@ MonoBehaviour:
   disableAirControlUntilCollision: 0
   generateParametersOnAwake: 1
   doNotTriggerJumpVolumes: 0
+  ignoredRigidbodies: []
+  minWalkSpeedPenaltyCoefficient: 0.1
   _gravityParameters:
     environmentalAntiGravityGranterCount: 0
     antiGravityNeutralizerCount: 0
     channeledAntiGravityGranterCount: 0
+  useHangtimeGravity: 0
+  useCustomGravity: 0
+  CustomGravity: 0
   _flightParameters:
     channeledFlightGranterCount: 0
 --- !u!114 &-1693009940538631153
@@ -559,6 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyIndex: -1
+  altDeathEventBodyIndex: -1
   CharacterIsVisible: 0
   cost: -1
   dontCull: 0
@@ -569,6 +580,7 @@ MonoBehaviour:
   subtitleNameToken: 
   bodyFlags: 0
   lavaCooldown: 0.2
+  shieldBrokeSinceDangerCheck: 0
   rootMotionInMainState: 0
   mainRootSpeed: 33
   baseMaxHealth: 200
@@ -596,12 +608,13 @@ MonoBehaviour:
   levelArmor: 0
   extraSecondaryFromSkill: 0
   extraSpecialFromSkill: 0
-  lowerHealthHigherDamageEffectUpdater: {fileID: 0}
-  canBoostAllStats: 0
   increaseDamageOnMultiKillItemDisplayUpdater: {fileID: 0}
   allSkillsDisabled: 0
   isTeleporting: 0
-  solitudeLevelCount: 0
+  boostAllStatsDisplay: {fileID: 0}
+  currentGrowthNectarBuffCount: 0
+  maxGrowthNectarBuffCount: 0
+  alwaysAim: 0
   wasLucky: 0
   spreadBloomDecayTime: 0.45
   spreadBloomCurve:
@@ -612,22 +625,35 @@ MonoBehaviour:
     m_RotationOrder: 4
   _defaultCrosshairPrefab: {fileID: 0}
   hideCrosshair: 0
-  increasePrimaryDamageEffectUpdater: {fileID: 0}
-  protectFromOneShot: 0
-  hasTeleported: 0
+  sprintCrosshairPrefabOverride: {fileID: 0}
+  useSprintCrosshair: 1
+  canAddIncrasePrimaryDamage: 0
+  knockBackFinGroundedTimer: 0
+  runicLensPosition: {x: 0, y: 0, z: 0}
+  meteorVictimBody: {fileID: 0}
+  runicLensStartTime: 0
+  runicLensImpactTime: 0
   runicLensMeteorReady: 0
+  spawnedPickupCount: 0
+  useTemporaryPathfindingFootposition: 0
   aimOriginTransform: {fileID: 2343975429514350646}
+  scanOverrideTransform: {fileID: 0}
+  limitCooldown: 0
+  minCooldownCoefficient: 0
   hullClassification: 0
   portraitIcon: {fileID: 2800000, guid: ec68598652cbd6f49b6bcf1014b98744, type: 3}
   bodyColor: {r: 0, g: 0, b: 0, a: 0}
   doNotReassignToTeamBasedCollisionLayer: 0
   isChampion: 0
+  altDeathBodyName: 
+  vehicleIdleStateMachine: []
   currentVehicle: {fileID: 0}
   preferredPodPrefab: {fileID: 0}
   preferredInitialStateType:
     _typeName: EntityStates.GenericCharacterMain, RoR2, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   skinIndex: 0
+  requestEquipmentFire: 0
   customKillTotalStatName: 
   overrideCoreTransform: {fileID: 0}
 --- !u!114 &7926175580557031277
@@ -663,6 +689,7 @@ MonoBehaviour:
   modelVisibility: {fileID: 0}
   modelBaseTransform: {fileID: 1978245206717514854}
   modelScaleCompensation: 1
+  initialScale: {x: 0, y: 0, z: 0}
   autoUpdateModelTransform: 1
   dontDetatchFromParent: 0
   noCorpse: 0
@@ -672,6 +699,8 @@ MonoBehaviour:
   normalizeToFloor: 0
   normalSmoothdampTime: 0.1
   normalMaxAngleDelta: 90
+  shouldOverrideLogbookModel: 0
+  logbookOverrideBodyName: 
 --- !u!114 &6737335863800055512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +739,7 @@ MonoBehaviour:
   rootMotionAccumulator: {fileID: 0}
   modelAnimator: {fileID: 4444502301560525962}
   driveFromRootRotation: 0
+  shouldDirectPitch: 0
   turnSpeed: 720
   turnSoundName: 
 --- !u!114 &2562444990230842123
@@ -784,11 +814,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   shield: 0
+  echoDamage: 0
   barrier: 0
   magnetiCharge: 0
   dontShowHealthbar: 0
+  isDefaultGodMode: 0
   globalDeathEventChanceCoefficient: 1
   body: {fileID: 0}
+  isRepairing: 0
   forceCulled: 0
 --- !u!114 &2819161351246895278
 MonoBehaviour:
@@ -803,6 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxInteractionDistance: 3
+  isRemoteOp: 0
 --- !u!114 &2444706607615652686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,6 +871,10 @@ MonoBehaviour:
     _typeName: SM64BBF.States.BobombDeathState, SM64BBF, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   idleStateMachine: []
+  deathAkEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   bypassDeathLayerChange: 0
 --- !u!114 &1354301511820615267
 MonoBehaviour:
@@ -884,9 +922,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skillFamily: {fileID: 11400000, guid: dc1496f48867cac4cbf540ff0a633ffe, type: 2}
   skillName: Explode
+  loadoutTitleToken: 
   hideInCharacterSelect: 0
-  baseStock: 0
-  baseRechargeStopwatch: 0
+  hideInLoadoutSelect: 0
+  skillAkEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   hasExecutedSuccessfully: 0
 --- !u!114 &5236803091881855523
 MonoBehaviour:
@@ -901,6 +943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitThreshold: 0.15
+  hitStunCumulative: 0
   targetStateMachine: {fileID: 6737335863800055512}
   idleStateMachine:
   - {fileID: 6737335863800055512}
@@ -909,6 +952,8 @@ MonoBehaviour:
   canBeHitStunned: 1
   canBeStunned: 1
   canBeFrozen: 1
+  isFrozen: 1
+  canBeTaunted: 1
 --- !u!114 &1420750707886935076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,6 +969,7 @@ MonoBehaviour:
   logUnlockableName: 
   logUnlockableDef: {fileID: 11400000, guid: d8b2515074f8753409ec65119689cea8, type: 2}
   bossDropTable: {fileID: 0}
+  overrideBossDropRewards: 0
   bossPickup:
     pickupName: 
 --- !u!114 &1362464249747505425
@@ -953,6 +999,7 @@ MonoBehaviour:
   deathSound: SM64_BBF_Play_Bobomb_Death
   barkSound: 
   openSound: 
+  jumpSound: 
   landingSound: 
   fallDamageSound: 
   aliveLoopStart: 
@@ -1045,9 +1092,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skillFamily: {fileID: 11400000, guid: 226737194d65d9c44ab84fd742f50d56, type: 2}
   skillName: ExplodeAtLowHP
+  loadoutTitleToken: 
   hideInCharacterSelect: 0
-  baseStock: 0
-  baseRechargeStopwatch: 0
+  hideInLoadoutSelect: 0
+  skillAkEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   hasExecutedSuccessfully: 0
 --- !u!1 &8119011849122643087
 GameObject:
@@ -1110,6 +1161,7 @@ MonoBehaviour:
   healthComponent: {fileID: 8746344267700816977}
   isBullseye: 0
   isSniperTarget: 1
+  bypassInvulnerable: 0
   damageModifier: 0
   hurtBoxGroup: {fileID: 207489967435162157}
   indexInGroup: 1
@@ -1575,21 +1627,37 @@ MonoBehaviour:
   itemDisplayRuleSet: {fileID: 11400000, guid: 77165125e1b6dcd498b702003a34e226, type: 2}
   autoPopulateLightInfos: 1
   gameObjectActivationTransforms: []
+  customGameObjectActivationTransforms: []
   baseRendererInfos:
   - renderer: {fileID: 3294442183431099623}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: fbfc5401fd5c80e40a1718c820c2c109, type: 2}
     defaultShadowCastingMode: 1
     ignoreOverlays: 0
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
   - renderer: {fileID: 971427210287799878}
+    defaultMaterialAddress:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
     defaultMaterial: {fileID: 2100000, guid: 00576bba5439f134681fc4ee237d6e7a, type: 2}
     defaultShadowCastingMode: 1
     ignoreOverlays: 1
     hideOnDeath: 0
+    ignoresMaterialOverrides: 0
+  fullBodyPing: 0
   baseLightInfos: []
+  constraintItemDisplaysScale: 0
+  ignoreJitterBones: 0
   corpseFade: 1
+  speedFade: 1
   CharacterOnScreen: 0
   visibilityChecker: {fileID: 0}
+  useHullForFadeCalc: 0
   activeOverlays: 0
   oldOverlays: 0
   hitFlashValue: 0
@@ -1632,8 +1700,12 @@ MonoBehaviour:
   focusPointTransform: {fileID: 113088731235454273}
   cameraPositionTransform: {fileID: 3975860083172941199}
   modelRotation: {x: 0, y: 0, z: 0, w: 1}
+  modelPositionOffset: {x: 0, y: 0, z: 0}
   minDistance: 1.5
   maxDistance: 6
+  triggerOnLogbook:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6669294184588081045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1670,6 +1742,32 @@ MonoBehaviour:
     transform: {fileID: 3452362140107568750}
   - name: Eyes
     transform: {fileID: 6979954920389398419}
+--- !u!114 &8222211486331595000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919208203224241226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1533710874, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DelayLoadingAnimatorUntilMaterialsHaveCompleted: 0
+  _animatorControllerAddress:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  _animatorController: {fileID: 9100000, guid: 8a8c8438af4325f4ab4b1a683e26b48e, type: 2}
+  _avatarAddress:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  _avatar: {fileID: 9000000, guid: fa5be024fd29a6c46891f892c34389a7, type: 3}
+  skins:
+  - {fileID: 11400000, guid: c2e5ddc3474608b4da9a3cc6cbfa29e4, type: 2}
+  prefabInstantiationDatas: []
 --- !u!4 &6979954920389398419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 871823551502984840, guid: fa5be024fd29a6c46891f892c34389a7, type: 3}

@@ -40,7 +40,7 @@ namespace SM64BBF.States
                 animCurve.preWrapMode = WrapMode.PingPong;
             }
             blastAttack = CreateBlastAttack();
-            operationHandle = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Common.matFlashWhite_mat);
+            operationHandle = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Common.matFlashWhite_mat);
             if (operationHandle.IsValid())
             {
                 operationHandle.Completed += (operationResult) =>
