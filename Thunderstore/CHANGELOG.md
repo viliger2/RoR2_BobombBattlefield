@@ -1,6 +1,12 @@
 <details>
+<summary>1.1.4 </summary>
+
+* Fixed an issue with game not loading if Regigigas is installed.
+</details>
+<details>
 <summary>1.1.3 </summary>
 
+* AC update.
 * Bobombs spawned by Royal Crown now have negative health regeneration. This change was in 1.1.2.
   * _Specifically Bobombs spawned by Glacial elites tend to get stuck because they get frozen during their spawn state. I've tried debugging the issue and couldn't figure out how to fix it, so now they just die instead after a while. Which is in line with other creatures spawned this way._
 </details>

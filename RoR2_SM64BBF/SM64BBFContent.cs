@@ -194,8 +194,7 @@ namespace SM64BBF
 
                     var cameraParams2 = KingBobomb.GetComponent<CameraTargetParams>();
                     cameraParams2.cameraParams = Addressables.LoadAssetAsync<CharacterCameraParams>("RoR2/Base/Common/ccpStandardHuge.asset").WaitForCompletion();
-
-
+                    
                     SM64BBF.RegigigasCompat.SetupKingBobombBody(KingBobomb, contentPack);
 
                     contentPack.bodyPrefabs.Add(new GameObject[] { KingBobomb });
