@@ -1,4 +1,13 @@
 <details>
+<summary>1.2.0 </summary>
+
+* Royal Crown
+  * Bob-ombs now spawn with all elite affixes of the victim.
+* Added artifact portal to the stage.
+* Added Artifact of Bob-ombs.
+  * _You have to find the code and unlock it._
+</details>
+<details>
 <summary>1.1.4 </summary>
 
 * Fixed an issue with game not loading if Regigigas is installed.

@@ -9,7 +9,7 @@ Bob-omb Battlefield is a new Stage 5, in which survivors will have to explore a 
 
 ![Bobombs](https://raw.githubusercontent.com/viliger2/RoR2_BobombBattlefield/main/Images/Bobombs.gif)
 
-* And if you have certain [pokemon](https://thunderstore.io/package/public_ParticleSystem/Regigigas/) installed you might even get to fight something with a lot more punch.
+* And if you have certain [pokemon](https://thunderstore.io/package/rob/Regigigas/) installed you might even get to fight something with a lot more punch.
 * Shake the trees to find powerups!
 
 ![Coin](https://raw.githubusercontent.com/viliger2/RoR2_BobombBattlefield/main/Images/Coin.gif) ![OneUp](https://raw.githubusercontent.com/viliger2/RoR2_BobombBattlefield/main/Images/OneUp.gif)
@@ -17,6 +17,8 @@ Bob-omb Battlefield is a new Stage 5, in which survivors will have to explore a 
 * Watch out for rolling rocks on your way to the top!
 
 ![RollingRocks](https://raw.githubusercontent.com/viliger2/RoR2_BobombBattlefield/main/Images/RollingRock.gif)
+
+* Unlock an artifact to have Bob-ombs everywhere!
 
 Please send bug reports either by tagging me on Discord in RoR2 Modding server, message me directly @viliger or create a Github issue. Github page with VS, Unity and Wwise project is now available.
 
