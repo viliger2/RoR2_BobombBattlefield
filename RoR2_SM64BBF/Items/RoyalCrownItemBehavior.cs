@@ -43,26 +43,33 @@ namespace SM64BBF.Items
 
                     EliteDef eliteDef = null;
 
-                    for(uint i = 0; i < damageReport.victimMaster.inventory.GetEquipmentSlotCount(); i++)
+                    spawnedMaster.inventory.CopyEquipmentFrom(damageReport.victimMaster.inventory, false);
+
+                    float eliteHealthBoost = 0f;
+                    float eliteDamageBoost = 0f;
+
+                    var victimInventory = damageReport.victimMaster.inventory;
+
+                    for (uint i = 0; i < victimInventory.GetEquipmentSlotCount(); i++)
                     {
-                        var equipment = damageReport.victimMaster.inventory.GetEquipment(i, damageReport.victimMaster.inventory.FindBestEquipmentSetIndex());
-                        if(equipment.equipmentDef && equipment.equipmentDef.passiveBuffDef && equipment.equipmentDef.passiveBuffDef.isElite) // checking for passive buff def so 
+                        for(uint j = 0; j < victimInventory.GetEquipmentSetCount(i); j++)
                         {
-                            eliteDef = equipment.equipmentDef.passiveBuffDef.eliteDef;
-                            break;
+                            var equipment = victimInventory.GetEquipment(i, j);
+                            if (equipment.equipmentDef && equipment.equipmentDef.passiveBuffDef && equipment.equipmentDef.passiveBuffDef.isElite) // checking for passive buff def so 
+                            {
+                                eliteDef = equipment.equipmentDef.passiveBuffDef.eliteDef;
+
+                                eliteHealthBoost += eliteDef.healthBoostCoefficient;
+                                eliteDamageBoost += eliteDef.damageBoostCoefficient;
+                            }
                         }
                     }
 
-                    var healthBoost = eliteDef?.healthBoostCoefficient ?? 1f + (base.body.inventory.GetItemCountEffective(SM64BBF.SM64BBFContent.Items.RoyalCrown) - 1);
-                    var damageBoost = eliteDef?.damageBoostCoefficient ?? 1f;
-                    var equipmentIndex = eliteDef?.eliteEquipmentDef?.equipmentIndex ?? EquipmentIndex.None;
-                    if(equipmentIndex != EquipmentIndex.None)
-                    {
-                        spawnedMaster.inventory.SetEquipmentIndex(equipmentIndex, false);
-                    }
+                    var healthBoost = eliteHealthBoost + (base.body.inventory.GetItemCountEffective(SM64BBF.SM64BBFContent.Items.RoyalCrown) - 1);
+                    var damageBoost = eliteDamageBoost;
 
-                    spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.BoostHp, Mathf.RoundToInt((healthBoost - 1f) * 10f));
-                    spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.BoostDamage, Mathf.RoundToInt((damageBoost - 1f) * 10f));
+                    spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.BoostHp, Mathf.RoundToInt((healthBoost) * 10f));
+                    spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.BoostDamage, Mathf.RoundToInt((damageBoost) * 10f));
                     spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.HealthDecay, 30);
 
                     var baseAI = spawnResult.spawnedInstance.GetComponent<BaseAI>();
