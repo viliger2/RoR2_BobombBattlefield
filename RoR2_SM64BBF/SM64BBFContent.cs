@@ -33,6 +33,10 @@ namespace SM64BBF
 
         public static List<Material> SwappedMaterials = new List<Material>(); //apparently you need it because reasons?
 
+        public static GameObject BobombMaster;
+
+        public static ArtifactDef BobombOnDeath;
+
         public struct MiscPickups
         {
             public static StarmanPickupDef Starman;
@@ -205,8 +209,8 @@ namespace SM64BBF
                 var RollingRock = assets.First(gameObject => gameObject.name == "RollingRock");
                 contentPack.networkedObjectPrefabs.Add(new GameObject[] { MarioTreeIntractable, RollingRock });
 
-                var bobombMaster = assets.First(bp => bp.name == "BobombMaster");
-                contentPack.masterPrefabs.Add(new GameObject[] { bobombMaster });
+                BobombMaster = assets.First(bp => bp.name == "BobombMaster");
+                contentPack.masterPrefabs.Add(new GameObject[] { BobombMaster });
                 if (SM64BBF.RegigigasCompat.enabled)
                 {
                     var kingBobombMaster2 = assets.First(bp => bp.name == "KingBobomb2Master");
@@ -257,6 +261,22 @@ namespace SM64BBF
                 //Log.Debug("setup buffdefs");
             }));
 
+            R2API.ScriptableObjects.ArtifactCode bobombArtifactCode = null;
+
+            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<R2API.ScriptableObjects.ArtifactCode[]>)((assets) =>
+            {
+                bobombArtifactCode = assets.First(code => code.name == "BobombOnDeathCode");
+            }));
+
+            yield return LoadAllAssetsAsync(_assetsAssetBundle, progress, (Action<ArtifactDef[]>)((assets) =>
+            {
+                BobombOnDeath = assets.First(ad => ad.cachedName == "BBF_BobombsOnDeath");
+
+                ArtifactCodeAPI.AddCode(BobombOnDeath, bobombArtifactCode);
+
+                contentPack.artifactDefs.Add(assets);
+            }));
+
             RegisterSounds(contentPack);
 
             contentPack.entityStateTypes.Add(new Type[] { typeof(SM64BBF.States.StarManState), typeof(States.BobombAcquireTargetState), typeof(States.BobombDeathState), typeof(States.BobombExplodeState), typeof(States.BobombSpawnState), typeof(States.BobombSuicideDeathState) });
@@ -286,6 +306,7 @@ namespace SM64BBF
             HG.ArrayUtils.ArrayAppend(ref loopSceneCollection._sceneEntries, new SceneCollection.SceneEntry { sceneDef = SM64BBFScene, weight = 1f });
             SM64BBFScene.loopedDestinationsGroup = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/loopSgStage1.asset").WaitForCompletion();
 
+            InstantiateArtifactPortal.CreateAndRegisterLaptop(contentPack);
             //StageRegistration.RegisterSceneDefToLoop(SM64BBFScene);
         }
 

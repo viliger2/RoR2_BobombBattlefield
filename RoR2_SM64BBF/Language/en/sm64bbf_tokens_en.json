@@ -27,6 +27,11 @@
 
 		"SM64_BBF_ITEM_ROYAL_CROWN_NAME": "Royal Crown",
 		"SM64_BBF_ITEM_ROYAL_CROWN_PICKUP": "You must fight with honor!",
-		"SM64_BBF_ITEM_ROYAL_CROWN_DESCRIPTION": "Killing an elite enemy <style=cIsUtility>summons a friendly Bob-omb</style> with the <style=cIsDamage>same elite affix</style> and bonus <style=cIsDamage>0%</style> damage <style=cStack>(+100% per stack)</style>."
+		"SM64_BBF_ITEM_ROYAL_CROWN_DESCRIPTION": "Killing an elite enemy <style=cIsUtility>summons a friendly Bob-omb</style> with the <style=cIsDamage>same elite affix</style> and bonus <style=cIsDamage>0%</style> damage <style=cStack>(+100% per stack)</style>.",
+
+		"SM64_BBF_ARTIFACT_BOBOMBONDEATH_NAME": "Artifact Of Bob-ombs",
+		"SM64_BBF_ARTIFACT_BOBOMBONDEATH_DESC": "Fallen enemies spawn Bob-ombs.",
+		"ACHIEVEMENT_SM64_BBF_OBTAINARTIFACTBOBOMBSONDEATHACHIEVMENT_NAME": "Trial of Bob-ombs",
+		"ACHIEVEMENT_SM64_BBF_OBTAINARTIFACTBOBOMBSONDEATHACHIEVMENT_DESCRIPTION": "Complete the Trial of Bob-ombs."
 	}
 }

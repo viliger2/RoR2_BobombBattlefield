@@ -27,7 +27,11 @@
 
 		"SM64_BBF_ITEM_ROYAL_CROWN_NAME": "Королевская корона",
 		"SM64_BBF_ITEM_ROYAL_CROWN_PICKUP": "Деритесь с честью!",
-		"SM64_BBF_ITEM_ROYAL_CROWN_DESCRIPTION": "Убийство элитного врага <style=cIsUtility>призывает дружественную Боб-омбу</style> с <style=cIsDamage>тем же элитным статусом</style> и дополнительными <style=cIsDamage>0%</style> урона <style=cStack>(+100% за штуку)</style>."
+		"SM64_BBF_ITEM_ROYAL_CROWN_DESCRIPTION": "Убийство элитного врага <style=cIsUtility>призывает дружественную Боб-омбу</style> с <style=cIsDamage>тем же элитным статусом</style> и дополнительными <style=cIsDamage>0%</style> урона <style=cStack>(+100% за штуку)</style>.",
 
+		"SM64_BBF_ARTIFACT_BOBOMBONDEATH_NAME": "Артефакт Боб-омб",
+		"SM64_BBF_ARTIFACT_BOBOMBONDEATH_DESC": "Убитые враги вызывают Боб-омб.",
+		"ACHIEVEMENT_SM64_BBF_OBTAINARTIFACTBOBOMBSONDEATHACHIEVMENT_NAME": "Испытание Боб-омб",
+		"ACHIEVEMENT_SM64_BBF_OBTAINARTIFACTBOBOMBSONDEATHACHIEVMENT_DESCRIPTION": "Пройдите испытание Боб-омб."
 	}
 }

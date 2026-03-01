@@ -35,4 +35,5 @@ Please send bug reports either by tagging me on Discord in RoR2 Modding server, 
   * [FORCED_REASSEMBLY](https://thunderstore.io/package/Forced_Reassembly/) - for idea to use Regigigas as a template for King Bobomb. Oops, spoilers.
   * [rob](https://thunderstore.io/package/rob_gaming/), [TheTimesweeper](https://thunderstore.io/package/TheTimesweeper/) and [score](https://thunderstore.io/package/score/) - for creating and maintaining Regigigas.
   * Tree shadow script - https://www.reddit.com/r/Unity3D/comments/c31gwd/a_very_simple_shadow_casting_solution_for_mobile/
+  * Artifact icon - https://www.etsy.com/listing/1044878389/bob-omb-mario-bomb-svg-for-craft
 </details>

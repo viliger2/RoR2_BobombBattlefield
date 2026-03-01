@@ -1,0 +1,85 @@
+﻿using RoR2;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using static RoR2.ArtifactFormulaDisplay;
+
+namespace SM64BBF
+{
+    public class InstantiateArtifactFormulaDisplay : MonoBehaviour
+    {
+        public Transform position;
+
+        public enum Codes
+        {
+            Circle,
+            Diamond,
+            Square,
+            Triangle
+        }
+
+        public Codes[] code;
+
+        private void Awake()
+        {
+            if(code.Length != 9)
+            {
+                Log.Warning("Slab's code length is not equal to 9, doing nothing...");
+                return;
+            }
+
+            var slab = UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_Base_artifactworld.ArtifactFormulaDisplay_prefab).WaitForCompletion(), position.position, position.rotation);
+            var artifactFormulaDisplay = slab.GetComponent<ArtifactFormulaDisplay>();
+            for(int i = 0; i < code.Length; i++)
+            {
+                artifactFormulaDisplay.artifactCompoundDisplayInfos[i].artifactCompoundDef = GetACD(code[i]);
+            }
+
+            ArtifactCompoundDisplayInfo[] array = artifactFormulaDisplay.artifactCompoundDisplayInfos;
+            for (int i = 0; i < array.Length; i++)
+            {
+                ArtifactCompoundDisplayInfo artifactCompoundDisplayInfo = array[i];
+                artifactCompoundDisplayInfo.decal.Material = artifactCompoundDisplayInfo.artifactCompoundDef.decalMaterial;
+            }
+
+            ArtifactCompoundDef GetACD(Codes code)
+            {
+                switch (code)
+                {
+                    case Codes.Circle:
+                        return Addressables.LoadAssetAsync<ArtifactCompoundDef>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_Base_ArtifactCompounds.acdCircle_asset).WaitForCompletion();
+                    case Codes.Diamond:
+                        return Addressables.LoadAssetAsync<ArtifactCompoundDef>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_Base_ArtifactCompounds.acdDiamond_asset).WaitForCompletion();
+                    case Codes.Square:
+                        return Addressables.LoadAssetAsync<ArtifactCompoundDef>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_Base_ArtifactCompounds.acdSquare_asset).WaitForCompletion();
+                    case Codes.Triangle:
+                        return Addressables.LoadAssetAsync<ArtifactCompoundDef>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_Base_ArtifactCompounds.acdTriangle_asset).WaitForCompletion();
+                    default:
+                        return Addressables.LoadAssetAsync<ArtifactCompoundDef>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_Base_ArtifactCompounds.acdEmpty_asset).WaitForCompletion();
+                }
+            }
+        }
+
+        public void OnDrawGizmos()
+        {
+            if (position)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireMesh(Resources.GetBuiltinResource<Mesh>("Cube.fbx"), position.position, position.rotation, new Vector3(4.02848768f, 6.44617653f, 1.64969826f));
+                GUI.color = Color.yellow;
+            }
+        }
+
+        void OnValidate()
+        {
+#if UNITY_EDITOR
+            if(code.Length != 9)
+            {
+                UnityEngine.Debug.LogError("Slab's code length is not equal to 9. This WILL result in slab not spawning in game!");
+            }
+#endif
+        }
+    }
+}

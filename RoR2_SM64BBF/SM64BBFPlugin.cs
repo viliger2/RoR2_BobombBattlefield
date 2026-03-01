@@ -24,10 +24,12 @@ namespace SM64BBF
     [BepInDependency("com.rob.RegigigasMod", BepInDependency.DependencyFlags.SoftDependency)]
     public class SM64BBFPlugin : BaseUnityPlugin
     {
-        public const string Version = "1.1.4";
+        public const string Version = "1.2.0";
         public const string GUID = "com.Viliger.SM64BBF";
 
         public static SM64BBFPlugin instance;
+
+        public static bool isLoaded = false;
 
         private void Awake()
         {
@@ -47,6 +49,7 @@ namespace SM64BBF
 #if DEBUG == true
             On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
 #endif
+            isLoaded = true;
         }
 
         private void RegisterHooks()

@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<Configurations>Debug;Release;NoWeaver</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BepInEx.Analyzers" Version="1.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="BepInEx.Core" Version="5.4.21" />
+		<PackageReference Include="R2API.ArtifactCode" Version="1.0.1" />
+		<PackageReference Include="R2API.RecalculateStats" Version="1.6.5" />
+		<PackageReference Include="R2API.Sound" Version="1.0.2" />
+		<PackageReference Include="R2API.Director" Version="*" />
+		<PackageReference Include="R2API.Prefab" Version="1.1.1" />
+		<PackageReference Include="UnityEngine.Modules" Version="2021.3.33" />
+		<PackageReference Include="RiskOfRain2.GameLibs" Version="1.4.1-r.0" />
+		<PackageReference Include="MMHOOK.RoR2" Version="2025.12.9" NoWarn="NU1701" />
+		<PackageReference Include="RoR2BepInExPack" Version="1.41.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="RegigigasMod">
+	    <HintPath>lib\RegigigasMod.dll</HintPath>
+	  </Reference>
+		<Reference Include="Decalicious">
+			<HintPath>lib\Decalicious.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Language\en\sm64bbf_tokens_en.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Language\ru\sm64bbf_tokens_ru.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="call &quot;$(ProjectDir)weave.bat&quot;" />
+	</Target>
+
+</Project>
