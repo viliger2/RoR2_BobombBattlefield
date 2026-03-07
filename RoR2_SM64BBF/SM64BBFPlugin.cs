@@ -60,8 +60,8 @@ namespace SM64BBF
             Language.collectLanguageRootFolders += CollectLanguageRootFolders;
             CharacterBody.onBodyInventoryChangedGlobal += CharacterBody_onBodyInventoryChangedGlobal;
             R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+            On.RoR2.CharacterMaster.TryReviveOnBodyDeath += MarioOneUpItemBehavior.CharacterMaster_TryReviveOnBodyDeath;
         }
-
 
 
         private void CharacterBody_onBodyInventoryChangedGlobal(CharacterBody body)

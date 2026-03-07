@@ -110,7 +110,14 @@ namespace SM64BBF.States
             blastAttack.damageColorIndex = DamageColorIndex.WeakPoint;
             blastAttack.damageType = DamageType.BypassArmor & DamageType.BypassBlock;
             blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
-            blastAttack.teamIndex = TeamIndex.Neutral;
+            if (Config.StarmanKillsAllies.Value)
+            {
+                blastAttack.teamIndex = TeamIndex.Neutral;
+            }
+            else
+            {
+                blastAttack.teamIndex = characterBody.teamComponent.teamIndex;
+            }
             blastAttack.impactEffect = EffectCatalog.FindEffectIndexFromPrefab(starmanKillsEffect);
 
             return blastAttack;

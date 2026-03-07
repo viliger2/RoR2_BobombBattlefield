@@ -16,7 +16,7 @@ namespace SM64BBF.Controllers
         private int currentPoint = 0;
 
         // Start is called before the first frame update
-        void Start()
+        void OnEnable()
         {
             Util.PlaySound("SM64_BBF_Play_RollingStone", gameObject);
         }
@@ -44,7 +44,7 @@ namespace SM64BBF.Controllers
             }
         }
 
-        void OnDestroy()
+        void OnDisable()
         {
             Util.PlaySound("SM64_BBF_Stop_RollingStone", gameObject);
         }

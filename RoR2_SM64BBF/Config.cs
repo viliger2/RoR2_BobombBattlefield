@@ -23,12 +23,16 @@ namespace SM64BBF
             public static ConfigEntry<float> NothingWeight;
         }
 
+        public static ConfigEntry<bool> StarmanKillsAllies;
+
         public static void PopulateConfig(ConfigFile config)
         {
             BobombSpawning.SelectionWeight = config.Bind("Bobomb Spawn", "Bobomb Card Selection Weight", 6, "Selection weight for Bobomb Director Card. Does not affect spawning on Bobomb Battlefield, only for other stages.");
             BobombSpawning.MinimumStageCount = config.Bind("Bobomb Spawn", "Bobomb Card Minimal Stage Count", 0, "How many stages players must clear before Bobombs start spawning. Does not affect spawning on Bobomb Battlefield, only for other stages.");
 
             BobombSpawning.BobombSpawnStages = config.Bind("Bobomb Spawn", "Stages to Spawn In", "", "Additional stages (beyond bobomb battlefield) that Bobombs can spawn in. Stages should be separated by coma, internal names can be found in game via \"list_scenes\" command.");
+
+            StarmanKillsAllies = config.Bind("Starman", "Starman Kills Allies", true, "Mario Royale Flashbacks.");
 
             TreeInteractable.CoinWeight = config.Bind("Tree Interactable", "Coin Weight", 40f, "Weight to spawn Coin when shaking the tree. Higher the value - higher the chance.");
             TreeInteractable.OneUpWeight = config.Bind("Tree Interactable", "One Up Weight", 5f, "Weight to spawn 1UP when shaking the tree. Higher the value - higher the chance.");

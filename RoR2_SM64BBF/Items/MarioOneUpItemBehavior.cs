@@ -2,10 +2,10 @@
 using RoR2.CharacterAI;
 using UnityEngine;
 using UnityEngine.Networking;
+using static RoR2.CharacterMaster;
 
 namespace SM64BBF.Items
 {
-    // TODO: Rewrite this garbage to IL hook for master
     public class MarioOneUpItemBehavior : MonoBehaviour
     {
         public CharacterMaster master;
@@ -16,7 +16,6 @@ namespace SM64BBF.Items
             {
                 return;
             }
-            On.RoR2.CharacterMaster.OnBodyDeath += CharacterMaster_OnBodyDeath;
             Stage.onServerStageBegin += Stage_onServerStageBegin;
         }
 
@@ -26,7 +25,6 @@ namespace SM64BBF.Items
             {
                 return;
             }
-            On.RoR2.CharacterMaster.OnBodyDeath -= CharacterMaster_OnBodyDeath;
             Stage.onServerStageBegin -= Stage_onServerStageBegin;
         }
 
@@ -41,42 +39,25 @@ namespace SM64BBF.Items
             }
         }
 
-        private void CharacterMaster_OnBodyDeath(On.RoR2.CharacterMaster.orig_OnBodyDeath orig, CharacterMaster self, CharacterBody body)
+        public static bool CharacterMaster_TryReviveOnBodyDeath(On.RoR2.CharacterMaster.orig_TryReviveOnBodyDeath orig, CharacterMaster self, CharacterBody body)
         {
-            if (NetworkServer.active &&
-                self && self == master && self.inventory && self.inventory.GetItemCountPermanent(SM64BBFContent.Items.MarioOneUp) > 0)
+            Inventory.ItemTransformation itemTransformation = default(Inventory.ItemTransformation);
+            itemTransformation.originalItemIndex = SM64BBFContent.Items.MarioOneUp.itemIndex;
+            itemTransformation.newItemIndex = ItemIndex.None;
+            itemTransformation.transformationType = (ItemTransformationTypeIndex)0;
+            if (itemTransformation.TryTake(self.inventory, out var result))
             {
-                self.lostBodyToDeath = true;
-                self.deathFootPosition = body.footPosition;
-                BaseAI[] array = self.aiComponents;
-                for (int i = 0; i < array.Length; i++)
-                {
-                    array[i].OnBodyDeath(body);
-                }
-                if ((bool)self.playerCharacterMasterController)
-                {
-                    self.playerCharacterMasterController.OnBodyDeath();
-                }
-                Invoke("Respawn", 2f);
-                Invoke("PlayExtraLifeSFX", 1f);
-                self.ResetLifeStopwatch();
-                self.onBodyDeath?.Invoke();
+                ExtraLifeServerBehavior extraLifeServerBehavior = self.gameObject.AddComponent<ExtraLifeServerBehavior>();
+                extraLifeServerBehavior.pendingTransformation = result;
+                extraLifeServerBehavior.completionTime = Run.FixedTimeStamp.now + 2f;
+                extraLifeServerBehavior.consumedItemIndex = ItemIndex.None;
+                extraLifeServerBehavior.completionCallback = self.RespawnExtraLife;
+                extraLifeServerBehavior.soundTime = extraLifeServerBehavior.completionTime - 1f;
+                extraLifeServerBehavior.soundCallback = self.PlayExtraLifeSFX;
+                return true;
             }
-            else
-            {
-                orig(self, body);
-            }
-        }
 
-        public void Respawn()
-        {
-            master.RespawnExtraLife();
-            master.inventory.RemoveItemPermanent(SM64BBFContent.Items.MarioOneUp);
-        }
-
-        public void PlayExtraLifeSFX()
-        {
-            master.PlayExtraLifeSFX();
+            return orig(self, body);
         }
 
         public static void CharacterBody_onBodyInventoryChangedGlobal(CharacterBody body)
