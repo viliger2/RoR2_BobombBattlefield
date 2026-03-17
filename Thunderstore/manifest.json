@@ -1,7 +1,7 @@
 {
     "name": "BobombBattlefield",
     "author": "Viliger",
-    "version_number": "1.2.0",
+    "version_number": "1.2.1",
     "website_url": "https://github.com/viliger2/RoR2_BobombBattlefield",
     "description": "The smell of black powder fills the air. Let's-a go!",
     "dependencies": [
@@ -12,7 +12,7 @@
 		"RiskofThunder-R2API_RecalculateStats-1.6.5",
 		"RiskofThunder-R2API_Prefab-1.1.1",
 		"RiskofThunder-R2API_ArtifactCode-1.0.1",
-        "JaceDaDorito-LocationsOfPrecipitation-1.2.0",
+        "JaceDaDorito-LocationsOfPrecipitation-1.2.2",
 		"viliger-RegisterCommandChest-1.0.1"
     ]
 }

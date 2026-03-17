@@ -1,4 +1,12 @@
 <details>
+<summary>1.2.1 </summary>
+
+* Royal Crown
+  * Fixed Bob-ombs getting 100% HP increase instead of damage increase per item stack.
+* Moved artifact portal and artifact slab creation to LoP scripts which fixes loading crash.
+* Added config option to disable Starman friendly fire.
+</details>
+<details>
 <summary>1.2.0 </summary>
 
 * Royal Crown
