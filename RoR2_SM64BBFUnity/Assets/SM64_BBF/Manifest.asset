@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AssetBundleDefinitions
   m_EditorClassIdentifier: 
   StagingPaths:
-  - assetbundles
+  - <LOP_BuildPathAssets>
   assetBundles:
   - assetBundleName: sm64bbfassets
     assets:
@@ -38,25 +38,8 @@ MonoBehaviour:
   - {fileID: 7237924133758283055}
   - {fileID: -5436246688006546773}
   - {fileID: 7329958817165005719}
-  - {fileID: 5562763721278239391}
   identity: {fileID: 7868347188680798219}
   QuickAccess: 0
---- !u!114 &5562763721278239391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
-  m_Name: Files
-  m_EditorClassIdentifier: 
-  StagingPaths:
-  - <BuildPathPlugins>
-  includeMetaFiles: 0
-  files: []
 --- !u!114 &7237924133758283055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +53,7 @@ MonoBehaviour:
   m_Name: AssemblyDefinitions
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <BuildPathPlugins>
+  - <LOP_BuildPathPlugins>
   definitions:
   - {fileID: 5897886265953266890, guid: 913a1d844407edd458e0a9d2f32893fd, type: 3}
 --- !u!114 &7329958817165005719
@@ -86,7 +69,7 @@ MonoBehaviour:
   m_Name: ThunderstoreData
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <BuildPath>
+  - <LOP_BuildPath>
   url: so.long.gay.bowser.nintendo.com
 --- !u!114 &7868347188680798219
 MonoBehaviour:

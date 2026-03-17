@@ -306,7 +306,6 @@ namespace SM64BBF
             HG.ArrayUtils.ArrayAppend(ref loopSceneCollection._sceneEntries, new SceneCollection.SceneEntry { sceneDef = SM64BBFScene, weight = 1f });
             SM64BBFScene.loopedDestinationsGroup = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/loopSgStage1.asset").WaitForCompletion();
 
-            InstantiateArtifactPortal.CreateAndRegisterLaptop(contentPack);
             //StageRegistration.RegisterSceneDefToLoop(SM64BBFScene);
         }
 

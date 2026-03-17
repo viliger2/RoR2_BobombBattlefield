@@ -65,8 +65,8 @@ namespace SM64BBF.Items
                         }
                     }
 
-                    var healthBoost = eliteHealthBoost + (base.body.inventory.GetItemCountEffective(SM64BBF.SM64BBFContent.Items.RoyalCrown) - 1);
-                    var damageBoost = eliteDamageBoost;
+                    var healthBoost = eliteHealthBoost;
+                    var damageBoost = eliteDamageBoost + (base.body.inventory.GetItemCountEffective(SM64BBF.SM64BBFContent.Items.RoyalCrown) - 1);
 
                     spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.BoostHp, Mathf.RoundToInt((healthBoost) * 10f));
                     spawnedMaster.inventory.GiveItemPermanent(RoR2Content.Items.BoostDamage, Mathf.RoundToInt((damageBoost) * 10f));

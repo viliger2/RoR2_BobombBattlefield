@@ -45631,7 +45631,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 613394516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96aa6b9cad63c44fa2cc7acd17678a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b24f6465f4eb9d419c7431b38afc538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   position: {fileID: 953564065}
@@ -58704,7 +58704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 779800692}
   - component: {fileID: 779800694}
-  - component: {fileID: 779800693}
+  - component: {fileID: 779800695}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -58730,30 +58730,6 @@ Transform:
   m_Father: {fileID: 338976465}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &779800693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779800691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740b79824e5da23489d582b0119b3bb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  artifactButtons:
-  - {fileID: 482414132}
-  - {fileID: 456961201}
-  - {fileID: 1281488104}
-  - {fileID: 381142052}
-  - {fileID: 1046950832}
-  - {fileID: 1633078161}
-  - {fileID: 821911085}
-  - {fileID: 2059028553}
-  - {fileID: 679408160}
-  portalLocation: {fileID: 191380664}
-  laptopLocation: {fileID: 1420867915}
 --- !u!114 &779800694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58787,6 +58763,30 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &779800695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779800691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9cbfccbd8a71c49bea82ff4a177330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifactButtons:
+  - {fileID: 482414132}
+  - {fileID: 456961201}
+  - {fileID: 1281488104}
+  - {fileID: 381142052}
+  - {fileID: 1046950832}
+  - {fileID: 1633078161}
+  - {fileID: 821911085}
+  - {fileID: 2059028553}
+  - {fileID: 679408160}
+  portalLocation: {fileID: 191380664}
+  laptopLocation: {fileID: 1420867915}
 --- !u!1 &779920231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1735688325356944630, guid: e797abe389b44a6438e2f0a81c41af1f, type: 3}
